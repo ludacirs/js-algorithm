@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const skill = "CBD";
+    const skill_trees = ["BACDE", "CBADF", "AECB", "BDA"];
+    // const skill_trees = ["CAEQD","BACDE", "CBADF", "AECB", "BDA"];
+    let answer = skill_trees.length;
+    let cnt=0;
+
+    for(let tree of skill_trees){
+        const temp = tree.split('').filter((v)=> skill.includes(v)).join('');
+        for(let i=0; i<temp.length; i++){
+            if(skill[i] !== temp[i]){
+                cnt++;
+                break;
+            }
+        }
+    }
+
+    console.log(cnt);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>self number</title>
+</head>
+<body>
+<script>
+    const arr = Array(10000).fill(0).map((_,i)=> i+1);
+    const bool = Array(10000).fill(true);
+
+    for(let i=0; i<arr.length;i++){
+            d(arr[i]);
+    }
+
+    bool.forEach((v,i)=>{
+        if(v) console.log(arr[i]);
+    })
+
+    function d(n){
+        let notSelf = 0;
+        const number = n.toString();
+
+        for(let i=0; i<number.length;i++){
+            notSelf += parseInt(number[i],10);
+        }
+        notSelf += n;
+        bool[notSelf-1] = false;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+10진법
+1	1
+2	2
+3	4
+4	11
+5	12
+6	14
+7	21
+8	22
+9	24
+10	41
+<script>
+    let n=10;
+    let answer ='';
+    let remainder;
+    let quotient;
+    while (n>=1) {
+        remainder = (n % 3===0) ? 4: (n % 3);
+        quotient = Math.floor(n/3);
+        answer = remainder+ answer;
+        n = (n % 3===0) ? quotient-1 : quotient;
+    }
+    console.log(answer);
+
+    // function change124(n) {
+    //     var answer = "";
+    //     var array1_2_4 = new Array(4, 1, 2); //3%3 = 0, 1%3 = 1, 2%3 = 2
+    //
+    //     while(n) {
+    //         answer = array1_2_4[n % 3] + answer;
+    //         n = Math.floor((n - 1) / 3);
+    //     }
+    //
+    //     return answer;
+    // }
+</script>
+</body>
+</html>

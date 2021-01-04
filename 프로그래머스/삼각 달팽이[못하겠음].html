@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const ns = [4,5,6];
+    const n = ns[0];
+
+    const arr = [...Array(n)].map((_,i)=>{
+        return [...Array(i+1)];
+    });
+
+    let row = -1;
+    let col = 0;
+    let fill = 0;
+
+    for(let i=n; i>0;i-=3){
+        arr[++row][col] = ++fill;
+    }
+
+    console.log(arr);
+
+</script>
+</body>
+</html>

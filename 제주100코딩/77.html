@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1. 앞에서 하나씩 빼면서 search하기
+
+2.
+<script>
+    let str = 'KIOTHIKESSISKKQQAEW';
+    let compare = 'THISISSTRINGS';
+
+    if(str.length > compare.length){
+        let change = str;
+        str = compare;
+        compare = change;
+    }
+    console.log(str);
+    console.log(compare);
+    const map = new Map();
+
+    for(let i=1; i<compare.length;i++){
+        for(let j=0;j+i<=compare.length;j++){
+            let temp = compare.slice(j,j+i);
+            if(-1!==str.search(temp)){
+                map.set(temp, temp.length);
+            }
+        }
+    }
+
+    console.log(Math.max(...map.values()));
+</script>
+</body>
+</html>

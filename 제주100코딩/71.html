@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    graph = {'E': ['D', 'A'],
+        'F': ['D'],
+        'A': ['E', 'C', 'B'],
+        'B': ['A'],
+        'C': ['A'],
+        'D': ['E','F']};
+
+    function dfs(graph, startNode) {
+        let visited = [];
+        let stack = [startNode];
+
+        while (stack.length !==0){
+            let temp = stack.pop();
+
+            if(!visited.includes(temp)) {
+                visited.push(temp);
+                graph[temp].filter(v=>!visited.includes(v)).reverse().forEach(v=>stack.push(v));
+            }
+        }
+
+        return visited;
+    }
+
+    console.log(dfs(graph,'E'));
+</script>
+</body>
+</html>

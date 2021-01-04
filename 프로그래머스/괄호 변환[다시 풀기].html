@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const p = "()" +
+        ")(()";
+
+        // "))((";
+
+    function resolve(p) {
+        if(p.length===0) return "";
+        let newStr = '';
+        let left = 0;
+        let right = 0;
+        let check = true;
+
+
+        for(let i=0; i<p.length;i++){
+            if(p[i] ==='(') left++;
+            if(p[i] ===')') right++;
+
+            if(right>left) check = false;
+
+            if(left === right) {
+
+                if(check===false){
+                    newStr += '(';
+                    newStr += resolve(p.slice(i+1));
+                    newStr += ')';
+
+                    for(let j=1;j<i;j++){
+                        if(p[j] ===')') newStr +='(';
+                        if(p[j] ==='(') newStr +=')';
+                    }
+                    return newStr;
+                }
+
+                else {
+                    newStr += p.slice(0,i+1);
+                    newStr += resolve(p.slice(i+1,p.length));
+                    return newStr;
+                }
+            }
+        }
+
+    }
+
+    console.log(resolve(p));
+
+
+</script>
+</body>
+</html>

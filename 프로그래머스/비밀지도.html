@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const arr1 = [9, 20, 28, 18, 11];
+    const arr2 = [30, 1, 21, 17, 28];
+    const n = 5;
+    const answer =[];
+
+
+
+    const decodeArr1 =[];
+    const decodeArr2 =[];
+
+    let answerStr = '';
+
+    function adjust(str, n) {
+        str = str.slice(0,n);
+        while(str.length!==n){
+            str = ''.concat('0',str);
+        }
+        return str;
+
+    }
+    //
+    for(let i=0; i<arr1.length;i++){
+        decodeArr1.push(adjust( arr1[i].toString(2),n));
+        decodeArr2.push(adjust( arr2[i].toString(2),n));
+    }
+
+
+    for(let i=0; i<decodeArr1.length;i++){
+        for(let j=0; j<decodeArr1[i].length;j++){
+            (decodeArr2[i][j]==='0'&& decodeArr1[i][j]==='0') ? answerStr += ' ': answerStr += '#';
+        }
+    }
+    for(let i=0;i<n;i++){
+        answer[i] = answerStr.slice(i*n,i*n+n);
+    }
+    console.log(answer);
+</script>
+
+</body>
+</html>

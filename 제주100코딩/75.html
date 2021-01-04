@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = '333';
+
+    const arr = input.split('');
+    const d = {3:1,6:2,9:3};
+    let count = 1;
+    let answer = 0;
+
+    while(arr.length!==0){
+        answer += d[arr.pop()] * count;
+        count *= 3;
+    }
+
+    console.log(answer);
+    // const input = '999';
+    //
+    // const number = parseInt(input,10);
+    //
+    // let count = 0;
+    // for(let i=1; i<=number;i++){
+    //     const str = i.toString().split('');
+    //
+    //     if(str.reduce((acc,v)=>{
+    //         return acc && (v === '3' || v==='6' || v==='9');
+    //     },true)) count++;
+    // }
+    //
+    // console.log(count);
+</script>
+</body>
+</html>

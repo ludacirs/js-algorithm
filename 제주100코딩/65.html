@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+a = [1, 2, 3, 4]
+b = [a, b, c, d]
+이런 리스트가 있을 때 [[1, a], [b, 2], [3, c], [d, 4]] 이런 식으로 a, b 리스트가 번갈아가면서 출력되게 해주세요.
+
+<script>
+    const a =[1,2,3,4];
+    const b =['a','b','c','d'];
+    let answer = [];
+
+    while (a.length&&b.length){
+        if(a.length%2===0){
+            answer.push([a.shift(),b.shift()]);
+        } else answer.push([b.shift(),a.shift()]);
+    }
+
+    let str = '[';
+    for(let v of answer){
+        str += '['+v+']';
+    }
+    str += ']';
+    console.log(str)
+
+
+</script>
+</body>
+</html>

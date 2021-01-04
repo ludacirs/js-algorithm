@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const answers = [1,2,3,4,5];
+    const answer = [];
+    let a1 = [1, 2, 3, 4, 5];
+    let a2 = [2, 1, 2, 3, 2, 4, 2, 5]
+    let a3 = [ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+
+    function marking(answers, paper) {
+        return answers.filter((value, index) => value===paper[index%paper.length]).length
+
+    }
+
+    marking(answers, a1)
+
+    console.log(answer);
+
+    
+    
+    
+    // let max = 0;
+    // const realAnswer = [];
+    //
+    // const report = new Map();
+    //
+    // function marking(answer, paper) {
+    //     let cnt = 0;
+    //     for(let i=0; i<answer.length; i++){
+    //         if(answer[i]===paper[i%paper.length]) cnt++;
+    //     }
+    //     return cnt;
+    // }
+    // report.set(1, marking(answer,first));
+    // report.set(2, marking(answer,second));
+    // report.set(3, marking(answer,third));
+    //
+    // report.forEach((value) => {
+    //     if(max<value) max = value;
+    // });
+    //
+    // report.forEach((value, key) => {
+    //     if(value === max) {
+    //         realAnswer.push(key);
+    //     }
+    // });
+    //
+    // console.log(realAnswer);
+
+
+</script>
+</body>
+</html>

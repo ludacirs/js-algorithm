@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = const input = require("fs").readFileSync("/dev/stdin").toString().split(' ')[0];
+    let count = 0;
+
+    if(input<100){
+        for(let i=0; i<input; i++){
+            count += 1;
+        }
+    } else {
+        count = 99;
+    }
+
+    for(let i=100; i<=input;i++){
+        if(check(i)) count += 1;
+    }
+
+    console.log(count);
+
+    function check(number){
+        const str = number.toString();
+
+        let compare = str[0]-str[1];
+
+        for(let i=1; i+1<str.length;i++){
+            if(compare !== str[i]-str[i+1]) return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>베르트랑 공준</title>
+</head>
+<body>
+
+<script>
+    const fs = require('fs');
+    const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+
+    for(const v of input){
+        if(v===0) break;
+
+        const sieve = Array(v*2+1).fill(true);
+
+        for(let i=2;i<sieve.length;i++){
+            for (let j=2;j*i<sieve.length;j++){
+                sieve[j*i] = false;
+            }
+        }
+        let cnt = 0;
+        for(let i=v+1;i<sieve.length;i++){
+            if(sieve[i]) cnt++;
+        }
+        console.log(cnt);
+    }
+
+
+</script>
+</body>
+</html>

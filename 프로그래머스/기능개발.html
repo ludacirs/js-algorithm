@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body># progresses = [97, 97, 95]
+# speeds = [2, 3, 1]
+
+# progresses = [0,0,0,0]
+# speeds=[100,50,34,25]
+
+# progresses = [5,5,5]
+# speeds = [21,25,20]
+
+# progresses = [93, 30, 55, 60, 40, 65]
+# speeds = [1, 30, 5 , 10, 60, 7]
+
+# progresses = [98,95]
+# speeds = [3,1]
+
+progresses = [99, 1, 99, 1]
+speeds = [1, 1, 1, 1]
+
+<script>
+    const answer =[];
+    const progresses= [5, 5, 5];
+    const speed = [21, 25, 20];
+    const days = progresses.map((v,i)=>{
+         return Math.ceil((100-v)/speed[i]);
+    });
+
+    let maxDay = days[0];
+    for(let i = 0, j = 0; i< days.length; i++){
+        if(days[i] <= maxDay) {
+            answer[j] += 1;
+        } else {
+            maxDay = days[i];
+            answer[++j] = 1;
+        }
+    }
+
+
+
+    // let temp = days[0];
+    // let cnt = 1;
+    // console.log(days);
+    // for(let i = 1; i<days.length;i++){
+    //     if(temp >= days[i]){
+    //         cnt++;
+    //     } else {
+    //         answer.push(cnt);
+    //         cnt = 1;
+    //         temp = days[i];
+    //     }
+    // }
+    // answer.push(cnt);
+    // console.log(answer);
+
+</script>
+</body>
+</html>

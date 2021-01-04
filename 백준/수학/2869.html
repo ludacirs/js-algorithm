@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>달팽이는 올라가고싶다</title>
+</head>
+<body>
+<script>
+    // const A = 2;
+    // const B = 1;
+    // const V = 5;
+    const input = require("fs").readFileSync("/dev/stdin").toString().split(' ');
+    const A = Number(input[0]);
+    const B = Number(input[1]);
+    const V = Number(input[2]);
+
+    console.log(Math.ceil((V-A)/(A-B)+1));
+
+</script>
+</body>
+</html>

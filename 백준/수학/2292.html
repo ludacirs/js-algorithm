@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>벌집</title>
+</head>
+<body>
+<script>
+    const fs = require('fs');
+    const input = Number(fs.readFileSync('/dev/stdin').toString().trim());
+    //
+    // const input = 19;
+
+    function countRoom(input) {
+        let count = 1;
+        let range = 1;
+
+        for(let i=1;range<input;i++) {
+            range += i*6;
+            count++;
+        }
+        return count;
+    }
+
+    console.log(countRoom(input));
+</script>
+</body>
+</html>

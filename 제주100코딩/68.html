@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input =["12:30", "13:20", "14:13"];
+    const current ="12:40";
+
+    const now = current.split(":").map(v=>v*1)[0]*60 +current.split(":").map(v=>v*1)[1];
+
+    const a = input.map(v=>{
+        return v.split(":").map(v=>v*1);
+    });
+
+    const b = a.map(value => {
+        return value[0]*60 + value[1];
+    });
+
+
+    const answer = b.map(v=>{
+        return v>now ? `${Math.floor((v-now)/60)}시간 ${(v-now)%60}분` : "지나갔습니다";
+    });
+
+    console.log(answer);
+
+
+
+
+</script>
+</body>
+</html>

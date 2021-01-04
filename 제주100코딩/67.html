@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const n = 59;
+    const expected = {cnt : 4, people : 12};
+    const toBe = {};
+
+    for(let i=2;(i*(i-1)/2)<n;i++){
+        toBe.people = i+1;
+        toBe.cnt = n-i*(i-1)/2;
+    }
+    console.log(toBe);
+</script>
+</body>
+</html>

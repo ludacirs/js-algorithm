@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const stages = [2, 1, 2, 6, 2, 4, 3, 3]	;
+    const N = 5;
+    let answer = [];
+    const map = new Map();
+
+    function findTry(number, arr) {
+        let tryCnt=0;
+
+        for(let i=0; i<arr.length;i++){
+            if(arr[i]===number){
+                arr[i] = -1;
+                tryCnt++;
+            }
+        }
+        return tryCnt;
+    }
+
+    for(let i=1;i<=N;i++){
+        let people =0;
+        stages.forEach(v=>v===-1 ? +0: people++);
+        const tryCnt = findTry(i,stages);
+
+        const failRate = (tryCnt===0) ? 0 :  tryCnt/people
+        map.set(i,failRate);
+    }
+
+    const arr = [...map.values()];
+
+    arr.sort((a, b) => a-b);
+
+    while(arr.length){
+        let temp = arr.pop();
+        for(let v of map){
+            if(v[1]===temp){
+                answer.push(v[0]);
+                map.delete(v[0]);
+            }
+        }
+    }
+
+    console.log(answer);
+</script>
+</body>
+</html>

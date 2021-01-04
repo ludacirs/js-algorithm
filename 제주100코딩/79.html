@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const l = [10, 20, 25, 27, 34, 35, 39]; //기존 입력 값
+    const n = 3;
+
+    function rotate(inL, inN){
+        let str = inL.concat();
+        const arr = [];
+        for(let i=0; i<inN;i++){
+            str.unshift(str.pop());
+        }
+
+        let temp = {
+            value : Math.abs(l[0] - str[0]),
+            index : 0
+        };
+
+        l.forEach((value, index) => {
+           if(temp.value > Math.abs(str[index]-value)){
+               temp.value = Math.abs(str[index]-value);
+               temp.index = index;
+           }
+        });
+
+        arr.push(l[temp.index],str[temp.index]);
+
+        console.log(temp.index,arr.sort());
+    }
+
+    rotate(l, n);
+
+</script>
+</body>
+</html>

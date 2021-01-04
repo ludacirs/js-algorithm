@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>손익분기점</title>
+</head>
+<body>
+<script>
+    const A = 1000;
+    const B = 2;
+    const C = 2;
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().split(' ')
+    //
+    // const A = Number(input[0]);
+    // const B = Number(input[1]);
+    // const C = Number(input[2]);
+
+    function bEPoint(A, B, C) {
+        if(B>=C) return -1;
+        return (A%(C-B)) === 0 ? (A/(C-B))+1 : Math.ceil(A/(C-B));
+    }
+
+    console.log(bEPoint(A,B,C));
+</script>
+</body>
+</html>

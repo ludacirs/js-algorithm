@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const graph = {'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'F'],
+        'D': ['B'],
+        'E': ['B', 'F'],
+        'F': ['C', 'E']};
+
+    function findShort(graph, node) {
+        let answer = -1;
+        const visited = [node.start];
+        const queue = [node.start];
+
+        while (queue.length !== 0) {
+            answer++;
+            if (queue.some(v => node.end === v)) return {answer, visited};
+            let length = queue.length;
+            for (let i=0; i<length;i++) {
+                let temp = queue.shift();
+                graph[temp].filter(v=>!visited.includes(v)).forEach(v=>{
+                    visited.push(v);
+                    queue.push(v);
+                });
+            }
+        }
+
+        return '??';
+    }
+
+    console.log(findShort(graph,{start:'A',end:'F'}));
+</script>
+</body>
+</html>

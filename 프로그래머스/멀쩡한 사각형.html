@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const w = 8;
+    const h = 12;
+    let answer = 0;
+
+    function GCD(big, small) {
+        if(big%small===0) return small;
+        else return GCD(small, big % small);
+    }
+
+    const big = Math.max(w,h);
+    const small = Math.min(w,h);
+
+
+    answer = h*w - (big + small - GCD(big,small));
+
+    console.log(answer);
+</script>
+</body>
+</html>

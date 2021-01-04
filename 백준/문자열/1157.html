@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // const input = require("fs").readFileSync("/dev/stdin").toString().split(' ')
+
+    // const str = 'OO'.toUpperCase().split('');
+    // const map = new Map();
+    //
+    // str.forEach(v=>{
+    //     if(map.has(v)){
+    //         map.set(v,map.get(v)+1);
+    //     } else {
+    //         map.set(v,1);
+    //     }
+    // });
+    //
+    // const maxCount = Math.max(...map.values());
+    //
+    // let a = [...map.values()].reduce((acc,value)=>{
+    //     if(value===maxCount) {
+    //         acc++;
+    //     }
+    //     return acc;
+    // }, acc=0);
+    //
+    // if(a===1) {
+    //     map.forEach((value, key) => {
+    //         if(value===maxCount) console.log(key);
+    //     });
+    // } else console.log('?');
+
+    const input = 'baaa'.toUpperCase();
+    const charMap = {};
+    let count = 0;
+    let maxChar = '';
+
+    for(let v of input){
+        charMap[v] = charMap[v] ? charMap[v]+1 : 1;
+    }
+
+    const max = Math.max(...Object.values(charMap));
+
+    for(let key in charMap){
+        if(charMap[key]===max) {
+            count++;
+            maxChar = key;
+        }
+        if(count>1) {
+            maxChar = '?';
+            break;
+        }
+    }
+    console.log(maxChar);
+
+
+
+
+</script>
+</body>
+</html>

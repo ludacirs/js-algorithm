@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const numbers = [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2];
+    const hand = "left";
+    const answer =  "LRLLRRLLLRR";
+    let myAnswer =  "";
+    let cnt = 0;
+    const keypad = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+        ['',0,'']
+    ];
+    const positionL = {
+        x: '3',
+        y: '0'
+    };
+    const positionR = {
+        x: '3',
+        y: '2'
+    };
+
+    function uNamed(x, y, R, L) {
+        const rightDis = Math.abs(R.x - x) +Math.abs(R.y - y);
+        const leftDis = Math.abs(L.x - x) +Math.abs(L.y - y);
+
+        if(rightDis>leftDis){
+            positionL.x = x;
+            positionL.y = y;
+            return 'L';
+        } if(rightDis<leftDis){
+            positionR.x = x;
+            positionR.y = y;
+            return 'R';
+        } else if(rightDis ===leftDis && hand ==='right') {
+            console.log(`${keypad[x][y]}는 R`);
+            positionR.x = x;
+            positionR.y = y;
+            return 'R';
+        } else {
+            positionL.x = x;
+            positionL.y = y;
+            return  'L';
+        }
+    }
+
+    for(let v of numbers){
+        for(let i=0; i<keypad.length;i++){
+            for(let j=0;j<keypad[i].length;j++){
+
+                if(v===keypad[i][j]){
+                    if(v === 7 || v === 4 || v === 1){
+                        positionL.x = i;
+                        positionL.y = j;
+                        myAnswer += 'L';
+                    }else
+
+                    if(v===3||v===6||v===9){
+                        positionR.x = i;
+                        positionR.y = j;
+                        myAnswer += 'R';
+                    }else {
+                        myAnswer += uNamed(i,j, positionR,positionL);
+                    }
+                }
+            }
+        }
+    }
+
+    console.log(myAnswer===answer);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>부녀회장이 될테야</title>
+</head>
+<body>
+<script>
+    // const k = 2;
+    // const n = 3;
+    const input = require("fs").readFileSync("/dev/stdin").toString().split('\n');
+
+
+    for(let t=0; t<input[0];t++){
+        const k = +input[t*2+1];
+        const n = +input[t*2+2];
+
+        const aPart = Array(k+1).fill().map(()=>Array(n).fill(1));
+
+        //1층 초기화
+        for(let i=0;i<n;i++){
+            aPart[0][i] = i+1;
+        }
+
+        for(let i=1;i<=k;i++){
+            for(let j=0;j<n-1;j++){
+                aPart[i][j+1] = aPart[i][j]+aPart[i-1][j+1];
+            }
+        }
+        console.log(aPart[k-1][n-1]);
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

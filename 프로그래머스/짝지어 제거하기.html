@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const s = 'baabaa';
+    let answer = 0;
+
+    const arr = s.split('');
+
+    const stack = [];
+
+    while(arr.length!==0){
+        let temp = arr.pop();
+        if(temp === stack[stack.length-1]){
+            stack.pop();
+        } else {
+            stack.push(temp);
+        }
+    }
+
+
+</script>
+</body>
+</html>

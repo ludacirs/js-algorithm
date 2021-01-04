@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    const arrString = ['aabbaccc','ababcdcdababcdcd','abcabcdede',"abcabcabcabcdededededede","xababcdcdababcdcd"];
+    const s = arrString[2];
+
+    let answer;
+    // arrString.forEach(s=>{
+    //     answer = s.length;
+    //
+    //     for(let j=1;j<s.length/2;j++){
+    //         let current;
+    //         let prev = s.slice(0,j);
+    //         let cnt = 1;
+    //         let string = '';
+    //         for(let i=j; i<s.length;i=i+j){
+    //             current = s.slice(i,i+j);
+    //
+    //             if(current === prev) {
+    //                 cnt++;
+    //             } else {
+    //                 if(cnt===1) {
+    //                     string = string + prev;
+    //                     prev = current;
+    //                     continue;
+    //                 }
+    //                 string = string + cnt+''+prev;
+    //                 cnt = 1;
+    //                 prev = current;
+    //             }
+    //         }
+    //         string = string + cnt+''+prev;
+    //         answer = (answer > string.length) ? string.length : answer;
+    //     }
+    //     console.log(answer);
+    // });
+
+    arrString.forEach(s=>{
+        answer = s.length;
+
+        for(let j=1;j<s.length/2;j++){
+            let current;
+            let prev = s.slice(0,j);
+            let cnt = 1;
+            let string = '';
+            for(let i=j; i<s.length;i=i+j){
+                current = s.slice(i,i+j);
+
+                if(current === prev) {
+                    cnt++;
+                } else {
+                    if(cnt===1) {
+                        string = string + prev;
+                        prev = current;
+                        continue;
+                    }
+                    string = string + cnt+''+prev;
+                    cnt = 1;
+                    prev = current;
+                }
+            }
+            string = string + cnt+''+prev;
+            answer = (answer > string.length) ? string.length : answer;
+        }
+        console.log(answer);
+    });
+
+
+    // j는 자르는 단위
+    //cnt 중복횟수
+    // let answer = s.length;
+    // for(let j=1;j<=s.length/2;j++){
+    //     let current;
+    //     let prev = s.slice(0,j);
+    //     let cnt = 1;
+    //     let string = '';
+    //     for(let i=j; i<s.length;i=i+j){
+    //         current = s.slice(i,i+j);
+    //
+    //         if(current === prev) {
+    //             cnt++;
+    //         } else {
+    //             if(cnt===1) {
+    //                 string = string + prev;
+    //                 prev = current;
+    //                 continue;
+    //             }
+    //             string = string + cnt+''+prev;
+    //             cnt = 1;
+    //             prev = current;
+    //         }
+    //     }
+    //     if(cnt ===1){
+    //         string = string + prev;
+    //     } else string = string + cnt+''+prev;
+    //     console.log(string);
+    //     answer = (answer > string.length) ? string.length : answer;
+    // }
+    //
+    // console.log(answer);
+
+
+
+    // const solution = s => {
+    //     const range = [...Array(s.length/2)].map((_, i) => i + 1);
+    //     return Math.min(...range.map(i => compress(s, i).length));
+    // };
+    //
+    // const compress = (s, n) => {
+    //     const make = ([a, l, c]) => `${a}${c > 1 ? c : ''}${l}`;
+    //     console.log(chunk(s,n));
+    //     console.log('111');
+    //     return make(
+    //         chunk(s, n).reduce(
+    //             ([a, l, c], e) => e === l ? [a, l, c + 1] : [make([a, l, c]), e, 1],
+    //             ['', '', 0]
+    //         )
+    //     );
+    // };
+    //
+    // const chunk = (s, n) =>
+    //     s.length <= n ? [s] : [s.slice(0, n), ...chunk(s.slice(n), n)];
+    //
+    //
+    // console.log(solution(s));
+</script>
+</body>
+</html>

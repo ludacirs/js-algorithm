@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>골드바흐</title>
+</head>
+<body>
+<script>
+    // const input = require("fs").readFileSync("/dev/stdin").toString().split('\n');
+    const arr = eratos(100001);
+
+    // for(let i=1;i<=input[0];i++){
+        const n = 10000;
+
+        for(let i=n/2,j=n/2; j<n;i--,j++){
+            if(arr[i]&& arr[j]) {
+                console.log(`${i} + ${j}`);
+                break;
+            }
+        }
+
+
+    // }
+
+
+    function eratos(number) {
+        const sieve = Array(number).fill(true);
+        for(let i=2;i*i<=sieve.length;i++){
+            for(let j=i*i;j<sieve.length;j+=i){
+                sieve[j]=false;
+            }
+        }
+        sieve[1] = false;
+        return sieve;
+    }
+</script>
+</body>
+</html>

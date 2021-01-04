@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const n = 6;
+    const k = 3;
+
+    const arr = Array(n).fill(0).map((_,i)=>i+1);
+
+    while (arr.length>2){
+        arr.shift();
+        for(let i=0;i<k-1;i++){
+            arr.push(arr.shift());
+            arr.push(arr.shift());
+        }
+    }
+    console.log(arr.sort(((a, b) => a-b)));
+</script>
+</body>
+</html>

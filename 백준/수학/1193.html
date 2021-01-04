@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분수 찾기</title>
+</head>
+<body>
+<script>
+    // const input = 14;
+    const input = Number(require("fs").readFileSync("/dev/stdin").toString());
+
+    let range = 1;
+    let count = 1;
+
+    while (range<input){
+        count++;
+        range += count;
+    }
+
+    if(count%2===0){
+        console.log(`${count-range+input}/${1+range-input}`);
+    } else {
+        console.log(`${1+range-input}/${count-range+input}`);
+    }
+</script>
+</body>
+</html>

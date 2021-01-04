@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const bridge_length = 2;
+    let weight = 10;
+    const truck_weights = [7,4,5,6];
+    let answer = 0;
+
+    let queue=[];
+    let queueSum = 0;
+
+    for(let i=0;i<bridge_length;i++){
+        queue.push(0);
+    }
+
+    let current = truck_weights.shift();
+
+    queue.unshift(current);
+    queue.pop();
+    queueSum = current;
+
+    while(queueSum){
+        queueSum -= queue.pop();
+        current = truck_weights.shift();
+
+        if(current+queueSum<=weight){
+            queue.unshift(current);
+            queueSum+=current;
+        }
+        else{
+
+            queue.unshift(0);
+            truck_weights.unshift(current);
+        }
+        answer++;
+    }
+
+    console.log(answer);
+</script>
+</body>
+</html>

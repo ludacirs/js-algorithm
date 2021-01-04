@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const graph = {'E': ['D', 'A'],
+        'F': ['D'],
+        'A': ['E', 'C', 'B'],
+        'B': ['A'],
+        'C': ['A'],
+        'D': ['E','F']};
+
+    function bfs(graph, start) {
+        const visited=[];
+        const queue = [start];
+
+        while (queue.length!==0){
+            let temp = queue.shift();
+            graph[temp].filter(v=>!visited.includes(v)).forEach(v=>queue.push(v));
+            visited.push(temp);
+        }
+
+
+        return visited;
+    }
+
+    console.log(bfs(graph, 'E'));
+</script>
+</body>
+</html>

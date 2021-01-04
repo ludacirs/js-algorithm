@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    participant = ['marina', 'josipa', 'nikola', 'vinko', 'filipa'];
+    completion = ['marina', 'josipa', 'nikola', 'filipa'];
+
+    participant.sort();
+    completion.sort();
+
+    let answer = '';
+
+    for(let i=0; i<participant.length; i++){
+        if(participant[i]!==completion[i]){
+            answer = participant[i];
+            break;
+        }
+    }
+
+    console.log(answer);
+
+</script>
+</body>
+</html>

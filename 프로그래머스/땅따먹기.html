@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const land = [[1,2,3,5],[5,6,7,8],[4,3,2,1]];
+
+    let sumArr = [...Array(4)].map(()=>0);
+    let tempArr = [...Array(4)].map(()=>0);
+
+    for (let i=0; i<4;i++){
+        sumArr[i] += land[1][i] + Math.max(...land[0].filter((v,index) => index!==i));
+    }
+
+    for(let i=2;i<land.length;i++){
+        for(let j=0;j<4;j++){
+            tempArr[j] = land[i][j] + Math.max(...sumArr.filter((v,index) => index!==j));
+        }
+        sumArr = tempArr;
+        tempArr = tempArr.map(()=>0);
+    }
+    console.log(sumArr)
+</script>
+
+</body>
+</html>

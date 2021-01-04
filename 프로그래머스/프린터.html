@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const priorities = [1, 1, 9, 1, 1, 1];
+    let loca = 0;
+    let answer = 0;
+
+    while(priorities.length){
+        let temp = priorities.shift();
+
+        if(temp<Math.max(...priorities)) {
+            priorities.push(temp);
+            if(loca ===0) {
+                loca = priorities.length-1;
+            } else loca--;
+        } else{
+            answer++;
+            if(loca ===0) break;
+            else loca--;
+        }
+    }
+
+    console.log(answer);
+
+</script>
+</body>
+</html>

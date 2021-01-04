@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const str ='a,b,c,d'.split(',');
+    const number = 3;
+
+
+
+
+
+
+    function fn(str,number){
+        const arr = [];
+
+        if(number === 1 ) return str.map(v=>[v]);
+
+        str.forEach((fixed,index,array)=>{
+            const rest = array.slice(index+1);
+            const combinations = fn(rest, number-1);
+            const attached = combinations.map(v=>[fixed,...v]);
+
+            arr.push(...attached);
+        });
+
+        return arr;
+    }
+
+
+    console.log(fn(str, number));
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function recurs(str, number) {
+    //     const arr = [];
+    //
+    //     if(number ===1) return str.map(v=>[v]);
+    //
+    //     str.forEach((value, index, array)=>{
+    //         //value : a, index : 0, array = [a,b,c,d], number = 3
+    //         //value : b, index : 1, array = [a,b,c,d], number = 3
+    //         const rest = array.slice(index+1);
+    //         //rest : [b,c,d]
+    //         //rest : [c,d]
+    //         const combinations = recurs(rest, number-1);
+    //         //combinations = arr : [b,c], [b,d], [c,d]
+    //         //combinations = arr : [c,d]
+    //         const attached = combinations.map(v=>[value,...v]);
+    //         //attached : [a,b,c], [a,b,d], [a,c,d]
+    //         // attached : [b,c,d]
+    //         arr.push(...attached);
+    //     });
+    //
+    //     console.log(arr);
+    //     return arr;
+    // }
+    //
+    // console.log(recurs(str, number));
+    //
+    // function recurs(str, number) {
+    //     const arr = [];
+    //
+    //     if(number ===1) return str.map(v=>[v]);
+    //
+    //     str.forEach((value, index, array)=>{
+    //         //value :b , index : 0, array = [b,c,d], number = 2
+    //         //value :c , index : 1, array = [b,c,d], number = 2
+    //         //value :d , index : 2, array = [b,c,d], number = 2
+    //         const rest = array.slice(index+1);
+    //         // rest : [c,d]
+    //         // rest : [d]
+    //         //
+    //         const combinations = recurs(rest, number-1);
+    //         //combinations : [c],[d]
+    //         //combinations : [d]
+    //         //
+    //         const attached = combinations.map(v=>[value,...v]);
+    //         //attached : [b,c], [b,d]
+    //         //attached : [c,d]
+    //         //
+    //         arr.push(...attached);
+    //         //arr : [b,c], [b,d]
+    //         //arr : [b,c], [b,d], [c,d]
+    //         //arr : [b,c], [b,d], [c,d]
+    //     });
+    //
+    //     return arr;
+    // }
+    //
+    // function recurs(str, number) {
+    //     const arr = [];
+    //
+    //     if(number ===1) return str.map(v=>[v]);
+    //
+    //     str.forEach((value, index, array)=>{
+    //         //value :b , index : 0, array = [c,d], number = 1
+    //         const rest = array.slice(index+1);
+    //         const combinations = recurs(rest, number-1);
+    //         const attached = combinations.map(v=>[value,...v]);
+    //         arr.push(...attached);
+    //     });
+    //
+    //     console.log(arr);
+    //     return arr;
+    // }
+    //
+    // function recurs(str, number) {
+    //     //str : [c,d] number : 2
+    //     const arr = [];
+    //
+    //     if(number ===1) return str.map(v=>[v]);
+    //
+    //     str.forEach((value, index, array)=>{
+    //         // value : b, index : 0 , array : [c,d], number : 2
+    //         const rest = array.slice(index+1);
+    //         // rest : [d]
+    //         const combinations = recurs(rest, number-1);
+    //         //combinations : [d]
+    //         const attached = combinations.map(v=>[value,...v]);
+    //         // attached : [c,d]
+    //         arr.push(...attached);
+    //     });
+    //
+    //     console.log(arr);
+    //     return arr;
+    // }
+
+</script>
+</body>
+</html>

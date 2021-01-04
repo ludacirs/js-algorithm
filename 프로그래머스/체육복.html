@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const lost = [2, 4];
+    const reserve = [1, 3, 5];
+    const n = 5;
+    answer = 0;
+
+    let cnt = initwArr(n, lost, reserve);
+
+    for(let i=0; i<cnt.length;i++){
+        if(cnt[i]===0){
+            canLent(cnt, i-1, i);
+            canLent(cnt, i+1, i);
+        }
+    }
+
+    for(let v of cnt){
+        if(v!==0){
+            answer++;
+        }
+    }
+
+    console.log(answer);
+
+    function initArr(n, lost, reserve) {
+        const arr = Array(n).fill(1);
+
+        for(let v of lost){
+            arr[v-1] -= 1;
+        }
+        for(let v of reserve){
+            arr[v-1] += 1;
+        }
+        return arr;
+    }
+
+
+    function canLent(cnt, neighbor, me) {
+        if(cnt[neighbor]===2){
+            cnt[neighbor] = 1;
+            cnt[me] = 1;
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

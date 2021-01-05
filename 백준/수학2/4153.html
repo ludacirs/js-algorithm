@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>직각삼각형</title>
+</head>
+<body>
+<script>
+    const input = '6 8 10\n' +
+        '25 52 60\n' +
+        '5 12 13\n' +
+        '0 0 0';
+    const a = input.split('\n');
+
+    const a = require("fs").readFileSync("/dev/stdin").toString().split('\n');
+
+
+
+    while(a.length){
+        const input = a.shift().split(' ');
+        if(input[0]==="0" && input[1]==="0" && input[2]==="0") break;
+
+        const num = input.map(v=>Number(v)*Number(v));
+
+        num.sort((a,b)=> a-b);
+
+        console.log((num[0]+ num[1] === num[2]) ? 'right' : 'wrong');
+
+    }
+
+    // while(a.length){
+    //     const input = a.shift().split(' ');
+    //     if(input[0]==="0" && input[1]==="0" && input[2]==="0") break;
+    //
+    //     const tri = [Number(input[0]),Number(input[1]),Number(input[2])];
+    //
+    //     const max = Math.max(...tri);
+    //
+    //     const pytha = tri.filter(v=> v!==max).map(v=>Math.pow(v,2));
+    //
+    //     console.log((pytha[0]+pytha[1] === Math.pow(max, 2)) ? 'right' : 'wrong');
+    //
+    // }
+</script>
+</body>
+</html>

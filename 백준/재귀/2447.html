@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>별 찍기 10</title>
+</head>
+<body>
+<script>
+    const input = 27;
+
+    function copyMatrix(matrix){
+        const size = matrix.length;
+
+        const newMatrix = Array(size*3).fill('');
+
+        for(let i=0; i<size;i++){
+            const str = matrix[i];
+            newMatrix[i] = str.repeat(3);
+            newMatrix[i+size] = str + ' '.repeat(size) + str;
+            newMatrix[i+size*2] = newMatrix[i];
+        }
+        return newMatrix;
+    }
+    function solution(num){
+        let matrix = ['*'];
+
+        for(let i=1; i<num;i*=3){
+            matrix = copyMatrix(matrix);
+        }
+
+        return matrix.join('\n');
+    }
+
+    console.log(solution(input));
+</script>
+</body>
+</html>

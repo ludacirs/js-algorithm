@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체스판 다시 칠하기</title>
+</head>
+<body>
+<script>
+    // const input = require("fs").readFileSync("/dev/stdin").toString().split('\n');
+    const input = ['8 8', 'BBBBBBBBWBWBW', 'BBBBBBBBBWBWB','BBBBBBBBWBWBW','BBBBBBBBBWBWB','BBBBBBBBWBWBW','BBBBBBBBBWBWB','BBBBBBBBWBWBW','BBBBBBBBBWBWB','WWWWWWWWWWBWB','WWWWWWWWWWBWB'];
+
+    const boardModel1 = Array(8).fill('').map((_,i)=> i%2 ? 'WBWBWBWB' : 'BWBWBWBW');
+    const boardModel2 = Array(8).fill('').map((_,i)=> i%2 ? 'BWBWBWBW' : 'WBWBWBWB');
+
+    input.shift();
+
+    function compareBoard(board) {
+        let cnt = 0;
+        boardModel1.forEach((v, i)=>{
+            for(let strIdx in v){
+                if(!(v[strIdx] === board[i][strIdx])) cnt++
+                console.log(` boardM : ${v[strIdx]}  board : ${board[i][strIdx]}`);
+            }
+        });
+        console.log(cnt)
+        boardModel2.forEach((v,i)=>{
+            for(let strIdx in v){
+                if(!(v[strIdx] === board[i][strIdx])) cnt++;
+                console.log(` boardM : ${v[strIdx]}  board : ${board[i][strIdx]}`);
+
+            }
+        });
+        console.log(cnt);
+    }
+
+
+    // const trans = input.map(v=> v.slice(i,i+8));
+    // compareBoard(input);
+</script>
+</body>
+</html>

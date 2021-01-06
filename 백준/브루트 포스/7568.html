@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>덩치</title>
+</head>
+<body>
+<script>
+    // const input = [[55, 185],[58,183],[88,186],[60,175],[46,155]];
+    // const input = require("fs").readFileSync("/dev/stdin").toString().split('\n').splice(1,5).map(v=>v.split(' ').map(v=>Number(v)))
+    const input = '5\n20 120\n73 150\n64 125\n51 160\n48 170'.split('\n').splice(1,5).map(v=>v.split(' ').map(v=>Number(v)));
+    let answer = '';
+    console.log(input)
+    function seekRank(arr) {
+        const currentWeight = arr[0];
+        const currentHeight = arr[1];
+        let cnt = 1;
+
+        input.forEach(v=>{
+            const comW = v[0];
+            const comH = v[1];
+
+            if(comW> currentWeight && comH> currentHeight){
+                cnt++;
+            }
+        })
+
+        return cnt;
+    }
+
+    for(let i=0; i<input.length;i++){
+        answer += seekRank(input[i]) +' ';
+    }
+    console.log(answer.trim());
+</script>
+</body>
+</html>

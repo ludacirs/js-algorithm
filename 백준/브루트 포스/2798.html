@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>블랙잭</title>
+</head>
+<body>
+<script>
+    var fs = require("fs");
+    var input = fs.readFileSync("/dev/stdin").toString().split("\n");
+    const conditions = input[0].split(" ").map(a => +a);
+
+    const n = conditions[0];
+    const m = conditions[1];
+    const nums = input[1].split(" ").map(a => +a);
+    let max = 0;
+
+    for(let i=0; i<nums.length; i++){
+        for(let j=i+1; j<nums.length;j++){
+            for(let k=j+1; k<nums.length;k++){
+                const sum = nums[i]+nums[j]+nums[k];
+                if(sum<=m) max = Math.max(max, sum);
+            }
+        }
+    }
+
+    console.log(max);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분해합</title>
+</head>
+<body>
+<script>
+    //1st
+    // const input = 216;
+    // // const input = Number(require("fs").readFileSync("/dev/stdin").toString());
+    //
+    //
+    // const check = Array(input+1).fill(0).map((_,i)=>i);
+    //
+    // function calDeSum(num) {
+    //     const arr = num.toString().split('').map(v=>Number(v));
+    //     return arr.reduce((acc,v)=> acc + v ,num);
+    // }
+    //
+    //
+    // console.log(check.filter((v,i)=> (input === calDeSum(v)) && i)[0] || 0);
+
+    //2st
+    const input = 216;
+    const input = Number(require("fs").readFileSync("/dev/stdin").toString());
+
+    const numArr = input.toString().split('');
+
+    const deSumRange = input - numArr.length*9;
+
+
+    console.log(solution(deSumRange,input) || 0);
+
+    function solution(range, num){
+        for(let i= range; i<num; i++){
+            if(calDeSum(i) ===num) {
+                return i;
+            }
+        }
+    }
+    function calDeSum(num) {
+        const arr = num.toString().split('').map(v=>Number(v));
+        return arr.reduce((acc,v)=> acc + v ,num);
+    }
+
+</script>
+</body>
+</html>

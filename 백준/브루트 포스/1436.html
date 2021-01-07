@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>영화감독 숌</title>
+</head>
+<body>
+<script>
+    // const input = Number(require("fs").readFileSync("/dev/stdin").toString());
+    // const input = 10000;
+    // const arr = [];
+    // for(let i=666; i<=3000000; i++){
+    //     if(i.toString().includes('666')) arr.push(i);
+    // }
+    // console.log(arr[input-1]);
+
+    //2st
+    const input = 10000;
+    // const input = Number(require("fs").readFileSync("/dev/stdin").toString());
+
+    let cnt = 1;
+    let i = 666;
+
+    while (true){
+        if(i.toString().includes('666')){
+            if(cnt === input) {
+                console.log(i);
+                break;
+            }
+            cnt++;
+        }
+        i++;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수 정렬하기 3</title>
+</head>
+<body>
+<script>
+    const input= [5,5,2,3,1,4,2,3,5,1,7];
+    // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+
+    input.shift();
+    let max = 0;
+
+    input.forEach(v=>{
+        max = (max < v) ? v : max;
+    });
+
+    let countArr = Array(max).fill(0);
+    const sorted = Array(max).fill(0);
+
+    input.forEach(value=>{
+        // 자연수를 0에 포함하지 않기때문에 배열의 첫칸을 채우기 위한 작업
+        let v = value-1;
+        // 정렬할 배열의 숫자를 카운팅
+        countArr[v] ? countArr[v]++ : countArr[v] = 1;
+    });
+
+    for(let i=1; i<countArr.length;i++){
+        // 카운팅 배열에 누계 합을 구하는 과정
+        countArr[i] = countArr[i-1] + countArr[i];
+    }
+
+    function countingSort(arr) {
+        while(input.length){
+            //마찬가지로 배열의 첫칸을 위해 인덱스 -1
+            let elem = arr.pop()-1;
+
+            // sorted 도 마찬가지로 인덱스-1 들어가는 값은 다시 +1
+            sorted[countArr[elem]-1] = elem + 1;
+            countArr[elem]--;
+        }
+    }
+    countingSort(input);
+    console.log(sorted.join('\n'));
+
+
+</script>
+</body>
+</html>

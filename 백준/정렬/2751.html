@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수 정렬하기 2</title>
+</head>
+<body>
+<script>
+    const input = [5,9,1929,203,4302,12,2,3,5,61,30,1,];
+    // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+    let answer = [];
+
+    input.shift();
+    function sort(left, right) {
+        let i=0,j=0,k=0;
+        const newArr = Array(left.length+right.length);
+
+        while (left.length>i&&right.length>j){
+            if(left[i] >right[j]){
+                newArr[k++] = right[j++];
+            } else {
+                newArr[k++] = left[i++];
+            }
+        }
+
+        while (right.length>j){
+            newArr[k++] = right[j++];
+        }
+
+        while (left.length>i){
+            newArr[k++] = left[i++];
+        }
+
+        return newArr;
+    }
+
+    function merge(arr) {
+        if(arr.length === 1) return arr;
+
+        const mid = Math.floor(arr.length/2);
+
+        return sort(merge(arr.slice(0,mid)),merge(arr.slice(mid)));
+    }
+    answer = merge(input);
+    console.log(answer.join('\n'));
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>통계학</title>
+</head>
+<body>
+<script>
+    const input =[5,0,0,-10,10].map(v=>Number(v));
+    // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+
+    input.shift();
+
+    const first = Math.round(input.reduce((acc,v)=>{
+        return acc + v;
+    },0)/input.length);
+
+    const second = input.sort((a, b) => a-b)[Math.floor(input.length/2)];
+
+    const third = (input.length-1) ? frequency(input) : input[0];
+
+    const four = input[input.length-1] - input[0];
+
+    console.log(`${first}\n${second}\n${third}\n${four}`);
+
+    function frequency(arr) {
+        const freArr = {};
+        let max =-1;
+        for(let v of arr){
+            freArr[v] ? freArr[v]++ : freArr[v]=1;
+            if(freArr[v]>max) max = freArr[v];
+        }
+        const many = [];
+        for(let key in freArr){
+            if(freArr[key] === max) many.push(key);
+        }
+        if(many.length===1) return many[0];
+        return many.sort((a, b) => a-b)[1];
+    }
+
+</script>
+</body>
+</html>

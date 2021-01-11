@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>좌표 정렬하기</title>
+</head>
+<body>
+<script>
+    const a =  ['7', '1 -1', '3 3', '1 -2', '1 1', '3 -2', '-2 1', '-3 1'];
+
+    // const fs = require('fs');
+    // const a = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+
+    a.shift();
+    const input = a.map(v=>v.split(' ').map(v=>Number(v)));
+    let answer = '';
+
+    input.sort((a, b) => {
+        if(a[0]===b[0]) return a[1]-b[1];
+        return a[0]-b[0];
+    });
+
+    input.forEach(v=>{
+        answer += `${v[0]} ${v[1]}\n`;
+    });
+
+    console.log(answer.trim());
+</script>
+</body>
+</html>

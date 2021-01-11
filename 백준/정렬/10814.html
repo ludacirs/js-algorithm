@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>나이순 정렬</title>
+</head>
+<body>
+<script>
+    // const input = [3, '21 Junkyu', '21 Dohyun', '20 Sunyoung'];
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+
+    input.shift();
+
+    const answer = input.map(v=>v.split(' ')).sort((a, b) => {
+        return Number(a[0])-Number(b[0]);
+    });
+    let str='';
+    answer.forEach(v=>{
+        str += `${v[0]} ${v[1]}\n`;
+    });
+
+    console.log(str);
+</script>
+</body>
+</html>

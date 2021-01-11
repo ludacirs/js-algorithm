@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>단어 정렬</title>
+</head>
+<body>
+<script>
+    // const input = require    ("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+    const input = [13, 'but', 'i', 'more','ac', 'ab','wont', 'hesitate', 'no', 'more', 'it', 'cannot', 'wait', 'im', 'yours'];
+
+    // 1st
+    // const unDup = [];
+    // input.shift();
+    //
+    // input.forEach(v=>{
+    //     if(!unDup.includes(v)) unDup.push(v);
+    // });
+    // unDup.sort();
+    // unDup.sort((a, b) => {
+    //     return a.length - b.length;
+    // });
+    //
+    // console.log(unDup.join('\n'));
+
+    //2st
+    //중복 X : set 떠올리기
+    //문자열 비교 콜백은 -가 아닌 <, >로 구분
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+
+    input.shift();
+
+    input.sort((a, b) => {
+        if(a.length === b.length){
+            return (a>b) ? 1: -1;
+        }
+        return a.length - b.length;
+    });
+
+    //중복 제거를 위해 input을 셋에 넣고 다시 배열로 만듦
+    const answer = [...new Set(input)];
+
+    console.log(answer.join('\n'));
+
+</script>
+</body>
+</html>

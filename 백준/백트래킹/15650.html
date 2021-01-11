@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>N과 M 2</title>
+</head>
+<body>
+<script>
+    const input = [3,1];
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>Number(v));
+
+
+    const numbers = Array(input[0]).fill(0).map((_,i)=>i+1);
+    const checkIdx = Array(input[0]).fill(true);
+    let answer = '';
+
+
+    backtracking([]);
+
+    console.log(answer);
+
+
+    function backtracking(arr) {
+        if(arr.length === input[1]) {
+            answer += `${arr.join(' ')}\n`;
+            return ;
+        }
+
+
+        for(let i=0; i<numbers.length;i++){
+            if(!checkIdx[i]) continue;
+
+            if(isAscending(arr, numbers[i])) {
+                checkIdx[i] = false;
+                arr.push(numbers[i]);
+                backtracking(arr);
+                arr.pop();
+                checkIdx[i] = true;
+            }
+
+        }
+    }
+
+
+    function isAscending(arr, num) {
+        // arr가 비었을 경우 0을 주어서 항상 오름차순이게 인식
+        return ((arr[arr.length - 1] || 0) < num);
+    }
+</script>
+</body>
+</html>

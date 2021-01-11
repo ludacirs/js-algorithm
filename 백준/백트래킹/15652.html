@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>N과 M 4</title>
+</head>
+<body>
+<script>
+    // const input = [3,2];
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>Number(v));
+
+    const numbers = Array(input[0]).fill(0).map((_,i)=>i+1);
+    let answer = '';
+
+    backtracking([]);
+
+    console.log(answer);
+
+    function backtracking(arr){
+        if(arr.length===input[1]){
+            answer += `${arr.join(' ')}\n`;
+            return ;
+        }
+
+        for(let i=0;i<numbers.length;i++){
+            if(isUnDescending(arr,numbers[i])){
+                arr.push(numbers[i]);
+                backtracking(arr);
+                arr.pop();
+            }
+        }
+    }
+
+    function isUnDescending(arr, num){
+        return ((arr[arr.length-1] ||0) <= num);
+    }
+</script>
+</body>
+</html>

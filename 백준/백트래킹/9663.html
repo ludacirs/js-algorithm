@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>N-Queen</title>
+</head>
+<body>
+<script>
+    // const input = 8;
+    // const input = Number(require("fs").readFileSync("/dev/stdin").toString().trim());
+    //
+    // const board = [];
+    // let answer = 0;
+    //
+    // Array.prototype.peek = function peek(){
+    //     return this[this.length-1];
+    // }
+    // nQ(board);
+    //
+    // console.log(answer);
+    //
+    // function nQ(board) {
+    //
+    //     if(!conditions(board)) return ;
+    //
+    //     if(board.length === input) {
+    //         answer++
+    //         return ;
+    //     }
+    //
+    //     for(let i=0; i<input;i++){
+    //         board.push(i);
+    //         nQ(board);
+    //         board.pop();
+    //     }
+    // }
+    //
+    // function conditions(board){
+    //     const condition1 = !board.some((v,i,a)=> {
+    //         if(i===a.length-1) return false;
+    //         return v===a.peek();
+    //     });
+    //
+    //     const condition2 = !board.some((v,i,a)=> {
+    //         if(i===a.length-1) return false;
+    //         return Math.abs(v - a.peek()) === ((a.length - 1) - i)
+    //     });
+    //
+    //     return condition1 && condition2;
+    // }
+
+//    2st
+    const N = 8;
+
+    const col = Array(N).fill(true);
+    const rightDi = Array(N*2-1).fill(true);
+    const leftDi = Array(N*2-1).fill(true);
+    let answer = 0;
+
+    function nQ(level) {
+        if(level === N) {
+            answer++;
+            return ;
+        }
+
+        for(let i=0; i<=N;i++){
+            if(col[i] && rightDi[i+level] && leftDi[level-i + (N - 1)]){
+                col[i] = false;
+                rightDi[i+level] = false;
+                leftDi[level-i + (N - 1)] = false;
+                nQ(level+1);
+                col[i] = true;
+                rightDi[i+level] = true;
+                leftDi[level-i + (N - 1)] = true;
+            }
+        }
+    }
+
+    nQ(0);
+
+    console.log(answer);
+</script>
+</body>
+</html>

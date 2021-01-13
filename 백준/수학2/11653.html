@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>소인수분해</title>
+</head>
+<body>
+<script>
+    // const input = 6;
+    const input = Number(require("fs").readFileSync("/dev/stdin").toString().trim())
+
+    function factor(mol) {
+        let answer = '';
+        while(mol>1){
+            for(let i=2; i<=mol;i++){
+                if(mol%i===0) {
+                    mol = mol/i;
+                    answer += `${i}\n`;
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+
+    console.log(factor(input));
+</script>
+</body>
+</html>

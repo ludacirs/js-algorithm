@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>소수</title>
+</head>
+<body>
+<script>
+    const input = [60, 100];
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v));
+
+    const sieve = Array(input[1]+1).fill(true);
+    sieve[0]=false;
+    sieve[1]=false;
+    for(let i=2; i*i<=sieve.length;i++){
+        for (let j=i*i; j<sieve.length;j+=i){
+            sieve[j]= false;
+        }
+    }
+
+    let min = 10001;
+    const sum = sieve.reduce((acc,value,index)=>{
+        if(min>index && input[0]<=index && value) min = index;
+        if(value&&input[0]<=index) return acc+index;
+        return acc;
+    },0);
+
+    if(!sum) console.log(-1);
+    else {
+        console.log(`${sum}\n${min}`);
+    }
+</script>
+</body>
+</html>

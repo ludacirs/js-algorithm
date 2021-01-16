@@ -13,54 +13,72 @@
 8 0 4 9 1 3 5 0 6
 5 9 6 8 2 0 4 1 3
 9 1 7 6 5 2 0 8 0
-6 0 3 7 0 1 9 5 2
-2 5 8 3 9 4 7 6 0`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+//     const input = `1 9 3 5 6 8 4 2 7
+// 5 2 4 1 9 7 6 8 3
+// 8 6 7 3 4 2 9 1 5
+// 6 1 2 7 3 4 5 9 8
+// 7 4 9 6 8 5 1 3 2
+// 3 5 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
 
 
-    // solution(input);
+
+//     const input = `0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0
+// 0 0 0 0 0 0 0 0 0`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+//     const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=> v.split(' ').map(v=>Number(v)));
+
+
+    let answer = '';
+    solution();
+
 
     function solution(){
         let [x,y] = findBlank();
-        if(x===undefined) return ;
-        console.log(`x : ${x}, y : ${y}`);
+        // 더 이상 채워야할 핀칸이 없을 때
+        if(x===undefined) {
+            input.forEach(v=>{
+                answer += v.join(' ')+ '\n';
+            });
+            console.log(answer);
+            process.exit(0);
+        }
 
+        //빈칸 x,y에 들어갈 수 있는 수의 배열
+        const arr = conditions([x,y]);
 
-        input[x][y] = 1;
-        solution();
-    }
-    colRow(0,0);
+        for(let i=0;i<arr.length; i++){
+            input[x][y] = arr[i];
+            solution();
+            input[x][y] = 0;
+        }
 
-    function colRow(x,y) {
-        const numberCheck = Array(9).fill(true);
-
-        //가로에서 나올 수 있는 수
-        input[x].forEach(v=>{
-            console.log(v);
-            numberCheck[v] = false;
-        });
-        const rows = [];
-        numberCheck.forEach((v,i)=>{
-            if(v) return rows.push(i);
-        });
-        //여기까지
-
-        //세로에서 나올 수 있는 수
-        input.forEach(v=>{
-            numberCheck[v[y]] = false;
-        });
-        const columns = [];
-        numberCheck.forEach((v,i)=>{
-            if(v) return columns.push(i);
-        });
-        console.log(rows);
-        console.log(columns);
     }
 
 
-    function conditions({x,y}){
-        colRow(x);
-    }
 
+    function conditions([x,y]){
+        const numberCheck = Array(10).fill(true);
+        numberCheck[0] = false;
+        const getNumbers = [];
+        colRow([x,y], numberCheck);
+
+        square([x,y], numberCheck);
+
+        numberCheck.forEach((value, index) => {
+            if(value) getNumbers.push(index);
+        });
+        return getNumbers;
+    }
     function findBlank() {
         for(let i=0;i<9;i++){
             for(let j=0;j<9;j++){
@@ -69,6 +87,33 @@
         }
         return [];
     }
+    function colRow([x,y],numberCheck) {
+        //가로에서 나올 수 있는 수
+        input[x].forEach(v=>{
+            numberCheck[v] = false;
+        });
+
+        //가로에서 나올 수 있는 수 + 세로 수
+        input.forEach(v=>{
+            numberCheck[v[y]] = false;
+        });
+
+        return numberCheck;
+    }
+    function square([x, y], numberCheck){
+        //x,y를 3x3 사각형 첫 위치에 초기화
+        while (x!==0&&x!==3&&x!==6)x--;
+        while (y!==0&&y!==3&&y!==6)y--;
+
+        //좌표 내의 사각형 안에서 나올 수 있는 수
+        for(let i=x; i<x+3;i++){
+            for (let j=y; j<y+3;j++){
+                numberCheck[input[i][j]] = false;
+            }
+        }
+        return numberCheck;
+    }
+
 </script>
 </body>
 </html>

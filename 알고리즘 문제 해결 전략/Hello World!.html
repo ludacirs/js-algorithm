@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // const input = [5, 'World'
+    //     ,'Algospot'
+    //     ,'Illu'
+    //     ,'Jullu'
+    //     ,'Kodori'];
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+
+    for(let i=1; i<=input[0];i++){
+        console.log(`Hello, ${input[i]}!`);
+    }
+
+</script>
+</body>
+</html>

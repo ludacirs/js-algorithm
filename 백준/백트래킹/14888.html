@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    const input = [2, '1 1 1 1', '0 1 1 1'].slice(1,3).map(v=>v.split(' ').map(v=>Number(v)));
+    const input = [2, '1 2 3 4 5 6', '2 1 1 1'].slice(1,3).map(v=>v.split(' ').map(v=>Number(v)));
     // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1,3).map(v=>v.split(' ').map(v=>Number(v)));
 
     const operators = input[1];
@@ -31,10 +31,6 @@
             if(operators[i]>0){
                 const newOperas = JSON.parse(JSON.stringify(operators));
                 newOperas[i] -= 1;
-
-                // acc = exp(acc,sequence[index],i);
-                // backTracking(index+1, acc, newOperas);
-
                 backTracking(index+1,exp(acc,sequence[index],i), newOperas);
             }
         }

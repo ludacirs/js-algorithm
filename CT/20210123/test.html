@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<script>
+    const record = ["1 a","1 b","1 abc","3 b","3 a","1 abcd","1 abc","1 aaa","1 a","1 z","1 q", "3 k", "3 q", "3 z", "3 m", "3 b"];
+    // const record = ["1 a","2 b","3 c","4 d","5 e","6 f","7 g","8 h","9 j"];
+    const obj = {};
+    const key = [];
+    let answer = [];
+
+    record.forEach(v=>{
+        const [n, name] = v.split(' ');
+        makeCh(n,name);
+    });
+
+    key.sort((a, b) => a-b);
+
+    for(let v of key){
+        answer = answer.concat(obj[v]);
+    }
+
+    console.log(answer);
+
+    function makeCh (server, name){
+        if(!obj[server]) {
+            key.push(server);
+            obj[server]=[];
+        }
+
+        if(obj[server].includes(name)) return ;
+
+        if(obj[server].length>4){
+            obj[server].shift();
+        }
+        obj[server].push(name);
+    }
+
+
+</script>
+</body>
+</html>

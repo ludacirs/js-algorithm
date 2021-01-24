@@ -3,8 +3,35 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210122">
+      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/백트래킹/14888.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/백트래킹/14888.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/브루트 포스/1018.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/브루트 포스/1018.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/입력 코드.js" beforeDir="false" afterPath="$PROJECT_DIR$/백준/입력 코드.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/정렬/2750.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/정렬/2750.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +45,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1jBO8DMTFATBlTPR2OkEv6Pvmbh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,6 +58,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.16.3" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.14" />
     <property name="last.edited.regexp" value="aaa&#10;a" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -35,6 +68,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -87,23 +121,158 @@
       <workItem from="1609264191259" duration="13236000" />
       <workItem from="1609476906503" duration="2000" />
       <workItem from="1609498764767" duration="11961000" />
-      <workItem from="1609735085241" duration="2127000" />
+      <workItem from="1609735085241" duration="2590000" />
+      <workItem from="1609738185177" duration="14395000" />
+      <workItem from="1609824405045" duration="5847000" />
+      <workItem from="1609840936498" duration="120000" />
+      <workItem from="1609856107052" duration="27203000" />
+      <workItem from="1610090106607" duration="4786000" />
+      <workItem from="1610125845219" duration="16780000" />
+      <workItem from="1610348275403" duration="49330000" />
+      <workItem from="1610955351744" duration="25171000" />
+      <workItem from="1611136536678" duration="2689000" />
+      <workItem from="1611139936968" duration="9480000" />
+      <workItem from="1611212333994" duration="32000" />
+      <workItem from="1611212491942" duration="1000" />
+      <workItem from="1611217326513" duration="9000" />
+      <workItem from="1611221492865" duration="6705000" />
+      <workItem from="1611373856957" duration="9497000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1609738006367</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609738006367</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update 20210105">
+      <created>1609840992246</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609840992246</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update 20210106">
+      <created>1609933695564</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609933695564</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update 20210108">
+      <created>1610035504294</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610035504294</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update 20210110">
+      <created>1610212662598</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610212662598</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update 20210111">
+      <created>1610348321879</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610348321879</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update 20210112">
+      <created>1610378312220</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610378312220</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update 20210113">
+      <created>1610523428958</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610523428958</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update 20210114">
+      <created>1610618978242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610618978242</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update 20210116&#10;&#10;14888 푸는 중">
+      <created>1610782687815</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610782687815</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update 20210117">
+      <created>1610877567494</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610877567494</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update 20210121">
+      <created>1611212363293</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611212363293</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update 20210122">
+      <created>1611301774951</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611301774951</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="update 20210105" />
+    <MESSAGE value="update 20210106" />
+    <MESSAGE value="update 20210108" />
+    <MESSAGE value="update 20210110" />
+    <MESSAGE value="update 20210111" />
+    <MESSAGE value="update 20210112" />
+    <MESSAGE value="update 20210113" />
+    <MESSAGE value="update 20210114" />
+    <MESSAGE value="update 20210116&#10;&#10;14888 푸는 중" />
+    <MESSAGE value="update 20210117" />
+    <MESSAGE value="update 20210121" />
+    <MESSAGE value="update 20210122" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210122" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="145" key="#Inspections" timestamp="1608790811445">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="708" y="145" key="#Inspections/0.25.1440.875@0.25.1440.875" timestamp="1608790811445" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609333508857">
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610867623639">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604431807820" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1609333508857" />
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1610867623639" />
     <state x="815" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605277367188">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -172,22 +341,35 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="699" height="286" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1604479822687" />
+    <state x="458" y="98" key="SettingsEditor" timestamp="1609742361957">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="458" y="98" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1609742361957" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1608310758169">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.25.1440.875@0.25.1440.875" timestamp="1608310758169" />
+    <state x="410" y="230" key="Vcs.Push.Dialog.v2" timestamp="1611212340345">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="410" y="230" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1611212340345" />
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610263855628">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1610263855628" />
     <state x="781" y="188" width="597" height="548" key="find.popup" timestamp="1606889281185">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="781" y="188" width="597" height="548" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1606889281185" />
-    <state x="745" y="211" key="run.anything.popup" timestamp="1604418033364">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="745" y="213" key="run.anything.popup" timestamp="1610975360752">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="211" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604418033364" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1609061548860">
+    <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1610975360752" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1611140650939">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605619148975" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1609061548860" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1611140650939" />
   </component>
 </project>

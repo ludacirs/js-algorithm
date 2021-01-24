@@ -6,7 +6,12 @@
 </head>
 <body>
 <script>
-    
+        // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+        // const input = [5, 5, 2, 3, 4, 1];
+
+
+        input.splice(1,input.length).sort((a, b) => a-b).forEach(v=>console.log(v));
+
 </script>
 </body>
 </html>

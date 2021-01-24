@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<script>
+    const m = 4;
+    const v = [2, 3, 1]
+    const board = [m-v[0]];
+
+    check(v,board);
+    function check(v,board){
+        for(let j = 1; j<v.length; j++){
+            let temp =0;
+            let pre = {
+                is : false,
+                index : 0,
+                value : 0,
+            }
+
+            for(let i=board.length-1; i>=0;i--){
+                temp = board[i]-v[j];
+                if(temp>=0) {
+                    pre.is =true;
+                    pre.index = i;
+                    pre.value = temp;
+                } else break;
+            }
+            if(pre.is){
+                board[pre.index] = pre.value;
+            } else if(temp<0) board.push(m-v[j]);
+        }
+
+        console.log(board);
+        console.log(board.length);
+    }
+
+</script>
+</body>
+</html>

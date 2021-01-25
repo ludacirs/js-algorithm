@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @param {number} x
+     * @return {number}
+     */
+    var reverse = function(x) {
+        const MAX_VALUE = 2147483647;
+        const MIN_VALUE = -2147483647;
+        let answer = 0;
+        while (x!==0){
+            answer = answer*10 + (x % 10);
+            x = Math.trunc(x/10);
+        }
+
+        return (answer>=MAX_VALUE || answer<=MIN_VALUE) ? 0 : answer;
+    };
+
+    console.log(reverse(-123));
+</script>
+</body>
+</html>

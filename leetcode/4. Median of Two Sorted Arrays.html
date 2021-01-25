@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @param {number[]} nums1
+     * @param {number[]} nums2
+     * @return {number}
+     */
+    var findMedianSortedArrays = function(nums1, nums2) {
+        const length = nums1.length+nums2.length;
+        const mid = length/2;
+        const arr = merge(nums1, nums2,mid);
+        if(arr.length===1) return arr[0];
+        return (
+            Number.isInteger(mid) ?
+                (arr[arr.length-1]+ arr[arr.length-2])/2
+                : arr[arr.length-2]);
+
+    };
+
+    console.log(findMedianSortedArrays([],[1]));
+
+    function merge (arr1,arr2,mid){
+        const newArr = [];
+        let [i,j] = [0,0];
+
+        while(arr1.length>i && arr2.length>j && newArr.length<mid+1){
+            if(arr1[i] > arr2[j]) newArr.push(arr2[j++]);
+            else newArr.push(arr1[i++]);
+
+        }
+
+        while (arr1.length>i && newArr.length<mid+1){
+            newArr.push(arr1[i++]);
+        }
+        while (arr2.length>j && newArr.length<mid+1){
+            newArr.push(arr2[j++]);
+        }
+        return newArr;
+    }
+</script>
+</body>
+</html>

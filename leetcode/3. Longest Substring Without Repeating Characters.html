@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3. Longest Substring Without Repeating Characters
+    </title>
+</head>
+<body>
+<script>
+    let lengthOfLongestSubstring = function(s) {
+        let [str, length] = ['', 0];
+
+        for(let i=0; i<s.length; i++){
+
+            const index = str.indexOf(s[i]);
+            str = str.concat(s[i]);
+
+            if(index>=0) {
+                str = str.slice(index+1);
+            }
+            length = Math.max(length,str.length);
+        }
+
+        return length;
+
+    };
+
+    console.log(lengthOfLongestSubstring("abcabcbb"));
+</script>
+</body>
+</html>

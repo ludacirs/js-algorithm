@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @param {string} s
+     * @param {number} numRows
+     * @return {string}
+     */
+    var convert = function(s, numRows) {
+        const arr ={};
+        for(let i=0; i<numRows; i++) arr[i] = [];
+        let index=0;
+        const pattern = makePattern(numRows);
+        let answer='';
+
+        while(index<s.length){
+            arr[pattern[index%pattern.length]].push(s[index]);
+            index++;
+        }
+        for(let i=0;i<numRows;i++){
+            answer += arr[i].join('');
+        }
+
+        return answer;
+    };
+    function makePattern(number) {
+        const newArr =[];
+        for(let j=0; j<number;j++){
+            newArr.push(j);
+        }
+        for(let j=number-2;j>0;j--){
+            newArr.push(j);
+        }
+
+        return newArr;
+    }
+    console.log(convert('PAYPALISHIRING',4));
+</script>
+</body>
+</html>

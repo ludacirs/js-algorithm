@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * @param {string} s
+     * @return {number}
+     */
+    var myAtoi = function(s) {
+        const MAX_VALUE = 2147483648;
+        const MIN_VALUE = -2147483648;
+        const answer = parseInt(s,10);
+        if(parseInt(s,10) >=MAX_VALUE) return MAX_VALUE-1;
+        if(parseInt(s,10) <=MIN_VALUE) return MIN_VALUE-1;
+        return isNaN(answer) ? 0 : answer;
+    };
+    console.log(myAtoi("a4193 with words"));
+    //
+    // for(let i=0; i<s.length;i++){
+    //     if(!isNaN(`${s[i]}${s[i+1]}`)){
+    //         return parseInt(s.slice(i),10);
+    //     }
+    // }
+    //
+    // return answer;
+</script>
+</body>
+</html>

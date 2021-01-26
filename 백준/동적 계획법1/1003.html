@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>피보나치 함수</title>
+</head>
+<body>
+<script>
+    const input =`3
+0
+1
+3`.split('\n').map(v=>Number(v));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v));
+
+    const n = input.shift();
+    const cache = new Map().set(0,[1,0]).set(1,[0,1]);
+
+    for(let i=0; i<n; i++){
+        console.log(fibonacci(input[i]).join(' '));
+    }
+
+
+    function fibonacci(n) {
+        if(cache.has(n)) return cache.get(n);
+
+        cache.set(n,[fibonacci(n-1)[0] + fibonacci(n-2)[0], fibonacci(n-1)[1] + fibonacci(n-2)[1]]);
+        return cache.get(n);
+    }
+
+</script>
+</body>
+</html>

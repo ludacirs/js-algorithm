@@ -22,15 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210122">
-      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test3.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210126">
+      <change afterPath="$PROJECT_DIR$/leetcode/8. String to Integer (atoi).html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/1003.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준/백트래킹/14888.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/백트래킹/14888.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준/브루트 포스/1018.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/브루트 포스/1018.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준/입력 코드.js" beforeDir="false" afterPath="$PROJECT_DIR$/백준/입력 코드.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준/정렬/2750.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/정렬/2750.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/백트래킹/14889.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/백트래킹/14889.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +40,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,11 +72,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CT/20210123" />
       <recent name="$PROJECT_DIR$/백준/함수" />
       <recent name="$PROJECT_DIR$/권오흠 교수/2장 recursion" />
       <recent name="$PROJECT_DIR$/권오흠 교수" />
       <recent name="$PROJECT_DIR$/프로그래머스" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -137,6 +136,13 @@
       <workItem from="1611217326513" duration="9000" />
       <workItem from="1611221492865" duration="6705000" />
       <workItem from="1611373856957" duration="9497000" />
+      <workItem from="1611469997567" duration="77000" />
+      <workItem from="1611513643289" duration="2000" />
+      <workItem from="1611556753504" duration="9000" />
+      <workItem from="1611559841668" duration="16568000" />
+      <workItem from="1611647145415" duration="152000" />
+      <workItem from="1611647427223" duration="11217000" />
+      <workItem from="1611680610458" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609738006367</created>
@@ -229,7 +235,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611301774951</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update 20210124&#10;&#10;카카오 커머스 테스트">
+      <created>1611470064950</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611470064950</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update 20210126">
+      <created>1611593046834</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1611593046834</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,18 +281,20 @@
     <MESSAGE value="update 20210117" />
     <MESSAGE value="update 20210121" />
     <MESSAGE value="update 20210122" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210122" />
+    <MESSAGE value="update 20210124&#10;&#10;카카오 커머스 테스트" />
+    <MESSAGE value="update 20210126" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210126" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="145" key="#Inspections" timestamp="1608790811445">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="708" y="145" key="#Inspections/0.25.1440.875@0.25.1440.875" timestamp="1608790811445" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610867623639">
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611649164757">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604431807820" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1610867623639" />
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1611649164757" />
     <state x="815" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605277367188">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -341,6 +363,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="699" height="286" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1604479822687" />
+    <state x="476" y="169" key="RollbackChangesDialog" timestamp="1611657246544">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="476" y="169" key="RollbackChangesDialog/0.25.1440.875@0.25.1440.875" timestamp="1611657246544" />
     <state x="458" y="98" key="SettingsEditor" timestamp="1609742361957">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -349,27 +375,35 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.25.1440.875@0.25.1440.875" timestamp="1608310758169" />
-    <state x="410" y="230" key="Vcs.Push.Dialog.v2" timestamp="1611212340345">
+    <state x="466" y="164" key="VCS.ChangeListViewerDialog" timestamp="1611650557881">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="410" y="230" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1611212340345" />
-    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610263855628">
+    <state x="466" y="164" key="VCS.ChangeListViewerDialog/0.25.1440.875@0.25.1440.875" timestamp="1611650557881" />
+    <state x="410" y="230" key="Vcs.Push.Dialog.v2" timestamp="1611593080421">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1610263855628" />
+    <state x="410" y="230" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1611593080421" />
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611649367725">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1611649367725" />
     <state x="781" y="188" width="597" height="548" key="find.popup" timestamp="1606889281185">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="781" y="188" width="597" height="548" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1606889281185" />
+    <state x="428" y="361" key="git4idea.ui.GitResetDialog" timestamp="1611650616584">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="428" y="361" key="git4idea.ui.GitResetDialog/0.25.1440.875@0.25.1440.875" timestamp="1611650616584" />
     <state x="745" y="213" key="run.anything.popup" timestamp="1610975360752">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="211" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1604418033364" />
     <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1610975360752" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1611140650939">
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1611561821201">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1605619148975" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1611140650939" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1611561821201" />
   </component>
 </project>

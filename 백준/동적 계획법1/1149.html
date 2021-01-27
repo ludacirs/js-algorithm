@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RGB 거리</title>
+</head>
+<body>
+<script>
+    const input = `3
+26 40 83
+49 60 57
+13 89 99`.split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+
+    for(let i=0;i+1<input.length;i++){
+        accumulator(input[i],input[i+1]);
+    }
+    console.log(Math.min(...input[input.length-1]));
+
+    function accumulator(arr1,arr2){
+        for(let i=0; i<arr1.length;i++){
+            arr2[i]= arr2[i]+Math.min(...arr1.filter((_,index)=>index!==i));
+        }
+    }
+
+
+</script>
+</body>
+</html>

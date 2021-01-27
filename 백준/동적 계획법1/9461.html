@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>파도반 수열</title>
+</head>
+<body>
+<script>
+
+    const input=`2
+6
+12`.match(/[^\r\n]+/g).slice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').match(/[^\r\n]+/g).slice(1);
+    const cache = [1,1,1];
+    let answer = '';
+
+    for(let i=0;i<input.length;i++) {
+        const n = Number(input[i]);
+        answer += dp(n)+'\n';
+    }
+
+    console.log(answer);
+
+    function dp(n){
+        const index = n-1;
+        if(cache[index]) return cache[index];
+        for(let i=3; i<=index;i++){
+            cache[i] = cache[i-3] + cache[i-2];
+        }
+        return cache[index];
+    }
+</script>
+</body>
+</html>

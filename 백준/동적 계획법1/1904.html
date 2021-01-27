@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01타일</title>
+</head>
+<body>
+<script>
+    const input= Number(`1000000`.split(' '));
+    // const input = Number(require("fs").readFileSync("/dev/stdin").toString().trim().split(' '))
+
+    const cache = [1,2];
+
+    console.log(dp(input));
+
+    console.log(cache);
+    function dp(n){
+        const index = n-1;
+        for(let i=2;i<=index;i++){
+            cache[i] = (cache[i-1]+cache[i-2])%15746;
+        }
+        return cache[index];
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>정수 삼각형</title>
+</head>
+<body>
+<script>
+    const input = `5
+7
+3 8
+8 1 0
+2 7 4 4
+4 5 2 6 5`.split('\n').slice(1).map(v=>v.split(' ').map(v=>Number(v)));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1).map(v=>v.split(' ').map(v=>Number(v)));
+
+    for(let i=0;i+1<input.length;i++){
+        accumulator(input[i],input[i+1]);
+    }
+    console.log(Math.max(...input[input.length-1]));
+
+    function accumulator(nd,tor){
+        for(let i=0;i<tor.length;i++){
+            tor[i] = Math.max(nd[i]||0,nd[i-1]||0)+tor[i];
+        }
+    }
+</script>
+</body>
+</html>

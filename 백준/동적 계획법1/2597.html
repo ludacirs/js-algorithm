@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>계단 오르기</title>
+</head>
+<body>
+<script>
+//     const input = `6
+// 10
+// 20
+// 15
+// 25
+// 10
+// 20`.split('\n').map(v=>Number(v)).slice(1);
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v)).slice(1);
+    const cache = [input[0]];
+
+    for(let i=1; i<input.length;i++){
+        cache[i] = Math.max(input[i-1]+(cache[i-3]||0),(cache[i-2]||0)) + input[i];
+    }
+
+    console.log(cache[cache.length-1]);
+
+
+</script>
+</body>
+</html>

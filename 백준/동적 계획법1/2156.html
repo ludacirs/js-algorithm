@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>포도주 시식</title>
+</head>
+<body>
+<script>
+    const input = `6
+6
+10
+13
+9
+8
+1`.split('\n').slice(1).map(v=>Number(v));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1).map(v=>Number(v));
+    const cache = Array(input.length);
+    let [max1, max2] = [-Infinity,-Infinity];
+
+    cache[0]= input[0];
+    for(let i=1;i<input.length;i++){
+        max1 = Math.max(max1,(cache[i-3]||0));
+        max2 = Math.max(max2,(cache[i-2])||0);
+        cache[i]= Math.max(input[i-1]+max1,max2) + input[i];
+    }
+    console.log(Math.max(...cache));
+</script>
+</body>
+</html>

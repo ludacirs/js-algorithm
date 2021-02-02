@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가장 긴 바이토닉 부분 수열</title>
+</head>
+<body>
+<script>
+    const input = `10
+1 5 2 1 4 3 4 5 2 1`.split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
+    const cache = Array(input.length).fill(1);
+    const cache2 = Array(input.length).fill(1);
+
+    for(let i=1;i<input.length;i++){
+        let max = 0;
+        let temp = input[i];
+        for(let j=0;j<i;j++){
+            if(temp>input[j]) max = Math.max(max,cache[j]);
+        }
+        cache[i] = max+1;
+        const reverseIdx = input.length-1 -i;
+        max = 0;
+        temp = input[reverseIdx];
+        for(let j=input.length-1;j>reverseIdx;j--){
+            if(temp>input[j]) max = Math.max(max,cache2[j]);
+        }
+        cache2[reverseIdx] = max+1;
+    }
+
+    console.log(Math.max(...cache.map((v,i)=>(v+cache2[i]-1))));
+
+</script>
+</body>
+</html>

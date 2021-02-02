@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>가장 긴 증가하는 부분 수열</title>
+</head>
+<body>
+<script>
+    const input = `6
+10 20 10 30 20 50`.split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
+    const cache = Array(input.length).fill(1);
+
+    for(let i=1; i<input.length; i++){
+        const temp = input[i];
+        let max = 0;
+        for(let j=0;j<i;j++){
+            if(temp>input[j]) max = Math.max(max,cache[j])
+        }
+        cache[i] = max+1;
+    }
+
+    console.log(Math.max(...cache));
+
+</script>
+</body>
+</html>

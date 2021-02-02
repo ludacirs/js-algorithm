@@ -22,11 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210126">
-      <change afterPath="$PROJECT_DIR$/leetcode/8. String to Integer (atoi).html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/1003.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210130">
+      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/10844.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/11053.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/11054.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/백준/동적 계획법1/2156.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/백준/백트래킹/14889.html" beforeDir="false" afterPath="$PROJECT_DIR$/백준/백트래킹/14889.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/백준/입력 코드.js" beforeDir="false" afterPath="$PROJECT_DIR$/백준/입력 코드.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +74,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/백준" />
       <recent name="$PROJECT_DIR$/CT/20210123" />
       <recent name="$PROJECT_DIR$/백준/함수" />
       <recent name="$PROJECT_DIR$/권오흠 교수/2장 recursion" />
       <recent name="$PROJECT_DIR$/권오흠 교수" />
-      <recent name="$PROJECT_DIR$/프로그래머스" />
     </key>
   </component>
   <component name="RunManager">
@@ -142,7 +144,13 @@
       <workItem from="1611559841668" duration="16568000" />
       <workItem from="1611647145415" duration="152000" />
       <workItem from="1611647427223" duration="11217000" />
-      <workItem from="1611680610458" duration="38000" />
+      <workItem from="1611680610458" duration="2615000" />
+      <workItem from="1611732510080" duration="15460000" />
+      <workItem from="1611750779896" duration="142000" />
+      <workItem from="1611764406517" duration="5185000" />
+      <workItem from="1611834776732" duration="14474000" />
+      <workItem from="1612074572407" duration="2931000" />
+      <workItem from="1612168932821" duration="6807000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609738006367</created>
@@ -249,7 +257,35 @@
       <option name="project" value="LOCAL" />
       <updated>1611593046834</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update 20210127">
+      <created>1611680658413</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1611680658413</updated>
+    </task>
+    <task id="LOCAL-00017" summary="change directory name">
+      <created>1611738301326</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1611738301326</updated>
+    </task>
+    <task id="LOCAL-00018" summary="update 20210128">
+      <created>1611770893747</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1611770893747</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update 20210130">
+      <created>1611944300364</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611944300364</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,22 +319,30 @@
     <MESSAGE value="update 20210122" />
     <MESSAGE value="update 20210124&#10;&#10;카카오 커머스 테스트" />
     <MESSAGE value="update 20210126" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210126" />
+    <MESSAGE value="update 20210127" />
+    <MESSAGE value="change directory name" />
+    <MESSAGE value="update 20210128" />
+    <MESSAGE value="update 20210130" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210130" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="145" key="#Inspections" timestamp="1608790811445">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="708" y="145" key="#Inspections/0.25.1440.875@0.25.1440.875" timestamp="1608790811445" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611649164757">
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612077161027">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="369" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1604431807820" />
-    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1611649164757" />
+    <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.875@0.25.1440.875" timestamp="1612077161027" />
     <state x="815" y="270" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605277367188">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="815" y="270" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1605277367188" />
+    <state x="144" y="99" key="DiffContextDialog" timestamp="1611732543273">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="144" y="99" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1611732543273" />
     <state width="699" height="286" key="GridCell.Tab.0.bottom" timestamp="1604479822685">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -363,18 +407,18 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="699" height="286" key="GridCell.Tab.3.right/0.23.1440.877@0.23.1440.877" timestamp="1604479822687" />
-    <state x="476" y="169" key="RollbackChangesDialog" timestamp="1611657246544">
+    <state x="476" y="169" key="RollbackChangesDialog" timestamp="1611944460537">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="476" y="169" key="RollbackChangesDialog/0.25.1440.875@0.25.1440.875" timestamp="1611657246544" />
+    <state x="476" y="169" key="RollbackChangesDialog/0.25.1440.875@0.25.1440.875" timestamp="1611944460537" />
     <state x="458" y="98" key="SettingsEditor" timestamp="1609742361957">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="458" y="98" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1609742361957" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1608310758169">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1611940771912">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.25.1440.875@0.25.1440.875" timestamp="1608310758169" />
+    <state width="500" height="445" key="SwitcherDM/0.25.1440.875@0.25.1440.875" timestamp="1611940771912" />
     <state x="466" y="164" key="VCS.ChangeListViewerDialog" timestamp="1611650557881">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -383,10 +427,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="410" y="230" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1611593080421" />
-    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611649367725">
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611943303898">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1611649367725" />
+    <state x="521" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.875@0.25.1440.875" timestamp="1611943303898" />
     <state x="781" y="188" width="597" height="548" key="find.popup" timestamp="1606889281185">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -395,6 +439,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="428" y="361" key="git4idea.ui.GitResetDialog/0.25.1440.875@0.25.1440.875" timestamp="1611650616584" />
+    <state x="504" y="241" key="refactoring.ChangeSignatureDialog" timestamp="1612077171320">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="504" y="241" key="refactoring.ChangeSignatureDialog/0.25.1440.875@0.25.1440.875" timestamp="1612077171320" />
     <state x="745" y="213" key="run.anything.popup" timestamp="1610975360752">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

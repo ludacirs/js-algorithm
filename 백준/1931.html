@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회의실 배정</title>
+</head>
+<body>
+<script>
+    const input=`11
+1 4
+3 5
+0 6
+5 7
+3 8
+5 9
+6 10
+8 11
+8 12
+2 13
+12 14`.split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+    let answer = 0;
+    input.sort((a, b) => {
+        if(a[1]!==b[1]) return a[1]-b[1];
+        return a[0]-b[0];
+    });
+
+    let max = -Infinity;
+    for(let i=0;i<input.length;i++){
+        const startTime = input[i][0];
+        const endTime= input[i][1]
+        if(max<=startTime) {
+            max= endTime;
+            answer++;
+        }
+    }
+    console.log(answer);
+</script>
+</body>
+</html>

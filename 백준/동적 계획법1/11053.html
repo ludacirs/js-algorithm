@@ -9,19 +9,39 @@
     const input = `6
 10 20 10 30 20 50`.split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
     const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1)[0].split(' ').map((v=>Number(v)));
-    const cache = Array(input.length).fill(1);
+    // const cache = Array(input.length).fill(1);
+    //
+    // for(let i=1; i<input.length; i++){
+    //     const temp = input[i];
+    //     let max = 0;
+    //     for(let j=0;j<i;j++){
+    //         if(temp>input[j]) max = Math.max(max,cache[j])
+    //     }
+    //     cache[i] = max+1;
+    // }
+    //
+    // console.log(Math.max(...cache));
 
-    for(let i=1; i<input.length; i++){
-        const temp = input[i];
-        let max = 0;
-        for(let j=0;j<i;j++){
-            if(temp>input[j]) max = Math.max(max,cache[j])
+    //binary Search
+    const cache = [input[0]];
+
+    for(let i=1; i<input.length;i++){
+        const current = input[i];
+        if(current>cache[cache.length-1]) cache.push(current);
+        else {
+            const index = bi(0,cache.length,current);
+            cache[index] = current;
         }
-        cache[i] = max+1;
     }
+    console.log(cache.length);
 
-    console.log(Math.max(...cache));
-
+    function bi(start, end ,item){
+        if(start>=end) return start;
+        const mid = Math.floor((start+end)/2);
+        if(cache[mid]===item) return mid;
+        if(cache[mid]<item) return bi(mid+1, end, item);
+        if(cache[mid]>item) return bi(start, mid, item);
+    }
 </script>
 </body>
 </html>

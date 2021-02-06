@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주유소</title>
+</head>
+<body>
+<script>
+    const input =`4
+2 3 1
+5 2 4 1`.split('\n').map(v=>v.split(' ').map(v=>BigInt(v))).slice(1);
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>BigInt(v))).slice(1);
+
+    const [dis, price] = input;
+    let answer = 0n;
+
+
+
+    for(let i=0; i<price.length-1;){
+        for(let j=i+1; j<price.length;j++){
+            if(price[i]>price[j] || j===price.length-1) {
+                const distance = calDis(i,j);
+                answer += price[i] * distance;
+                i=j;
+                break;
+            }
+        }
+    }
+    console.log(answer.toString());
+
+    function calDis(start,end) {
+        let sum = 0n;
+        for(let i=start; i<end;i++){
+            sum += dis[i];
+        }
+        return (sum);
+    }
+</script>
+</body>
+</html>

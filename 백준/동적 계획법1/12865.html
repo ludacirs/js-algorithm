@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>평범한 배낭</title>
+</head>
+<body>
+<script>
+    const input =`4 7
+6 13
+4 8
+3 6
+5 12`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+    const K = input.shift()[1];
+
+    const cache = Array(K+1).fill(0);
+
+    input.forEach(([W,V])=>{
+        for (let i=K; i>=W;i--) cache[i] =Math.max(cache[i],cache[i-W]+V);
+    });
+
+    console.log(cache[K]);
+
+    // const cache = Array(input.length+1).fill(0).map(()=>Array(K+1).fill(0).map(()=>0));
+    //
+    // for(let i=0;i<input.length;i++){
+    //     for(let j=1;j<=K;j++){
+    //         const W = input[i][0];
+    //         const V= input[i][1];
+    //         if(W<=j) cache[i+1][j] = Math.max(V+cache[i][j-W],cache[i][j]);
+    //         else cache[i+1][j]= Math.max(cache[i+1][j-1],cache[i][j]);
+    //     }
+    // }
+    //
+    // console.log(cache[input.length][K]);
+</script>
+
+</body>
+</html>

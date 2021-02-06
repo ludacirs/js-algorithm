@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>약수</title>
+</head>
+<body>
+<script>
+    const input =`2
+4 2`.split('\n')[1].split(' ').map(v=>Number(v));
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n')[1].split(' ').map(v=>Number(v));
+
+    input.sort((a, b) => a-b);
+    console.log(input[0]*input[input.length-1]);
+
+</script>
+</body>
+</html>

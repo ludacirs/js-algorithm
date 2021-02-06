@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배수와 약수</title>
+</head>
+<body>
+<script>
+    let input=`8 16
+32 4
+17 5
+0 0`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+    let answer = '';
+    input.pop();
+
+    input.forEach(v=>{
+        const [first, second] = v;
+        if(first%second===0) answer += 'multiple\n';
+        else if(second%first===0) answer += 'factor\n';
+        else answer += 'neither\n';
+    });
+
+    console.log(answer);
+
+</script>
+</body>
+</html>

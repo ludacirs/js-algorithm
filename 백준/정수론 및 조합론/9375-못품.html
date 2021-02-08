@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>패션왕 신해빈</title>
+</head>
+<body>
+<script>
+    const input =`2
+3
+hat headgear
+sunglasses eyewear
+turban headgear
+3
+mask face
+sunglasses face
+makeup face`.split('\n').slice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1);
+
+    let arr = [];
+    let answer = '';
+    let map = new Map();
+    input.push(0);
+
+    for(let i=1; i<input.length ;i++){
+        if(!isNaN(input[i])) {
+            solve(arr);
+            arr= [];
+            map = new Map();
+            continue;
+        }
+        arr.push(input[i]);
+    }
+
+
+    function solve(arr) {
+        if(!arr.length) return ;
+
+        arr.forEach(v=>{
+            const [_, m] = v.split(' ');
+            map.has(m) ? map.set(m,map.get(m)+1) :map.set(m,1);
+        });
+
+        console.log(map);
+        answer += [...map.values()].reduce((acc,v)=>{
+            return (v+1)*acc;
+        },1)-1+'\n';
+    }
+
+    console.log(answer);
+
+
+</script>
+</body>
+</html>

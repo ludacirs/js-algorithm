@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>검문</title>
+</head>
+<body>
+<script>
+    const input = `3
+6
+34
+38`.split('\n').map(v=>Number(v)).slice(1);
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v)).slice(1);
+
+    let a = Math.abs(input[0]-input[1]);
+
+    for(let i=1; i+1<input.length;i++){
+        const b = Math.abs(input[i]-input[i+1]);
+        a = GCD(a,b);
+    }
+
+    const arr1 = [];
+    const arr2 = [a];
+    for(let i=2; i*i<=a;i++){
+        if(a%i===0) {
+            arr1.push(i);
+            arr2.unshift(a/i);
+        }
+    }
+    if(arr1[arr1.length-1]===arr2[0]) arr1.pop();
+
+    console.log(arr1.concat(arr2).join(' '));
+
+    function GCD(a,b){
+        while (b > 0) {
+            const r = a % b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
+</script>
+</body>
+</html>

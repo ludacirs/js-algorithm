@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이항 계수</title>
+</head>
+<body>
+<script>
+    const input =`5 2`.split(' ').map(v=>BigInt(v));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>BigInt(v));
+    const [N,K] = input;
+    const cache = Array(Number(input[0]+1n)).fill(1n);
+    for(let i=2n;i<=N;i++) {
+        cache[i] = (cache[i - 1n]* i);
+    }
+    console.log(((cache[N]/(cache[K]*cache[N-K]))%10007n).toString());
+
+</script>
+</body>
+</html>

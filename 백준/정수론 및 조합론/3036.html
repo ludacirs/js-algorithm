@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>링</title>
+</head>
+<body>
+<script>
+    const input=`4
+12 3 8 4`.split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+
+    let answer = '';
+
+    for(let i=1;i<input.length;i++){
+        const gcd = GCD(input[0],input[i]);
+        answer += `${input[0]/gcd}/${input[i]/gcd}\n`;
+    }
+
+    console.log(answer);
+
+    function GCD(a,b){
+        while (b>0){
+            const r = a%b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
+</script>
+</body>
+</html>

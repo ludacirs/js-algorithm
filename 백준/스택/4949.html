@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>균형잡힌 세상</title>
+</head>
+<body>
+<script>
+    const input = `
+ .
+.`.split('\n');
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+
+    let answer = '';
+
+    for(let i=0; i<input.length;i++){
+        const stack=[];
+        if(input[i]==='.')break;
+        answer += balance(input[i],stack);
+    }
+    console.log(answer);
+
+    function balance (str,stack){
+        for(let i=0;i<str.length;i++){
+            const temp = str[i];
+            if(temp==='(' ||temp==='[') {
+                stack.push(temp);
+                continue;
+            }
+            if(temp===')' || temp===']'){
+                if(temp===')' && stack[stack.length-1]=== '(') {
+                    stack.pop();
+                } else if(temp===']' && stack[stack.length-1]=== '[') {
+                    stack.pop();
+                } else return 'no\n';
+            }
+        }
+        if(!stack.length) return 'yes\n';
+        return 'no\n';
+    }
+</script>
+</body>
+</html>

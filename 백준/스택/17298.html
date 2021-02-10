@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>오큰수</title>
+</head>
+<body>
+<script>
+    const input =`4
+3 1 2 4 5`.split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+
+    const arr=Array(input.length);
+    arr[arr.length-1] = -1;
+    const temp = input.pop();
+    let [max, next] = [temp,temp];
+
+    for(let i=arr.length-2;i>=0;i--){
+        const peek = input.pop();
+
+        if(peek<next) {
+            arr[i] = next;
+            next = peek;
+            max = Math.max(next,max);
+        } else if(peek< max){
+            arr[i] = max;
+            next = peek;
+        } else {
+            arr[i] = -1;
+            [max,next] = [peek,peek];
+        }
+    }
+    console.log(arr);
+</script>
+</body>
+</html>

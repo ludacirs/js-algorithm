@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스택</title>
+</head>
+<body>
+<script>
+    const input = `7
+pop
+top
+push 123
+top
+pop
+top
+pop`.split('\n').slice(1);
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1);
+
+    const stack = [];
+    let answer = '';
+
+    for(let i=0; i<input.length;i++){
+        order(input[i].split(' '), stack);
+    }
+
+    console.log(answer);
+
+
+    function order([command, number], arr){
+        if(command==='push') {
+            arr.push(Number(number));
+            return ;
+        }
+        if(command ==='top'){
+            answer += (arr[arr.length-1] || -1)+'\n';
+            return ;
+        }
+        if(command ==='size'){
+            answer += arr.length+'\n';
+            return ;
+        }
+        if(command ==='pop'){
+            answer += (arr.pop() || -1) + '\n';
+            return ;
+        }
+        if(command ==='empty'){
+            answer += (arr.length ? 0 : 1) +'\n';
+        }
+    }
+</script>
+</body>
+</html>

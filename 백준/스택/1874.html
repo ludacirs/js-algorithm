@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스택 수열</title>
+</head>
+<body>
+<script>
+    const input=`8
+2`.split('\n').map(v=>Number(v)).slice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v)).slice(1);
+
+    const stack = [];
+    let max = 0;
+    let answer = '';
+
+    solve(input,stack);
+    console.log(answer);
+
+
+    function solve(input, stack){
+        for(let i=0;i<input.length;i++){
+            const temp = input[i];
+            if(max<=temp){
+                for(let j=max+1;j<=temp;j++){
+                    stack.push(j);
+                    answer += '+\n';
+                }
+                max = temp;
+            }
+            const pop = stack.pop();
+            answer += '-\n';
+            if(pop!==temp) return answer = 'NO';
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>큐 2</title>
+</head>
+<body>
+<script>
+    const input= `2
+push 3
+pop
+front
+back
+pop
+front
+back
+push 1
+pop
+front
+back`.split('\n').slice(1);
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1);
+    let answer = '';
+    class Node{
+        constructor(number) {
+            this.number = number;
+            this.next = null;
+        }
+    }
+    class Queue {
+        constructor() {
+            this.head = null;
+            this.tail = null;
+            this.cnt = 0;
+        }
+        front(){
+            answer += ( (this.head) ? this.head.number : -1)+'\n';
+        }
+        back(){
+            answer += ( (this.tail) ? this.tail.number : -1)+'\n';
+        }
+        empty(){
+            answer +=((this.cnt) ? 0 : 1) +'\n';
+        }
+        push(num){
+            const newNode = new Node(num);
+            if(this.cnt===0) {
+                this.head = newNode;
+                this.tail = newNode;
+            } else {
+                this.tail.next = newNode;
+                this.tail = this.tail.next;
+            }
+            this.cnt++;
+        }
+        pop(){
+            if(!this.head) {
+                answer += (-1)+'\n';
+                return ;
+            }
+
+            const temp = this.head;
+            this.head = this.head.next;
+            this.cnt--;
+            if(this.cnt===0){
+                this.tail = null;
+            }
+            answer += (temp.number )+'\n';
+        }
+        size(){
+            answer += (this.cnt)+'\n';
+        }
+    }
+    const queue = new Queue();
+
+    for(let i=0; i<input.length;i++){
+        const [command,number] = input[i].split(' ');
+        queue[command](number);
+    }
+
+    console.log(answer);
+</script>
+</body>
+</html>

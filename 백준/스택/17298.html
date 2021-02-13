@@ -7,30 +7,25 @@
 <body>
 <script>
     const input =`4
-3 1 2 4 5`.split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+1 1 2`.split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
     // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+    const stack = [input[0]];
+    let answer = Array(input.length).fill(-1);
 
-    const arr=Array(input.length);
-    arr[arr.length-1] = -1;
-    const temp = input.pop();
-    let [max, next] = [temp,temp];
+    for(let i=1; i<input.length;i++){
+        let cnt = 1;
 
-    for(let i=arr.length-2;i>=0;i--){
-        const peek = input.pop();
-
-        if(peek<next) {
-            arr[i] = next;
-            next = peek;
-            max = Math.max(next,max);
-        } else if(peek< max){
-            arr[i] = max;
-            next = peek;
-        } else {
-            arr[i] = -1;
-            [max,next] = [peek,peek];
+        while(stack[stack.length-1]<input[i]) {
+            if(answer[i-cnt]===-1) {
+                answer[i-cnt] = input[i];
+                stack.pop();
+            }
+            cnt++;
         }
+        stack.push(input[i]);
     }
-    console.log(arr);
+
+    console.log(answer.join(' '));
 </script>
 </body>
 </html>

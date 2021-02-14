@@ -6,22 +6,20 @@
 </head>
 <body>
 <script>
-    const input = Number(`10`);
-    // const input = Number(require("fs").readFileSync("/dev/stdin").toString().trim());
-
-    const arr = Array(input).fill().map((v,i)=>i+1);
-    const temp = Array(input).fill(true);
-    let i=0;
-    let cnt=0;
-    while(cnt<input-1){
-        if(temp[i]) {
-            temp[i]=false;
-            for(let i=i; i<temp.length;i++){
-                if()
-            }
-        }else temp[i]
+    const input = Number(`4`);
+    const input = Number(require("fs").readFileSync("/dev/stdin").toString().trim());
+    const arr = Array(input+1).fill().map((_,i)=>i);
+    const temp = Array(input+1).fill(true);
+    let cnt = 1;
+    for(let i=1;i+2<(input*2);i++){
+        if(temp[i] && i%2!==0){
+            temp[i] = false;
+        } else {
+            arr.push(arr[i]);
+            temp.push(true);
+        }
     }
-    console.log(arr[0]);
+    console.log(arr[arr.length-1]);
 </script>
 </body>
 </html>

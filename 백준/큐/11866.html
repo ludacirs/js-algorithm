@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>요세푸스 문제 0</title>
+</head>
+<body>
+<script>
+    const input =`7 3`.split(' ').map(v=>Number(v));
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>Number(v));
+
+    const arr = Array(input[0]).fill(true);
+    const answer = [];
+    let i = 0;
+    let cnt = input[1];
+    while (answer.length<input[0]){
+        if(arr[i]) cnt--;
+        if(cnt===0) {
+            cnt=input[1];
+            answer.push(i+1);
+            arr[i] = false;
+        }
+        i++;
+        if(i>arr.length-1) i=0;
+    }
+    console.log(`<${answer.join(', ')}>`);
+</script>
+</body>
+</html>

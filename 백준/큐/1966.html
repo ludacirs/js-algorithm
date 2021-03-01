@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>프린터 큐</title>
+</head>
+<body>
+<script>
+    const input = `3
+1 0
+5
+4 2
+1 2 3 4
+6 0
+1 1 9 1 1 1`.split('\n').map(v=>v.split(' ').map(v=>Number(v))).splice(1);
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v))).splice(1);
+
+    for(let i=0; i<input.length;i+=2){
+        const targetIdx = input[i][1];
+        const arr = [];
+        for(let j = 0; j< input[i][0];j++){
+            arr.push(input[i+1][j]);
+        }
+        console.log(solution(arr,targetIdx));
+    }
+
+    function solution(arr,idx){
+        let max = Math.max(...arr);
+        let cnt = 0;
+        let i = 0;
+        while (2){
+            if(arr[i]>=max) {
+                cnt++;
+                if(i===idx) return cnt;
+                arr[i]=-1;
+                max = Math.max(...arr);
+            }
+            if(i>=arr.length) i=0;
+            else i++;
+        }
+    }
+
+</script>
+</body>
+</html>

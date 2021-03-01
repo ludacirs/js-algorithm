@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>덱</title>
+</head>
+<body>
+<script>
+    const input = `15
+push_back 1
+push_front 2
+front
+back
+size
+empty
+pop_front
+pop_back
+pop_front
+size
+empty
+pop_back
+push_front 3
+empty
+front`.split('\n').map(v=>v.split(' ')).splice(1);
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ')).splice(1);
+
+    let answer = '';
+    class Node {
+        constructor(number) {
+            this.number = number;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+    class Deque{
+        constructor() {
+            this.head = null
+            this.tail = null;
+            this.length = 0;
+        }
+        push_front(number){
+            const newNode = new Node(number,null,null);
+
+            if(this.length === 0){
+                this.head = newNode;
+                this.tail = newNode;
+            } else{
+                this.head.prev = newNode;
+                newNode.next = this.head;
+                this.head = this.head.prev;
+            }
+            this.length++;
+        }
+        push_back(number){
+            const newNode = new Node(number,null,null);
+            if(this.length ===0){
+                this.head = newNode;
+                this.tail = newNode;
+            }
+            else{
+                this.tail.next = newNode;
+                newNode.prev = this.tail;
+                this.tail = this.tail.next;
+            }
+            this.length++;
+
+        }
+        front(){
+            answer += (this.head ? this.head.number : -1) + '\n';
+        }
+        back(){
+            answer += (this.tail ? this.tail.number : -1) + '\n';
+        }
+        pop_front(){
+            if(this.length===1){
+                answer += this.head.number +'\n';
+                this.head = null;
+                this.tail = null
+                this.length--;
+            } else
+            if(this.head) {
+                answer += this.head.number+'\n';
+                this.head = this.head.next;
+                this.head.prev = null;
+                this.length--;
+            } else answer += -1+'\n';
+        }
+        pop_back(){
+            if(this.length===1){
+                answer += this.tail.number +'\n';
+                this.head = null;
+                this.tail = null
+                this.length--;
+            } else
+            if(this.tail) {
+                answer += this.tail.number+'\n';
+                this.tail = this.tail.prev;
+                this.tail.next = null;
+                this.length--;
+            } else answer += -1+'\n';
+        }
+        size(){
+            answer += this.length+'\n';
+        }
+        empty(){
+            answer += (this.length ? 0 : 1) +'\n';
+        }
+    }
+    const deque = new Deque();
+
+    for(let i=0;i<input.length;i++){
+        const [command, number] = input[i];
+        deque[command](number);
+    }
+    console.log(answer);
+
+</script>
+</body>
+</html>

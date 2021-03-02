@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AC</title>
+</head>
+<body>
+<script>
+    const input =`4
+RDD
+4
+[1,2,3,4]
+DD
+1
+[42]
+RRD
+6
+[1,1,2,3,5,8]
+D
+0
+[]
+R
+0
+[]`.split('\n').slice(1);
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1);
+
+
+    while (input.length){
+        const orders = input.shift();
+        input.shift();
+        let arr = input.shift();
+        arr = arr.slice(1,arr.length-1).split(',').map(v=>parseInt(v,10));
+
+        arr = (arr[0]) ? arr : [];
+        console.log(ex(orders, arr));
+    }
+
+
+    function ex(orders,arr){
+        let revers = false;
+        let start_pointer = 0;
+        let end_pointer = arr.length;
+        for(v of orders){
+            if(v==='R') {
+                revers = !revers;
+            } else
+            if(v==='D') {
+                if(start_pointer>=end_pointer||!arr[start_pointer]) return 'error';
+                if(revers){
+                    end_pointer--;
+                } else start_pointer++;
+            }
+            // console.group();
+            // console.log('start',start_pointer);
+            // console.log('end',end_pointer);
+            // console.log('arr',arr);
+            // console.groupEnd();
+        }
+
+        const answer = arr.slice(start_pointer,end_pointer);
+
+
+        return revers ? `[${answer.reverse().join(',')}]` : `[${answer.join(',')}]`;
+    }
+
+
+
+
+</script>
+</body>
+</html>

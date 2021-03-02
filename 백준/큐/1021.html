@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회전하는 큐</title>
+</head>
+<body>
+<script>
+    const input = `10 10
+1 6 3 2 7 9 8 4 10 5`.split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+
+    const arr = Array(input[0][0]).fill().map((_,i)=>i+1);
+    const exList = input[1];
+    let cnt = 0;
+
+    for(let i=0; i<exList.length;i++){
+        if(exList[i] === arr[0]) {
+            arr.shift();
+            continue;
+        }
+        const dir = rightOrLeft(exList[i],arr);
+
+        if(dir ==='left'){
+            while (exList[i] !== arr[0]){
+                arr.unshift(arr.pop());
+                cnt++
+                console.log(arr);
+            }
+        } else if(dir ==='right') {
+            while (exList[i] !== arr[0]){
+                arr.push(arr.shift());
+                cnt++;
+                console.log(arr);
+            }
+        }
+        arr.shift();
+    }
+    console.log(cnt);
+
+    function rightOrLeft(elem, arr){
+        const right = arr.indexOf(elem);
+        const left = arr.length - arr.indexOf(elem);
+
+        return (right > left) ? 'left' : 'right';
+    }
+
+    // for(let i=0; i<arr.length;i++){
+    //     while(arr.indexOf(exList[i])){
+    //
+    //     }
+    //     arr.shift();
+    // }
+</script>
+</body>
+</html>

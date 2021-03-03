@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>색종이 만들기</title>
+</head>
+<body>
+<script>
+    const input = `8
+1 1 0 0 0 0 1 1
+1 1 0 0 0 0 1 1
+0 0 0 0 1 1 0 0
+0 0 0 0 1 1 0 0
+1 0 0 0 1 1 1 1
+0 1 0 0 1 1 1 1
+0 0 1 1 1 1 1 1
+0 0 1 1 1 1 1 1`.split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+
+    let blue = 0;
+    let white = 0;
+
+    (checkSquare([0,input.length-1],[0,input.length-1]));
+
+    console.log(white);
+    console.log(blue);
+
+    function checkSquare([rowStart, rowEnd], [colStart, colEnd]){
+        // const compareModel = new Array(8).fill().map(()=>new Array(8).fill().map(()=>-1));
+        let prev;
+        for(let i=rowStart; i<=rowEnd;i++){
+            for(let j=colStart; j<=colEnd;j++){
+                // compareModel[i][j] = input[i][j];
+
+                if(prev === undefined) prev = input[i][j];
+                else if(prev !== input[i][j]) {
+                    const rowMid = Math.floor((rowEnd + rowStart) / 2);
+                    const colMid = Math.floor((colEnd + colStart) / 2);
+
+                    return checkSquare([rowStart, rowMid], [colStart, colMid]) + // 좌상
+                        checkSquare([rowMid + 1, rowEnd], [colStart, colMid]) + // 좌하
+                        checkSquare([rowStart, rowMid], [colMid + 1, colEnd]) + // 우상
+                        checkSquare([rowMid + 1, rowEnd], [colMid + 1, colEnd]); // 우하
+                }
+            }
+        }
+        if(prev === 1) blue ++;
+        else white  ++;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>쿼드트리</title>
+</head>
+<body>
+<script>
+    const input =`8
+00
+00`.split('\n').map(v=>v.split('').map(v=>Number(v))).slice(1);
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split('').map(v=>Number(v))).slice(1);
+
+    const N = input.length;
+    let answer = '';
+
+    checkSquare(0,0,N);
+
+    console.log(answer);
+    function checkSquare(row, col ,size){
+
+
+        let prev;
+        for(let i=col;i<col+size;i++){
+            for(let j=row; j<row+size;j++){
+
+                if(prev===undefined) prev = input[i][j];
+                else if(prev!==input[i][j]) {
+                    answer += '(';
+
+                    const resized = size/2;
+                    checkSquare(row, col, resized); // 좌상
+                    checkSquare(row+resized, col, resized); // 좌하
+                    checkSquare(row, col+resized, resized); // 우상
+                    checkSquare(row+resized, col+resized, resized); // 우하
+                    answer += ')';
+                    return ;
+                }
+
+            }
+        }
+
+        return answer+= `${prev}`;
+    }
+
+</script>
+</body>
+</html>

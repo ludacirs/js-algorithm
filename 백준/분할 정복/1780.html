@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>종이의 개수</title>
+</head>
+<body>
+<script>
+    const input = `9
+0 0 0 1 1 1 -1 -1 -1
+0 0 0 1 1 1 -1 -1 -1
+0 0 0 1 1 1 -1 -1 -1
+1 1 1 0 0 0 0 0 0
+1 1 1 0 0 0 0 0 0
+1 1 1 0 0 0 0 0 0
+0 1 -1 0 1 -1 0 1 -1
+0 -1 1 0 1 -1 0 1 -1
+0 1 -1 1 0 -1 0 1 -1`.split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v))).slice(1);
+
+
+    let [m,z,p] = [0,0,0];
+    const N = input.length;
+
+    sameSquare(0,0, N);
+
+    console.log(m+'\n'+z+'\n'+p);
+    function sameSquare(row, col, size){
+
+        let prev = input[row][col];
+        for(let i = row; i<row+size;i++){
+            for(let j = col; j<col+size; j++){
+                if(prev !== input[i][j]){
+                    const resized = size/3;
+                    // sameSquare(row,col,resized);
+                    // sameSquare(row,col+resized,resized);
+                    // sameSquare(row,col+resized+resized,resized);
+                    // sameSquare(row+resized,col,resized);
+                    // sameSquare(row+resized,col+resized,resized);
+                    // sameSquare(row+resized,col+resized+resized,resized);
+                    // sameSquare(row+resized+resized,col,resized);
+                    // sameSquare(row+resized+resized,col+resized,resized);
+                    // sameSquare(row+resized+resized,col+resized+resized,resized);
+                    for(let i = 0; i<3; i++){
+                        for(let j = 0; j<3; j++){
+                            sameSquare(row+(resized*i),col+(resized*j),resized);
+                        }
+                    }
+                    return ;
+                }
+            }
+        }
+        if(prev === 1) p++;
+        else if(prev === 0) z++;
+        else if(prev === -1) m++;
+    }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

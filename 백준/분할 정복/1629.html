@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>곱셈</title>
+</head>
+<body>2147483647
+<script>
+    const input = `19 3 2`.split(' ').map(v=>BigInt(v));
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>BigInt(v));
+
+    const [A,B,C] = input;
+
+    console.log(recursive(A%C,B).toString());
+
+    function recursive(A,B){
+        if(B===1n) return A%C;
+
+        let temp = recursive(A,B/2n);
+
+        return B%2n===0n ? (temp * temp)%C : ((temp * temp)%C * A)%C;
+    }
+</script>
+
+</body>
+</html>

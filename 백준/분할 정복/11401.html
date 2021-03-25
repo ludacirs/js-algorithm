@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이항 계수</title>
+</head>
+<body>
+<script>
+    const input = `5 2`.split(' ').map(v=>BigInt(v));
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>BigInt(v));
+
+    const p = 1000000007n;
+    const [N,K] = input;
+    const cache = [1n,1n];
+
+    for(let i=2n;i<=N;i++) {
+        cache[i] = (cache[i - 1n] * i)%p;
+    }
+
+    // const A = cache[N];
+    // const B = powToP(K,p-2n);
+    //
+    // console.log(A);
+    // console.log(B);
+
+
+</script>
+</body>
+</html>

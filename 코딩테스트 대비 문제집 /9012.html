@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>괄호</title>
+</head>
+<body>
+<script>
+    const input = `6
+(())())
+(((()())()
+(()())((()))
+((()()(()))(((())))()
+()()()()(()()())()
+(()((())()(`.split('\n').slice(1);
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1);
+
+
+    let  answer = '';
+    for(let v of input){
+        answer += (checkVPS(v)? 'YES': 'NO') + '\n';
+    }
+
+    console.log(answer);
+
+    function checkVPS(ps){
+        const stack = [];
+
+        for(let v of ps){
+            if(v ===')') {
+                if(stack[stack.length-1] === '(') stack.pop();
+                else return false;
+            }
+            else if(v==='('){
+                stack.push(v);
+            }
+        }
+        return !stack.length;
+
+    }
+
+
+</script>
+</body>
+</html>

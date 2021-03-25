@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>행렬 곱셈</title>
+</head>
+<body>
+<script>
+    const input = `3 2
+1 2
+3 4
+5 6
+2 3
+-1 -2 0
+0 0 3`.split('\n').map(x=>x.split(' ').map(x=>+x));
+    const [N, M] = input.shift();
+    const [, K] = input.splice(N, 1).shift();
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)));
+
+    console.log(N,M,K);
+    // const A = input.slice(1,input[0][1]+2);
+    // const B = input.slice(input[0][1]+3,input.length);
+    // const C = Array(A.length).fill().map(()=>Array(B[0].length).fill(0));
+    // console.log(C);
+    //
+    // // for (let i=0; i<A.length;i++){
+    // //     for (let j=0; j<B[0].length;j++){
+    // //         for (let k=0; k<A[0].length;k++){
+    // //             C[i][j] += A[i][k] * B[k][j];
+    // //         }
+    // //     }
+    // // }
+    //
+    // let answer = '';
+    //
+    // C.forEach(v=>answer += v.join(' ')+'\n');
+    //
+    // console.log(answer);
+
+</script>
+</body>
+</html>

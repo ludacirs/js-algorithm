@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>요세푸스 문제</title>
+</head>
+<body>
+<script>
+    const input = `7 3`.split(' ').map(v=>Number(v));
+
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split(' ').map(v=>Number(v));
+    //
+    const [N, K] = input;
+    const arr = Array(N).fill(true);
+    const answer = [];
+    let current = -1;
+    let moveCount = K;
+
+    while (answer.length!==N){
+        current++;
+        if(current >= arr.length) current = 0;
+
+        if(arr[current]) {
+            moveCount--;
+            if(moveCount===0) {
+                answer.push(current+1);
+                arr[current] = false;
+                moveCount = K;
+            }
+        }
+    }
+
+    console.log('<'+answer.join(', ')+'>');
+    const arr = Array(N).fill().map((_,i)=>i+1);
+    let index = 0;
+    while (arr.length){
+        index += K-1;
+        if(index>=arr.length) index = index%arr.length;
+        answer.push(arr[index]);
+        arr.splice(index,1);
+    }
+
+    console.log(answer);
+</script>
+</body>
+</html>

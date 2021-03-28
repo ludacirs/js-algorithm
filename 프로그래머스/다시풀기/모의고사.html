@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution([1,2,3,4,5]));
+    function solution(answers) {
+        var answer = [];
+        const first = [1,2,3,4,5];
+        const second = [2, 1, 2, 3, 2, 4, 2, 5];
+        const third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+        const scores = []
+
+        scores.push(answers.reduce((acc, value, index) => {
+            if(index>=first.length) index= index%first.length;
+            if(value === first[index]) return acc+1;
+            return acc;
+        },0));
+        scores.push(answers.reduce((acc, value, index) => {
+            if(index>=second.length) index= index%second.length;
+            if(value === second[index]) return acc+1;
+            return acc;
+        },0));
+        scores.push(answers.reduce((acc, value, index) => {
+            if(index>=third.length) index= index%third.length;
+            if(value === third[index]) return acc+1;
+            return acc;
+        },0));
+
+        const max = Math.max(...scores);
+
+        console.log(scores)
+        for(let i=0; i<scores.length; i++){
+            if(scores[i]===max) answer.push(i+1);
+        }
+
+        return answer;
+    }
+</script>
+</body>
+</html>

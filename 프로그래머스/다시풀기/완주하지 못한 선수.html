@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>완주하지 못한 선수</title>
+</head>
+<body>
+<script>
+
+    console.log(solution(["mislav", "stanko", "mislav", "ana"],["stanko", "ana", "mislav"]));
+
+    function solution(participant, completion) {
+        let answer = '';
+
+        participant.sort();
+        completion.sort();
+
+
+        console.log(participant);
+        console.log(completion);
+        while(participant.length){
+             if(participant[participant.length-1] === completion[completion.length-1]){
+                 participant.pop();
+                 completion.pop();
+             } else {
+                 answer += participant.pop();
+             }
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

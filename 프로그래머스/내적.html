@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution([1,2,3,4], [-3,-1,0,2]	));
+    function solution(a, b) {
+        var answer = 1234567890;
+        answer = a.reduce((acc,v,i)=>{
+            return acc + v * b[i];
+        },0);
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>신규 아이디 추천</title>
+</head>
+<body>
+
+<script>
+
+    const input = ["...!@BaT#*..y.abcdefghijklm", "z-+.^.", "=.=", "123_.def", "abcdefghijklmn.p"];
+
+    input.forEach(v=>{
+        console.log(solution(v));
+    });
+
+
+
+    function solution(new_id){
+        const answer = new_id
+            .toLowerCase()
+            .replace(/[^\w-.]/g,'') // -, _, .와 문자를 제외한 모든 것들을 제거
+            .replace(/(\.+)/g,'.')
+            .replace(/^\.|\.$/g, '')
+            .replace(/^$/,'a')
+            .slice(0,15).replace(/\.$/g, '');
+        return answer.length <=2 ? answer.padEnd(3, answer.charAt(answer.length-1)) : answer;
+    }
+
+
+    // function fourth(answer) {
+    //     if(answer.endsWith('.')) answer = answer.slice(0,answer.length-1);
+    //     if(answer.startsWith('.')) answer = answer.slice(1);
+    //     return answer;
+    // }
+    //
+    // function solution(new_id) {
+    //     var answer = '';
+    //
+    //     // 1st
+    //     new_id = new_id.toLowerCase();
+    //
+    //     // 2nd
+    //     //빼기(-), 밑줄(_), 마침표(.)
+    //     answer = new_id.replace(/[\~\!\@\#\$\%\^\&\*\(\)\=\+\[\{\]\}\:\?\,\<\>\/]/g,'');
+    //
+    //     // 3rd
+    //     answer = answer.replace(/(\.+)/g, '.');
+    //
+    //
+    //     // 4th
+    //     answer = fourth(answer);
+    //
+    //     // 5th
+    //     if(answer.length===0) answer += 'a';
+    //
+    //
+    //     // 6th
+    //     if(answer.length>=16) {
+    //         answer = answer.slice(0,15);
+    //         answer = fourth(answer);
+    //     }
+    //
+    //     // 7th
+    //     if(answer.length<=2){
+    //         answer = answer.padEnd(3,answer[answer.length-1]);
+    //     }
+    //
+    //     return answer;
+    // }
+
+</script>
+</body>
+</html>

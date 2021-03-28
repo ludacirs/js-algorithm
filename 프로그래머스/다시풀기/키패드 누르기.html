@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left"));
+
+    function solution(numbers, hand) {
+        var answer = '';
+        const keyPad = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+            ['*',0,'#']
+        ];
+        let leftPosition = {x : 3,y : 0};
+        let rightPosition = {x : 3,y : 2};
+
+
+
+        for(let number of numbers){
+            const keyPadPosition = getPosition(number);
+
+            // console.log('leftPosition',leftPosition);
+            // console.log('rightPosition',rightPosition);
+            if(number === 1|| number === 4 || number === 7) {
+                leftPosition = {...keyPadPosition};
+                answer += 'L';
+                continue;
+            }
+
+            if(number === 3|| number === 6|| number === 9) {
+                rightPosition = {...keyPadPosition};
+                answer += 'R';
+                continue;
+            }
+
+            const rightDistance = getDistance(rightPosition, keyPadPosition);
+            const leftDistance = getDistance(leftPosition, keyPadPosition);
+
+            console.group('DistanceCompare');
+            if(rightDistance > leftDistance) {
+                console.log('rightDistance > leftDistance')
+                console.log('rightDistance',rightDistance);
+                console.log('leftDistance',leftDistance);
+                leftPosition = {...keyPadPosition};
+                answer += 'L';
+            } else if (rightDistance < leftDistance){
+                console.log('rightDistance < leftPosition')
+                console.log('rightDistance',rightDistance);
+                console.log('leftDistance',leftDistance);
+                rightPosition = {...keyPadPosition};
+                answer += 'R';
+            } else if( hand === 'right') {
+                console.log('same')
+                console.log('rightDistance',rightDistance);
+                console.log('leftDistance',leftDistance);
+                rightPosition = {...keyPadPosition};
+                answer += 'R';
+            } else {
+                console.log('same')
+                console.log('rightDistance',rightDistance);
+                console.log('leftDistance',leftDistance);
+                leftPosition = {...keyPadPosition};
+                answer += 'L';
+            }
+            console.groupEnd()
+        }
+
+        function getPosition(number) {
+            for(let i = 0; i < 4; i++){
+                for(let j=0; j < 3; j++){
+                    if(keyPad[i][j]===number) return {x:i,y:j};
+                }
+            }
+        }
+
+        function getDistance(handPosition, keyPadPosition) {
+            return Math.abs(handPosition.x - keyPadPosition.x)+ Math.abs(handPosition.y-keyPadPosition.y);
+        }
+
+        return answer;
+    }
+</script>
+</body>
+</html>

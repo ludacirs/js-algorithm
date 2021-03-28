@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const words = ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"];
+    // const words = ["hello", "observe", "effect", "take", "either", "recognize", "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"];
+    // const words = ["hello", "one", "even", "never", "now", "world", "draw"];
+    const n = 3;
+    const stack = [];
+
+
+    console.log(solution(n,words));
+
+
+    function solution(n, words) {
+        for(let word of words){
+            if(!stack.length) {
+                stack.push(word);
+                continue;
+            }
+            const lastWord = stack[stack.length-1];
+
+            if(lastWord[lastWord.length-1] === word[0] && !stack.includes(word)){
+                stack.push(word);
+            } else  return [stack.length%n+1, Math.floor(stack.length/n)+1];
+        }
+        return [0,0];
+    }
+</script>
+</body>
+</html>

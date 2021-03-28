@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution(5, [2,4], [1,3,5]));
+
+    function solution(n, lost, reserve) {
+        var answer = 0;
+        const students = Array(n).fill(0)
+
+        lost.forEach(v=>students[v-1]--);
+
+        reserve.forEach(v=>students[v-1]++);
+
+
+        for(let i=0; i<students.length;i++){
+            lent(i, i-1);
+            lent(i ,i+1);
+
+        }
+        console.log(students);
+
+        function lent(me,side) {
+            if(students[me]===-1&&students[side]===1){
+                students[me] = 0;
+                students[side] = 0;
+            }
+        }
+
+        students.forEach(v=>{
+            if(v>=0) answer++;
+        });
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([3,3,3,2,2,4]));
+    function solution(nums) {
+        var answer = 0;
+        const max = new Set(nums).size;
+        const le = Math.floor(nums.length/2);
+        answer = max >= le ? le : max;
+        return answer;
+    }
+</script>
+</body>
+</html>

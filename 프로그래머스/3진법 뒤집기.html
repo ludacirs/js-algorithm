@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(78413450));
+    function solution(n) {
+        var answer = 0;
+        let ternary = n.toString(3).split('').join('');
+        let i = 0;
+        for(let v of ternary){
+            answer+= v*Math.pow(3,i++);
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution(18));
+    function solution(n) {
+        var answer = '';
+
+        while(n>0){
+            if(n%3===0){
+                answer = 4+answer;
+                n = Math.floor(n/3) - 1;
+                continue;
+            }
+            answer = n%3 + answer;
+            n = Math.floor(n/3);
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

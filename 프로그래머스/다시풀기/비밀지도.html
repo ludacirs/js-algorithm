@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(6, [46, 33, 33, 22, 31, 50], [27, 56, 19, 14, 14, 10]));
+    function solution(n, arr1, arr2) {
+        var answer = [];
+        const binArr1 = arr1.map(v=>v.toString(2).padStart(n,'0'));
+        const binArr2 = arr2.map(v=>v.toString(2).padStart(n,'0'));
+
+        console.log(binArr1)
+        console.log(binArr2)
+
+        const decodeArr = Array(n).fill().map((_,x)=>Array(n).fill(' ').map((_,y)=> {
+            return (binArr1[x][y]==='1'|| binArr2[x][y] === '1') ? '#' : ' ';
+
+        }));
+
+        answer = decodeArr.map(v=>v.join(''));
+        return answer;
+    }
+</script>
+</body>
+</html>

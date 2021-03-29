@@ -6,12 +6,33 @@
 </head>
 <body>
 <script>
-    const dartResult = '1S2D*3T';
-    let answer;
 
-    const token = dartResult.split('');
+    console.log(solution('1D2S3T*'));
+    function solution(dartResult) {
+        var answer = 0;
+        const split = dartResult.match(/(\d+[a-z][*-/#]?)/gi);
+        const bonuses = {S : 1, D:2, T: 3};
+        let scores = [];
 
+        for(let i=0; i<split.length;i++){
+            const temp = split[i];
+            const number = temp.match(/\d+/g);
+            const bonus = bonuses[temp.match(/[a-z]/gi)];
+            const option = (temp.match(/[#,*]/) || [])[0];
 
+            scores.push(Math.pow(number,bonus));
+
+            if(option === '*'){
+                scores = scores.map((value,index)=>{
+                    return (index===i || index ===i-1) ? value*2 : value;
+                })
+            } else if( option === '#'){
+                scores[scores.length-1] *= -1;
+            }
+        }
+        answer = (scores.reduce((acc,v)=>acc+v,0));
+        return answer;
+    }
 </script>
 </body>
 </html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution('123'));
+
+
+
+    function isPrime(number) {
+        if(number<2) return false;
+        for(let i =2; i*i<=number;i++){
+            if(number%i===0) return false;
+        }
+        console.log(number)
+        return true;
+    }
+
+    function solution(numbers) {
+        var answer = 0 ;
+        const set = new Set();
+        const arr = Array(numbers.length).fill(true);
+        recursive(0, []);
+
+        for(let v of set){
+            if(isPrime(v)) answer++;
+        }
+        function recursive(depth, number){
+            for(let i=depth; i<numbers.length;i++){
+                if(arr[i]) {
+                    number.push(numbers[i]);
+                    arr[i] = false;
+                    set.add(Number(number.join('')));
+                    recursive(0, number);
+                    number.pop();
+                    arr[i] = true;
+                }
+            }
+
+        }
+        return answer;
+    }
+
+
+</script>
+123
+1234
+123
+</body>
+</html>

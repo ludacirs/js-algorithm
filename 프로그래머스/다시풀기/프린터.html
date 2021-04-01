@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([2, 1, 3, 2],2));
+    function solution(priorities, location) {
+        var answer = 0;
+
+        const locationArr = Array(priorities.length).fill().map((_,i)=>i);
+
+        console.log(locationArr);
+
+        while (priorities.length){
+            const temp = priorities.shift();
+            const printedLocation = locationArr.shift();
+
+            if(priorities.some(v=>v>temp)){
+                priorities.push(temp);
+                locationArr.push(printedLocation);
+                continue;
+            }
+            answer++;
+            if(printedLocation===location) break;
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // console.log(solution("aabbaccc"));
+    // console.log(solution("ababcdcdababcdcd"));
+    // console.log(solution("abcabcdede"));
+    console.log(solution("a"));
+
+    function solution(s) {
+        var answer = 0;
+        if(s.length===1) return 1;
+        const arr = [];
+
+        for(let i=1; i<=Math.floor(s.length/2);i++){
+            arr.push(sub(i,s).length);
+        }
+
+        answer = Math.min(...arr);
+        return answer;
+    }
+
+
+    function sub(i,s){
+        let cnt = 0;
+        let str = '';
+        let char = s.slice(0,i);
+
+
+        for(let j=i; j<s.length;j+=i){
+            const temp = s.slice(j,i+j);
+
+            if(char===temp){
+                cnt++;
+            } else {
+                str += strCompress(char,cnt);
+                char = temp;
+                cnt = 0;
+            }
+        }
+        str += strCompress(char,cnt);
+        return str;
+    }
+
+    function strCompress(char, cnt){
+        return char + (cnt ? cnt+1 : '');
+    }
+</script>
+</body>
+</html>

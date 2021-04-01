@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution("CBD", ["BACDE", "CBADF", "AECB", "BDA"]));
+    function solution(skill, skill_trees) {
+
+        const answer = skill_trees.map(value=>{
+            let idx = 0;
+            for(let v of skill){
+                const temp = value.indexOf(v);
+                if(idx===-1&& temp >=0) return false;
+                if(idx <= temp || temp===-1) idx = temp;
+                else return false;
+            }
+            return true;
+        }).reduce((acc,v)=>v? acc+1: acc,0);
+
+        return answer;
+    }
+</script>
+</body>
+</html>

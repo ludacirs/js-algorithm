@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([93, 30, 55],[1, 30, 5]));
+    function solution(progresses, speeds) {
+        var answer = [];
+
+        const completeDate = progresses.map((v,i)=> {
+            const remain = 100-v;
+
+            return (remain%speeds[i]===0) ? remain/speeds[i] : Math.ceil(remain/speeds[i]);
+        });
+        let cnt = 1;
+        let temp = completeDate.shift();
+
+        while (completeDate.length){
+            if(temp>=completeDate[0]){
+                completeDate.shift();
+                cnt++;
+            } else {
+                answer.push(cnt);
+                temp = completeDate.shift();
+                cnt = 1;
+            }
+        }
+        answer.push(cnt);
+
+        return answer;
+    }
+</script>
+</body>
+</html>

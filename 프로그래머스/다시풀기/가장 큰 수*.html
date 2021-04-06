@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    console.log(solution([3, 30, 34, 5, 9]));
+    function solution(numbers) {
+        var answer = '';
+
+        const answers = numbers.map(v=>v.toString()).sort((a, b) => {
+            return (b+a)-(a+b);
+        });
+        answer = answers.join('');
+        return answer[0]==='0'? '0': answer;
+    }
+
+</script>
+</body>
+</html>

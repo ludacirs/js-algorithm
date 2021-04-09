@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution("())("));
+
+    function solution(p) {
+        return uvSplit(p);
+    }
+
+    function uvSplit(str){
+        if(str.length===0) return '';
+        let index = lrCount(str);
+        const u = str.slice(0,index);
+        const v = str.slice(index,str.length);
+
+        if(isPerfect(u)){
+            return u + uvSplit(v);
+        } else {
+            let temp = '(';
+            temp = temp.concat(uvSplit(v)) + ')';
+            temp = temp.concat(u.slice(1,u.length-1).split('').map(v=>v===')' ? '(' : ')').join(''));
+            return temp;
+        }
+
+    }
+
+    function lrCount(p){
+        for(let i=2; i<=p.length;i+=2){
+            let left = 0;
+            let right = 0;
+
+            for(let v of p.slice(0,i)){
+                if('('===v) left++;
+                else right++;
+            }
+            if(left===right) {
+                return i;
+            }
+        }
+        return false;
+    }
+
+
+
+    function isPerfect(str){
+        const stack = [];
+        for(let i=0; i<str.length; i++){
+            const temp = str[i];
+            if(!stack[stack.length-1]) {
+                stack.push(temp);
+                continue;
+            }
+            if(stack[stack.length-1] === '(') {
+                if(temp===')') stack.pop();
+                else stack.push(temp);
+                continue;
+            }
+            if(stack[stack.length-1]===')'){
+                return false;
+            }
+        }
+        return !stack.length;
+    }
+</script>
+</body>
+</html>

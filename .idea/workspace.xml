@@ -22,11 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210401">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/다시풀기/가장 큰 수*.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/다시풀기/삼각 달팽이*.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/다시풀기/조이스틱.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210406">
+      <change afterPath="$PROJECT_DIR$/프로그래머스/다시풀기/괄호 변환.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/다시풀기/조이스틱*.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/메뉴 리뉴얼.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/프로그래머스/다시풀기/조이스틱.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +197,8 @@
       <workItem from="1616737060804" duration="43656000" />
       <workItem from="1617082958148" duration="7280000" />
       <workItem from="1617275147918" duration="6963000" />
-      <workItem from="1617680011001" duration="12625000" />
+      <workItem from="1617680011001" duration="12741000" />
+      <workItem from="1617948094654" duration="11917000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609738006367</created>
@@ -443,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617282645843</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="update 20210406">
+      <created>1617702930671</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1617702930671</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +471,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210117" />
     <MESSAGE value="update 20210121" />
     <MESSAGE value="update 20210122" />
     <MESSAGE value="update 20210124&#10;&#10;카카오 커머스 테스트" />
@@ -487,13 +495,10 @@
     <MESSAGE value="update 20210329" />
     <MESSAGE value="update 20210330" />
     <MESSAGE value="update 20210401" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210401" />
+    <MESSAGE value="update 20210406" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210406" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="708" y="145" key="#Inspections" timestamp="1608790811445">
-      <screen x="0" y="25" width="1440" height="875" />
-    </state>
-    <state x="708" y="145" key="#Inspections/0.25.1440.875@0.25.1440.875" timestamp="1608790811445" />
     <state x="369" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616995614098">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -542,9 +547,9 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1610975360752" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1617275253081">
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1617953644665">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1617275253081" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1617953644665" />
   </component>
 </project>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"],[2,3,4]);
+    // console.log(solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"],[2,3,5]));
+    console.log(solution(["XYZ", "XWY", "WXA"],[2,3,4]));
+
+
+    function solution(orders, course) {
+        var answer = [];
+
+        answer = course.reduce((acc,size)=> {
+            const setMenus = {};
+            let max=0;
+            orders.forEach(menus => {
+                if(menus.length<size) return ;
+                let set = '';
+                countMenu(size,0);
+                function countMenu(size,idx){
+                    if(set.length===size){
+                        const setTemp = set.split('').sort().join('');
+                        setMenus[setTemp] ? setMenus[setTemp]++ : setMenus[setTemp] = 1;
+                        max = Math.max(setMenus[setTemp],max);
+                        return ;
+                    }
+                    for(let i=idx; i<menus.length;i++){
+                        if(!set.includes(menus[i])) {
+                            set = set.concat(menus[i]);
+                            countMenu(size,i+1);
+                            set = set.slice(0, set.length - 1);
+                        }
+                    }
+                }
+            });
+            console.log(setMenus);
+
+            let popMenus = [];
+
+            if(max>1){
+                popMenus = Object.keys(setMenus).filter(key=> setMenus[key]===max);
+            }
+
+            popMenus.forEach(v=> acc.push(v));
+
+            return acc;
+        },[]);
+
+
+        return answer.sort();
+    }
+
+
+
+</script>
+</body>
+</html>

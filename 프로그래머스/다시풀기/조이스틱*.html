@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // console.log(solution("JAN"));
+    function solution(name) {
+        var answer = 0;
+
+
+        answer = upDownMovementCnt(name) + sideMovementCnt(name);
+
+        return answer;
+    }
+    function upDownMovementCnt(name){
+        const startPoint = 65;
+        const endPoint = 90;
+
+        const arr = name.split('').map(v=>{
+            const e = Math.abs(v.charCodeAt(0)-endPoint)+1;
+            const s = Math.abs(v.charCodeAt(0)-startPoint);
+            return e < s ? e : s;
+        });
+
+        return arr.reduce((acc,v)=> acc+v,0);
+    }
+
+    function sideMovementCnt(name){
+        let minDis = name.length-1;
+
+        for(let i=1; i< name.length; i++){
+            // 가운데 공백이 i부터 j일 경우의 최소 움직임
+            if(name[i]==='A') {
+                // 왼쪽 거리
+                const leftDis = i-1;
+
+                // 오른쪽 거리
+                let rightDis = 0;
+                for(let j=i+1;j<name.length;j++){
+                    if(name[j] !=='A') {
+                        rightDis = name.length - j;
+                        break;
+                    }
+                }
+                const tempDis = leftDis > rightDis ? rightDis * 2 + leftDis : rightDis + leftDis * 2;
+
+                minDis = Math.min(tempDis, minDis);
+            }
+        }
+        return minDis;
+    }
+
+
+</script>
+
+</body>
+</html>

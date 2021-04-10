@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([10,11,12,13]));
+    function solution(citations) {
+        citations = citations.sort(((a, b) => b-a));
+
+        for(let i=0; i<citations.length;i++){
+            if(i+1>citations[i]) return i;
+        }
+        return citations.length
+    }
+
+</script>
+</body>
+</html>

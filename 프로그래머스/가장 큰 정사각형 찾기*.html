@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([
+        [0,0,1,1],
+        [1,1,1,1]
+    ]));
+
+    function solution(board){
+        let answer = 1;
+
+        const number = Math.min(board.length,board[0].length);
+
+        for(let i = number; i>1; i--){
+            if(sliceArr(i)) return i*i;
+        }
+
+        function sliceArr(size){
+            for(let i=0; i<=board.length-size;i++){
+                for(let j=0; j<=board[i].length-size; j++){
+                    const arr = board.slice(i,i+size).map(v=>v.slice(j,j+size));
+                    if(checkArr(arr)) return true;
+                }
+            }
+            return false;
+        }
+
+        function checkArr(arr) {
+            let temp = arr[0][0];
+            for(let i=0; i<arr.length;i++){
+                for(let j=0; j<arr[i].length;j++){
+                    if(temp!==arr[i][j]) return false;
+                }
+            }
+            return true;
+        }
+
+        return answer;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    solution(24,24);
+    function solution(brown, yellow) {
+        var answer = [];
+
+        answer = findWH(brown,yellow);
+
+        return answer;
+    }
+
+    function findWH(br, ye){
+        for(let i=1;i*i<=ye;i++){
+            if(ye%i===0) {
+                if (fn(br, i, ye/i) ) {
+                    return [(ye/i) + 2, i + 2];
+                }
+            }
+        }
+    }
+    function fn(number, height,width){
+        console.log(height,width);
+        return (height + width) * 2 + 4 === number;
+    }
+
+</script>
+</body>
+</html>

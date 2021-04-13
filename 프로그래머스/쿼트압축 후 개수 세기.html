@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(
+        [
+            [1,1,0,0],
+            [1,0,0,0],
+            [1,0,0,1],
+            [1,1,1,1]
+        ]
+    );
+    function solution(arr) {
+        var answer = [0, 0];
+
+        isAllSame([0,arr.length],[0,arr.length]);
+
+        function isAllSame([xStart, xEnd],[yStart,yEnd]){
+            let temp = arr[xStart][yStart];
+
+            for(let i = xStart;i< xEnd;i++){
+                for(let j = yStart; j<yEnd; j++) {
+                    if(temp !== arr[i][j]){
+                    // 좌상
+                    isAllSame([xStart, (xStart+xEnd)/2], [yStart, (yStart+yEnd)/2]);
+                    // 우상
+                    isAllSame([xStart, (xStart+xEnd)/2], [(yStart+yEnd)/2, yEnd]);
+                    // 좌하
+                    isAllSame([(xStart+xEnd)/2, xEnd], [yStart, (yStart+yEnd)/2]);
+                    // 우하
+                    isAllSame([(xStart+xEnd)/2, xEnd], [(yStart+yEnd)/2, yEnd]);
+                    return ;
+                    }
+                }
+            }
+            (temp === 0) ? answer[0]++ : answer[1]++;
+        }
+
+        console.log(answer)
+        return answer;
+    }
+
+</script>
+</body>
+</html>

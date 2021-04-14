@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(78));
+    function solution(n) {
+        const compared = getOne(n.toString(2));
+        while (true) {
+            n++;
+            if (check(n, compared)) return n;
+        }
+    }
+
+    function getOne(s) {
+        let cnt = 0;
+        for(let i=0; i<s.length;i++){
+            if(s[i]==='1') cnt++;
+        }
+        return cnt;
+    }
+
+    function check(digit,number){
+        return number === getOne(digit.toString(2));
+
+    }
+</script>
+</body>
+</html>

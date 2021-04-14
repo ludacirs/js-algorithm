@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution([
+        // [1]
+        [1,1],
+        [1,0],
+        // [1,1,1],
+        // [0,1,1],
+        // [0,1,1],
+        // [1,0,1,1,1],
+        // [1,0,1,0,1],
+        // [1,0,1,1,1],
+        // [1,1,1,1,1],
+        // [1,1,1,0,1]
+        ]
+    ));
+
+
+    function solution(maps) {
+        let answer = -1;
+        const moveTo = [
+            {x:0,y:1},
+            {x:0,y:-1},
+            {x:1,y:0},
+            {x:-1,y:0}
+        ]
+        const queue = [[0,0,1]];
+
+        while (queue.length){
+            const [MyY, MyX, cnt] = queue.shift();
+
+            if(MyY=== maps.length-1 && MyX===maps[0].length-1){
+                answer = cnt;
+                break;
+            }
+
+            for(let i=0; i<4;i++){
+                const {x, y} = moveTo[i];
+                const moveToX = MyX+x;
+                const moveToY = MyY+y;
+
+                if(moveToX<0 || moveToY<0 || moveToX>maps.length|| moveToY>maps.length-1){
+                    continue;
+                }
+                if(maps[moveToY][moveToX] ===2 || maps[moveToY][moveToX]===0){
+                    continue;
+                }
+                maps[moveToY][moveToX] = 2;
+                queue.push([moveToY, moveToX, cnt+1]);
+            }
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

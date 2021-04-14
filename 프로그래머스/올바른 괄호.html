@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("()");
+
+    function solution(s){
+        const stack = [];
+
+        for(let i=0; i<s.length;i++){
+            if(!stack.length) {
+                stack.push(s[i]);
+                continue;
+            }
+
+            if(s[i] === ')'){
+                if(stack[stack.length-1] === '(') {
+                    stack.pop();
+                    continue;
+                }
+                return false;
+            }
+            stack.push(s[i]);
+        }
+
+        return stack.length===0;
+    }
+</script>
+</body>
+</html>

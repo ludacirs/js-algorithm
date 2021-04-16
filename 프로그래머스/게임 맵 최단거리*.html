@@ -45,7 +45,7 @@
                 const moveToX = MyX+x;
                 const moveToY = MyY+y;
 
-                if(moveToX<0 || moveToY<0 || moveToX>maps.length|| moveToY>maps.length-1){
+                if(moveToX<0 || moveToY<0 || moveToX>maps[0].length|| moveToY>maps.length-1){
                     continue;
                 }
                 if(maps[moveToY][moveToX] ===2 || maps[moveToY][moveToX]===0){

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    solution("0-0");
+    function solution(expression) {
+        var answer = [];
+        let arr = expression.split(/(\-|\+|\*)/g);
+        const cycle = per(['*','+','-'],3);
+        arr = arr.map(v=>{
+            if(v==='-'||v==='+'||v==='*') return v;
+            return Number(v);
+        });
+
+        cycle.forEach(operator=>{
+           answer.push(operation(operator,arr));
+        });
+
+        console.log(answer);
+
+        return Math.max(...answer);
+    }
+
+    function operate(elem1, elem2, op) {
+        const functionObj = {
+            '*' : (a,b)=> a*b,
+            '+' : (a,b)=> a+b,
+            '-' : (a,b)=> a-b,
+        };
+        return functionObj[op](elem1,elem2);
+    }
+
+    function operation(operator, originalArr) {
+        const arr = [...originalArr];
+        for(let j=0; j<operator.length;j++){
+            let i = 1;
+            while (i<arr.length){
+                console.log(arr)
+                console.log(arr[i]);
+                if(arr[i]===operator[j]){
+                    const temp = operate(arr[i-1],arr[i+1],operator[j]);
+                    arr.splice(i,1);
+                    arr.splice(i,1);
+                    arr[i-1] = temp;
+                    continue;
+                }
+                i+=2;
+            }
+        }
+        return Math.abs(arr[0]);
+    }
+
+    function per(arr, selected){
+        const result = [];
+        if(selected ===1) return  arr.map(v=>[v]);
+
+        arr.forEach((value,index,array)=>{
+            let rest = [...array.slice(0,index),...array.slice(index+1)];
+            let combinations = per(rest,selected-1);
+            let combineArr = combinations.map(v=>[value,...v]);
+            result.push(...combineArr);
+        });
+        return result;
+    }
+</script>
+</body>
+</html>

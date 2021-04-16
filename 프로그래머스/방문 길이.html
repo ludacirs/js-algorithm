@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // solution("UDU");
+    // solution("LULLLLLLU");
+    solution('RRRRRRRRRR');
+    function solution(dirs) {
+        // 처음 좌표
+        const pos = [0,0];
+        // 문자에 따라 어디로 움직일지
+        const howToMove = {
+            'U' : ()=> pos[0]++,
+            'D' : ()=> pos[0]--,
+            'L' : ()=> pos[1]--,
+            'R' : ()=> pos[1]++,
+            'default' : ()=>{}
+        };
+        const set = new Set();
+
+        //명령어 반복
+        for(let i=0; i<dirs.length;i++) {
+            console.log(dirs[i]);
+            move(dirs[i]);
+        }
+
+        console.log(set);
+
+        // 경우의 수 / 2
+        return Math.floor(set.size/2);
+
+        // 범위를 넘어가면 다시 원 위치
+        function checkRange() {
+            if(pos[0]>5) {
+                pos[0] = 5;
+                return false;
+            }
+            if(pos[0]<-5){
+                pos[0] = -5;
+                return false;
+            }
+            if(pos[1]>5) {
+                pos[1] = 5;
+                return false;
+            }
+            if(pos[1]<-5){
+                pos[1] = -5;
+                return false;
+            }
+            return true;
+
+        }
+
+        function move(char){
+            // 이동하기 전 좌표를 기억
+            const prePos = [...pos];
+
+            // 이동
+            (howToMove[char] || howToMove['default'])();
+
+            // 범위를 넘어가면 이동하지 않음
+            if (!checkRange()) return ;
+
+            // 전 좌표 -> 이동 후 좌표 , 이동 후 좌표 -> 전 좌표 2가지
+            const go = prePos.concat(pos).join('');
+            const back = pos.concat(prePos).join('');
+
+            // 추가
+            set.add(go);
+            set.add(back);
+        }
+    }
+
+</script>
+</body>
+</html>

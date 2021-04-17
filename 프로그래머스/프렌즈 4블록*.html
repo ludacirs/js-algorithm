@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(5,6, [    'AAAAAA',
+        'BBAATB',
+        'BBAATB',
+        'JJJTAA',
+        'JJJTAA']);
+    // solution(2,2,[
+    //     "AA",
+    //     'AA'
+    // ])
+
+    function solution(m, n, board) {
+        var answer = 0;
+        const fourDir = [[0,0],[0,1],[1,0],[1,1]];
+        board = board.map(v=>v.split(''));
+        let changed = false;
+
+
+        while (true){
+            for(let i=0;i<m-1;i++) {
+                for (let j = 0; j < n - 1; j++) {
+                    if(board[i][j]!=='-') checkSides(i, j);
+                }
+            }
+            // console.log(JSON.parse(JSON.stringify(board)));
+            if(changed){
+                for(let i=m-1;i >=0;i--){
+                    for(let j=0; j<n;j++){
+                        if(board[i][j]>='a'&& board[i][j]<='z') board[i][j] = '-'
+                        else down(i,j);
+                    }
+                }
+                changed = false;
+            } else break;
+            // console.log(JSON.parse(JSON.stringify(board)));
+        }
+
+        // console.log(answer)
+        function down(i, j) {
+            for(let k=0; k+i<m-1; k++){
+                const char = board[i+k][j];
+
+                if(char>='A' && char<='Z') {
+                    if(board[i+1+k][j] ==='-'){
+                        board[i+k][j] = '-';
+                        board[i+1+k][j] = char;
+                    }
+                }
+            }
+        }
+
+        function checkSides(y, x) {
+            const sides = fourDir.map(v=>[v[0]+y,v[1]+x]);
+            for(let i =0; i<sides.length;i++){
+                const [py,px] = sides[i];
+                if(!isSame(board[y][x],board[py][px])) return ;
+            }
+            change(sides);
+        }
+        function change(arr){
+            arr.forEach(v=>{
+                const [y,x] = v;
+                if(board[y][x] === board[y][x].toLowerCase()) return ;
+                board[y][x] = board[y][x].toLowerCase();
+                answer++;
+                changed = true;
+            });
+
+        }
+
+        return answer;
+    }
+
+
+
+    function isSame(char1, char2){
+        return char1.toLowerCase() === char2.toLowerCase();
+    }
+
+
+
+</script>
+</body>
+</html>

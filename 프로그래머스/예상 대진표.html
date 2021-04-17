@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(8,4,5));
+
+    function solution(n,a,b){
+        let answer = 1;
+        while (true){
+            if(Math.abs(a-b)<=1 && Math.max(a,b)%2===0){
+                break;
+            }
+            a = Math.ceil(a/2);
+            b = Math.ceil(b/2);
+            answer++;
+        }
+        return answer
+    }
+</script>
+</body>
+</html>

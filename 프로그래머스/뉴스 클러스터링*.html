@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("FRANCE","french");
+    function solution(str1, str2) {
+        let arr1 = splitStr(str1);
+        let arr2 = splitStr(str2);
+
+        arr1 = removeSp(arr1).sort();
+        arr2 = removeSp(arr2).sort();
+
+        if(arr1.length===0&& arr2.length===0) return 65536;
+
+        //교집합
+        const interCnt = intersection(arr1,arr2);
+
+        //합집합
+        const unionCnt = arr1.concat(arr2).length - interCnt;
+
+        return Math.floor((interCnt/unionCnt)*65536);
+    }
+    function removeSp(arr){
+        return arr.filter(v=>v.search(/[^a-z]/gi)<0);
+    }
+
+    function intersection(arr11,arr22){
+        const interArr = [];
+        const arr1 = [...arr11];
+        const arr2 = [...arr22];
+
+        while(arr1.length&& arr2.length){
+            if(arr1[0] < arr2[0]){
+                arr1.shift();
+            } else if (arr1[0] > arr2[0]){
+                arr2.shift();
+            } else {
+                interArr.push(arr1.shift());
+                arr2.shift();
+            }
+        }
+        return interArr.length;
+
+    }
+
+    function splitStr(str){
+        str = str.toLowerCase();
+        const arr = [];
+        for(let i=0; i+1<str.length;i++){
+            arr.push(str.slice(i,i+2));
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>

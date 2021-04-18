@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]);
+
+    function matchIdToNickname(arr) {
+        const map = new Map();
+
+        for(let i=0;i<arr.length;i++){
+            if(arr[i].length ===3) {
+                map.set(arr[i][1],arr[i][2]);
+            }
+        }
+        return map;
+    }
+
+    function printLog(arr,users) {
+        const log = [];
+        for(let i=0; i<arr.length;i++){
+            if(arr[i][0] === 'Enter'){
+                log.push(`${users.get(arr[i][1])}님이 들어왔습니다.`);
+            } else if(arr[i][0] === 'Leave'){
+                log.push(`${users.get(arr[i][1])}님이 나갔습니다.`)
+            }
+        }
+        return log;
+    }
+
+    function solution(record) {
+        var answer = [];
+        const parsed = record.map(v=>v.split(' '));
+
+        const users = matchIdToNickname(parsed);
+
+        answer = printLog(parsed,users);
+
+        return answer;
+    }
+</script>
+</body>
+</html>

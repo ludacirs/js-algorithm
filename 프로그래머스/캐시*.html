@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    solution(0,["Jeju", "Pangyo", "NewYork", "newyork"])
+    function solution(cacheSize, cities) {
+        if(cacheSize===0) return cities.length*5;
+        var answer = 0;
+        cities = cities.map(v=>v.toLowerCase());
+
+        const queue = [];
+
+
+        for(let i=0;i< cities.length;i++){
+            const idx = queue.findIndex(city=> city===cities[i]);
+            if(idx!==-1){
+                answer++;
+                queue.splice(idx,1);
+                queue.push(cities[i]);
+                continue;
+            }
+            if(queue.length>=cacheSize){
+                queue.shift();
+            }
+            queue.push(cities[i]);
+            answer+=5;
+        }
+        console.log(queue)
+        console.log(answer)
+        return answer;
+    }
+</script>
+</body>
+</html>

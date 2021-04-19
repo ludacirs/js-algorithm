@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(	"TOBEORNOTTOBEORTOBEORNOT");
+    function solution(msg) {
+        var answer = [];
+        const expect = [20, 15, 2, 5, 15, 18, 14, 15, 20, 27, 29, 31, 36, 30, 32, 34];
+        //사전 사전 초기화 엌ㅋㅋㅋ
+        const dic = new Map();
+
+        for(let i= 1; i<27;i++){
+            dic.set(String.fromCharCode(64+i),i);
+        }
+
+
+        for(let i=0; i<msg.length;i++){
+            let temp = msg[i];
+            for(let j=i+1;j<msg.length;j++){
+                temp += msg[j];
+                i++
+                if(!dic.has(temp)){
+                    dic.set(temp, dic.size+1);
+                    i--;
+                    temp = temp.slice(0,temp.length-1);
+                    break;
+                }
+            }
+            answer.push(dic.get(temp));
+        }
+
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution("ABCDEFG"	, ["12:00,12:14,HELLO,D", "13:00,13:05,WORLD,D"]));
+
+    function changeMin(str) {
+        const hh_mm = str.split(':');
+        return (1 * hh_mm[0] * 60) + (1 * hh_mm[1]);
+    }
+
+    function concatN(codeArr,time) {
+        while (codeArr.findIndex(v=>v==='#')>=0){
+            const idx = codeArr.findIndex(v=>v==='#');
+            codeArr[idx-1]+= codeArr.splice(idx,1);
+        }
+        if(time){
+            while (codeArr.length<=time){
+                codeArr = codeArr.concat(codeArr);
+            }
+            codeArr = codeArr.splice(0,time);
+        }
+
+        return codeArr;
+    }
+
+    function compareCode(m, code) {
+
+        while (code.findIndex(v=>v === m[0])>=0){
+            let cnt = 0;
+            const idx = code.findIndex(v=>v === m[0]);
+
+            for(let i=0; i<m.length;i++) {
+                if (code[idx + i] === m[i]) {
+                    cnt++;
+                    code[idx+i] = '-';
+                } else break;
+            }
+            if(cnt===m.length) return m;
+        }
+        return null;
+    }
+
+    function solution(m, musicinfos) {
+        var answer = '';
+        if(!musicinfos.length) return '(None)';
+        //# 합치기
+        m = concatN(m.split(''));
+        // 길이와 이름을 담을 객체
+        const answers = [];
+        let max=0;
+        const arr = musicinfos.map((v)=> {
+            const [start, end, title, code] = v.split(',');
+            //재생 시간 구하기
+            const time = changeMin(end)-changeMin(start);
+
+            const codeArr =  concatN(code.split(''),time);
+
+            const cnt = compareCode(m,codeArr);
+
+            max = Math.max(max, cnt);
+            if(cnt) answers.push({title: title, time: time});
+
+        });
+
+        answers.sort((a, b) => {
+            if(a.time === b.time) return ;
+            return b.time - a.time;
+        });
+
+        return answers.length ? answers[0].title : '(None)';
+    }
+</script>
+</body>
+</html>

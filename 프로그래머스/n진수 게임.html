@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(2,4,2,1);
+
+    function solution(n, t, m, p) {
+        var answer = '';
+        let info = '';
+        let i=1;
+        while (info.length<t*m){
+            info+= i.toString(n);
+            i++;
+        }
+        console.log(info);
+
+        for(let i=0; i<t;i++){
+            answer += info[(p-1)+m*i];
+        }
+        console.log(answer.toUpperCase());
+
+        return answer;
+    }
+</script>
+</body>
+</html>

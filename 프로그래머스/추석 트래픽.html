@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(["2016-09-15 20:59:57.421 0.351s", "2016-09-15 20:59:58.233 1.181s", "2016-09-15 20:59:58.299 0.8s", "2016-09-15 20:59:58.688 1.041s", "2016-09-15 20:59:59.591 1.412s", "2016-09-15 21:00:00.464 1.466s", "2016-09-15 21:00:00.741 1.581s", "2016-09-15 21:00:00.748 2.31s", "2016-09-15 21:00:00.966 0.381s", "2016-09-15 21:00:02.066 2.62s"])
+
+    function changeSec(time) {
+        const arr = time.split(':');
+
+        return (1*arr[0]*3600) + (1*arr[1]*60) + (1*arr[2]);
+    }
+
+    function makeGraph(arr) {
+        const graph = [];
+        for(let i=0; i<arr.length; i++){
+            const endTime = changeSec(arr[i][1]);
+            const startTime = Number(((endTime+0.001) - parseFloat(arr[i][2])).toFixed(3));
+
+            graph.push({start: startTime, end : endTime});
+        }
+        return graph;
+    }
+
+
+
+    function interval(arr, idx) {
+        const startToSec = arr[idx].start;
+        const endToSec = arr[idx].end;
+
+        console.group(`${idx}번 째 시작 ${startToSec} 에서부터 1초간`);
+        const start  = searchSec(startToSec);
+        console.log(`${start}개 프로세스`);
+        console.groupEnd();
+
+        console.group(`${idx}번 째 끝 ${endToSec} 에서부터 1초간`)
+        const end = searchSec(endToSec);
+        console.log( `${end}개 프로세스`)
+        console.groupEnd();
+
+        return start> end ? start : end;
+
+        function searchSec(second) {
+            let cnt = 0;
+
+            // 시작시간이 지금보다 보다 빠른 것들을 대상
+            for(let i=0; i<idx;i++){
+                // 지금보다 보다 종료시간이 크거나 같으면 그 구간에 해당
+                if(arr[i].end>=second) {
+                    console.log(arr[i].end)
+                    cnt++;
+                }
+            }
+            for(let i=idx; i<arr.length;i++){
+                if(arr[i].start<second+1 && arr[i].end>=second) {
+                    console.log(arr[i].end);
+                    cnt++;
+                }
+            }
+            return cnt;
+        }
+    }
+
+    function solution(lines) {
+        var answer = 0;
+        lines = lines.map(v=>v.split(' '));
+        const timeGraph = makeGraph(lines);
+
+        console.log(timeGraph)
+        timeGraph.sort((a, b) => a.start-b.start);
+
+        for(let i=0; i<timeGraph.length;i++){
+            answer = Math.max(interval(timeGraph,i),answer);
+        }
+
+        console.log(answer)
+
+        return answer;
+    }
+</script>
+</body>
+</html>

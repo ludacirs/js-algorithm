@@ -22,11 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210418">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/n진수 게임.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/방금그곡.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/압축.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210419">
+      <change afterPath="$PROJECT_DIR$/프로그래머스/2 x n 타일링.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/N으로 표현.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/자물쇠와 열쇠.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/추석 트래픽.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/프로그래머스/n진수 게임.html" beforeDir="false" afterPath="$PROJECT_DIR$/프로그래머스/n진수 게임.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +209,8 @@
       <workItem from="1618676287715" duration="5658000" />
       <workItem from="1618730558218" duration="12905000" />
       <workItem from="1618745859729" duration="12107000" />
-      <workItem from="1618812445681" duration="6102000" />
+      <workItem from="1618812445681" duration="11466000" />
+      <workItem from="1618903602222" duration="24091000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609738006367</created>
@@ -510,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618757785943</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="update 20210419">
+      <created>1618819753519</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1618819753519</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +539,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210130" />
     <MESSAGE value="update 20210202" />
     <MESSAGE value="update 20210204" />
     <MESSAGE value="update 20210206" />
@@ -554,7 +563,8 @@
     <MESSAGE value="update 20210416" />
     <MESSAGE value="update 20210417" />
     <MESSAGE value="update 20210418" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210418" />
+    <MESSAGE value="update 20210419" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210419" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1618464312626">
@@ -569,10 +579,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="533" y="182" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1613214516759" />
-    <state x="144" y="99" width="1152" height="700" key="DiffContextDialog" timestamp="1618682584862">
+    <state x="144" y="99" width="1152" height="700" key="DiffContextDialog" timestamp="1618829183293">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="144" y="99" width="1152" height="700" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1618682584862" />
+    <state x="144" y="99" width="1152" height="700" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1618829183293" />
     <state x="476" y="169" key="RollbackChangesDialog" timestamp="1612594658574">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

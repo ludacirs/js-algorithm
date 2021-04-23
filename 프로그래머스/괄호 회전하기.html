@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("[](){}");
+
+    function isClosed(char) {
+        const expects = new Map().set(']','[').set('}','{').set(')','(');
+
+        return expects.get(char) || false;
+    }
+
+
+    function rotate(str){
+        str += str[0];
+        return str.slice(1,str.length);
+    }
+
+    function checkRight(str) {
+        const stack = [str[0]];
+
+        for(let i=1; i<str.length;i++){
+            const temp = str[i];
+            const lastElem = stack[stack.length-1];
+            const expect = isClosed(temp);
+
+            if(expect) {
+                if(lastElem === expect) stack.pop();
+                else return false;
+            } else stack.push(temp);
+        }
+        return !stack.length;
+    }
+
+    function solution(s) {
+        var answer = 0;
+
+        for(let i=0; i<s.length;i++){
+            s = rotate(s);
+            if(checkRight(s)) answer ++;
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function expect (answer, myAnswer){
+        if(answer===myAnswer) {
+            console.log('정답입니다')
+            return ;
+        }
+        console.log('기대값 :',answer);
+        console.log('결과값 :',myAnswer);
+    }
+    expect(500,solution([[0, 1], [1000, 1000]]));
+
+    function searchInTime(jobs,time) {
+        const arr = [];
+
+        while(jobs.findIndex(v=>v[0]===time)>=0){
+            const idx = jobs.findIndex(v=>v[0]===time);
+            arr.push(...jobs.splice(idx,1));
+        }
+
+        return arr;
+    }
+
+    function solution(jobs) {
+        var answer = 0;
+        let works = jobs.length;
+        let [time,current, requestTime] = [0,0,0];
+        let disc = searchInTime(jobs,0).sort();
+
+        while (disc.length||jobs.length||current>=0){
+            const arr = searchInTime(jobs,time);
+            if(arr.length>0){
+                disc.push(...arr);
+                disc = disc.sort((a, b) => a[1]-b[1]);
+            }
+            if(current===0){
+                answer+= time-requestTime;
+            }
+            if(current<=0&& disc.length) {
+                const temp = disc.shift();
+                requestTime = temp[0];
+                current = temp[1];
+            }
+            time++;
+            current--;
+        }
+        return Math.floor(answer/works);
+    }
+</script>
+</body>
+</html>

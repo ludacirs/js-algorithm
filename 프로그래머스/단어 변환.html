@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("hit",	"cog"	,["hot", "dot", "dog", "lot", "log",'cog'])
+
+
+
+    function solution(begin, target, words) {
+        var answer = 0;
+        const queue = [[begin]];
+        const pastWords = [];
+
+        while (words.includes(target)){
+            const temp = queue.shift();
+
+            if(temp.includes(target)||!temp.length) break;
+
+            for(let i=0; i<temp.length;i++){
+                pastWords.push(temp[i]);
+            }
+
+            queue.push(compareWord(temp,words));
+
+            answer++;
+        }
+        console.log(answer)
+        function compareWord(temp, words) {
+            const arr = [];
+            for(let i=0;i<temp.length;i++){
+                // 문자열 비교
+                for(let word of words){
+                    let cnt=0;
+
+                    for(let j=0; j<word.length;j++){
+                        if(temp[i][j]!==word[j]) cnt++;
+                    }
+                    if(cnt===1&& !pastWords.includes(word)) {
+                        arr.push(word);
+                        pastWords.push(word);
+                    }
+                }
+            }
+            return arr;
+        }
+
+        return answer;
+    }
+</script>
+</body>
+</html>

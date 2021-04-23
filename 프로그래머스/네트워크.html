@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(3,	[
+        [1, 1, 0],
+        [1, 1, 0],
+        [0, 0, 1]
+    ]);
+    function solution(n, computers) {
+        var answer = 0;
+        const networks = [];
+        const queue = [];
+
+        for(let i=0; i<n;i++){
+            if(-1!==networks.flatMap(v=>v).findIndex(v=>v===i))continue;
+            const network = [];
+            queue.push(i);
+            while (queue.length){
+                const temp = queue.shift();
+                network.push(temp);
+
+                for(let j=0;j<n;j++){
+                    if(computers[temp][j]===1 && !network.includes(j)&& j!==temp) {
+                        queue.push(j);
+                    }
+                }
+            }
+            networks.push(network);
+        }
+
+        console.log(networks)
+        return networks.length;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    solution(5000);
+    function solution(n) {
+        const battery = [0,1,1,2,1,2,2,3,1,2,2];
+        // for(let i =3; i<=n;i++){
+        //     battery[i] = Math.min(battery[i-1]+1, battery[i/2] || Infinity);
+        // }
+        let cnt = 0;
+        while (!battery.includes(n)) {
+            if (n % 2 === 0) {
+                n = n / 2;
+                continue;
+            }
+            n--;
+            cnt++;
+        }
+
+        return battery[n]+cnt;
+    }
+
+
+</script>
+</body>
+</html>

@@ -7,12 +7,12 @@
 <body>
 <script>
 
+    // for(let i =3; i<=n;i++){
+    //     battery[i] = Math.min(battery[i-1]+1, battery[i/2] || Infinity);
+    // }
     solution(5000);
     function solution(n) {
-        const battery = [0,1,1,2,1,2,2,3,1,2,2];
-        // for(let i =3; i<=n;i++){
-        //     battery[i] = Math.min(battery[i-1]+1, battery[i/2] || Infinity);
-        // }
+        const battery = [0,1,1];
         let cnt = 0;
         while (!battery.includes(n)) {
             if (n % 2 === 0) {

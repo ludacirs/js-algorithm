@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(5,[[1,2,1],[2,3,3],[5,2,2],[1,4,2],[5,3,1],[5,4,2]],3);
+
+    function solution(N, road, K) {
+        var answer = 0;
+        const dist = Array(N + 1).fill(Infinity);
+        dist[1] = 0;
+        const adj = Array(N+1).fill().map(()=>[]);
+        const check = [{to:1,weight: 0}];
+        road.map(v=>{
+            adj[v[0]].push({to:v[1],weight:v[2]});
+            adj[v[1]].push({to:v[0],weight:v[2]});
+        });
+
+        // 2 : 1
+        // 4 : 2
+
+        while (check.length){
+            const edge = check.pop();
+
+            adj[edge.to].forEach(next=>{
+                if(dist[next.to]> dist[edge.to]+next.weight){
+                    dist[next.to] = dist[edge.to]+next.weight;
+                    check.push(next);
+                }
+            });
+            check.sort((a, b) => b[2]-a[2]);
+        }
+
+        return dist.filter(v=>v>=K).length;
+    }
+
+</script>
+</body>
+</html>

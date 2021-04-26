@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(2,["hello", "one", "even", "never", "now", "world", "draw"]));
+    function solution(n, words) {
+        var answer = [1,1];
+        const set = new Set();
+        for(let i=0; i<words.length;i++){
+            const word = words[i];
+            const lastWord = words[i-1]|| false;
+            if(set.has(word)) {
+                return answer;
+            }
+            if(word[0]!==lastWord[lastWord.length-1] && lastWord){
+                console.log(word);
+                return answer;
+            }
+            set.add(word);
+
+            answer[0]++;
+
+            if(answer[0]>n) {
+                answer[1]++;
+                answer[0]%=n;
+            }
+        }
+        return [0,0];
+    }
+</script>
+</body>
+</html>

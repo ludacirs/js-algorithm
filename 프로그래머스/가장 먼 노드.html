@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+0: (2) [2, 1]
+1: (4) [2, 0, 3, 4]
+2: (4) [5, 3, 1, 0]
+3: (2) [2, 1]
+4: [1]
+5: [2]
+<script>
+    solution(6,[[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]);
+
+    function solution(n, edge) {
+        var answer = 0;
+        const adj = Array(n).fill().map(()=>[]);
+        const visited = Array(n).fill(true);
+        visited[0] = false;
+
+
+        edge.forEach(v=>{
+            adj[v[0]-1].push(v[1]-1);
+            adj[v[1]-1].push(v[0]-1);
+        });
+
+        const pq = [[0]];
+
+        while (pq.length){
+            const v = pq.shift();
+            const arr = fn(v);
+            if(arr.length) pq.push(arr);
+
+            answer = v.length;
+        }
+
+        function fn(v){
+            const arr = [];
+
+            for(let i=0; i< v.length;i++){
+                const current = v[i];
+                adj[current].forEach(value => {
+                    if(visited[value]){
+                        arr.push(value);
+                        visited[value] = false;
+                    }
+                });
+            }
+
+            return arr;
+
+        }
+
+
+        return answer;
+    }
+</script>
+</body>
+</html>

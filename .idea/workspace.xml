@@ -22,12 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210423">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/배달.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/섬 연결하기.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/영어 끝말잇기.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210426">
+      <change afterPath="$PROJECT_DIR$/프로그래머스/가장 먼 노드.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/단속카메라.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/프로그래머스/점프와 순간 이동.html" beforeDir="false" afterPath="$PROJECT_DIR$/프로그래머스/점프와 순간 이동.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +212,11 @@
       <workItem from="1619186345636" duration="2576000" />
       <workItem from="1619258798615" duration="5871000" />
       <workItem from="1619327134323" duration="3894000" />
-      <workItem from="1619416445406" duration="6557000" />
+      <workItem from="1619416445406" duration="9259000" />
+      <workItem from="1619591291927" duration="569000" />
+      <workItem from="1619594145800" duration="229000" />
+      <workItem from="1619595888649" duration="1000" />
+      <workItem from="1619601174223" duration="4714000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1609738006367</created>
@@ -538,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619170171506</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="update 20210426">
+      <created>1619427601147</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1619427601147</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +566,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210206" />
     <MESSAGE value="update 20210207" />
     <MESSAGE value="update 20210208" />
     <MESSAGE value="update 20210210" />
@@ -582,7 +590,8 @@
     <MESSAGE value="update 20210419" />
     <MESSAGE value="update 20210422" />
     <MESSAGE value="update 20210423" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210423" />
+    <MESSAGE value="update 20210426" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210426" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1618464312626">

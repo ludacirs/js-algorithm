@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"],["JFK", "HND"]]);
+    // solution([["ICN", "COO"], ["ICN", "BOO"], ["COO", "ICN"], ["BOO", "DOO"]]);
+    solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]);
+    function solution(tickets) {
+        var answer = ["ICN"];
+        const adj = {};
+        const visited = {};
+        const airports = new Set;
+        tickets.forEach(v=>{
+            adj[v[0]] ? adj[v[0]].push(v[1]) : adj[v[0]] = [v[1]];
+            airports.add(v[0]);
+            airports.add(v[1]);
+        });
+
+        airports.forEach(v=>{
+            // console.log(adj[v].length)
+            adj[v] ? adj[v].sort() : adj[v]=[];
+            visited[v] = Array(adj[v].length).fill(true);
+
+        });
+
+        answer = answer.concat(dfs('ICN',[]));
+
+        function dfs(airport, arr){
+            if(arr.length===tickets.length) {
+                return arr;
+            }
+
+            for(let i=0; i<adj[airport].length;i++){
+                if(visited[airport][i]){
+                    arr.push(adj[airport][i]);
+                    visited[airport][i] = false;
+                    if(dfs(adj[airport][i],arr)) return arr;
+                    visited[airport][i] = true;
+                    arr.pop();
+                }
+            }
+        }
+
+        return answer;
+    }
+</script>
+</body>
+</html>

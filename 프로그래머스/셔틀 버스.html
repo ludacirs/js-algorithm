@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function expected(myAnswer,solution){
+        if(myAnswer===solution) {
+            console.log('정답');
+            return ;
+        }
+        console.log('wrong test case');
+        console.log(`expected : ${solution}`);
+        console.log(`your answer : ${myAnswer}`);
+    }
+    // expected(solution(1,1,5,["08:00", "08:01", "08:02", "08:03"]),"09:00");
+    // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    // expected(solution(2,10,2,["09:10", "09:09", "08:00"]),"09:09");
+    // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    // expected(solution(2,1,2,["09:00", "09:00", "09:00", "09:00"]),"08:59");
+    // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    // expected(solution(1,1,5,["00:01", "00:01", "00:01", "00:01", "00:01"]),"00:00");
+    expected(solution(10,60,45,["23:59","23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59", "23:59"]),"18:00");
+
+
+    function transTime(time,option = true) {
+        if(option){
+            const [h,m] = time.split(':');
+            return h*60 + m*1
+        }
+        const [h,m] = [`${Math.floor(time/60)}`, `${time%60}`];
+
+        return `${h.length===1 ?'0'+h : h}:${m.length===1? '0'+m:m}`;
+    }
+
+    function makeBusTimes(cnt, time) {
+        const arr = [540];
+
+        while (cnt>1){
+            arr.push(arr[arr.length-1]+time);
+            cnt--;
+        }
+        return arr;
+    }
+
+
+    function findTime(minTable, busTimes, people) {
+        let lastTime;
+        let lastMin;
+        while (busTimes.length){
+            lastTime = busTimes.shift();
+            let cnt = people;
+
+            while (minTable.length && cnt>0){
+                if(minTable[0] > lastTime) break;
+                lastMin = minTable.shift();
+                cnt--;
+                if(!busTimes.length&& cnt===0) {
+                    return lastMin-1;
+                }
+            }
+        }
+
+        return lastTime;
+    }
+
+    function solution(n, t, m, timetable) {
+        var answer = '';
+        const minTable = timetable.map(v=>transTime(v));
+        const busTimes = makeBusTimes(n,t);
+
+        minTable.sort((a, b) => a-b);
+        busTimes.sort((a, b) => a-b);
+
+        answer = transTime(findTime(minTable,busTimes,m),false);
+
+        return answer;
+    }
+</script>
+</body>
+</html>

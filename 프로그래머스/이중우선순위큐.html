@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(["I 1", "I 2", "I 3", "I 4", "I 5", "I 6", "I 7", "I 8", "I 9", "I 10", "D 1", "D -1", "D 1", "D -1", "I 1", "I 2", "I 3", "I 4", "I 5", "I 6", "I 7", "I 8", "I 9", "I 10", "D 1", "D -1", "D 1", "D -1"]))
+    function solution(operations) {
+        var answer = [];
+
+        Array.prototype.push = function (number){
+            if(!answer.length) {
+                answer[0] = number;
+                return number
+            }
+
+            let childIdx = answer.length;
+            answer[childIdx] = number;
+            let parentIdx = Math.floor(childIdx-1/2);
+
+            while(answer[childIdx]<answer[parentIdx]){
+
+                const temp = answer[childIdx];
+                answer[childIdx] = answer[parentIdx];
+                answer[parentIdx] = temp;
+
+                childIdx = parentIdx;
+                parentIdx = Math.floor(childIdx-1/2);
+            }
+
+            return number;
+        }
+
+        Array.prototype.remove = function (option){
+            if(!answer.length) return ;
+            if(option===1) answer.pop();
+            else answer = answer.splice(1,answer.length);
+        }
+        operations.forEach(v=>{
+            const [oper, num] = v.split(' ');
+
+            if(oper==='I') answer.push(Number(num));
+            else if(num==='1') {
+                answer.remove(1);
+            }
+            else {
+                answer.remove(-1);
+            }
+        });
+
+
+        return answer.length ? [answer[answer.length-1],answer[0]] : [0,0];
+    }
+</script>
+</body>
+</html>

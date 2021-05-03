@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(["classic", "pop", "classic", "classic", "pop"],[500, 600, 150, 800, 2500]);
+    function solution(genres, plays) {
+        var answer = [];
+        const map = new Map();
+        for(let i=0; i<genres.length;i++){
+            if(!map.has(genres[i])) map.set(genres[i],[]);
+
+            map.get(genres[i]).push([i,plays[i]]);
+        }
+
+        const totalPlays = Array.from(map.keys()).map(v=>{
+
+            return [map.get(v).reduce((acc,v)=>Number(v[1])+acc,0),v];
+        });
+        console.log(totalPlays.sort((a, b) => b[0]-a[0]));
+
+        answer = totalPlays.map(v=>{
+            const arr = map.get(v[1]).sort((a, b) => b[1]-a[1]);
+
+            let i=0;
+            const temp = [];
+            while(i<2 && arr.length){
+                temp.push(arr.shift()[0]);
+                i++
+            }
+            return temp;
+        })
+
+
+
+
+        return answer.flatMap(v=>v);
+    }
+</script>
+</body>
+</html>

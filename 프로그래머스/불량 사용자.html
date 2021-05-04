@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(["frodo", "fradi", "crodo", "abc123", "frodoc"],	["fr*d*", "*rodo", "******", "******"]);
+    String.prototype.replaceAll = function(from, to) {
+        if(from instanceof RegExp)
+            if(!from.flags.includes)
+                throw new TypeError("replaceAll must be called with a global RegExp")
+            else
+                return this.replace(from, to);
+        else
+            return this.replace(new RegExp(from.replace(/[\\^$*+?.():=!|{},\[\]]/g, "\\$&"), "g"), to);
+    };
+    function solution(user_id, banned_id) {
+        var answer = new Set();
+        const regArr = banned_id.map(v=>[new RegExp(v.replaceAll('*','\\w')),v.length]);
+        const arr = regArr.map(reg=> user_id.filter(id=> id.search(reg[0])===0 && id.length===reg[1]));
+
+        const temp = [];
+
+
+        dfs(0);
+
+        console.log(answer)
+        function dfs(index){
+            if(temp.length===arr.length){
+                const sorted = [...temp];
+
+                answer.add(sorted.sort().join(''));
+                return ;
+            }
+
+            for(let j=0; j<arr[index].length;j++){
+                if(temp.includes(arr[index][j])) continue;
+                temp.push(arr[index][j]);
+                dfs(index+1);
+                temp.pop();
+            }
+        }
+
+        console.log('asdf'.replaceAll('s','a'));
+        return answer.size;
+    }
+</script>
+</body>
+</html>

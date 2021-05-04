@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(solution(["DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"]));
+    // function solution(gems) {
+    //     var answer = [];
+    //     const gemsLength = new Set(gems).size;
+    //     const map = new Map();
+    //
+    //     for(let i=0; i<gems.length;i++){
+    //         if(map.has(gems[i])) map.delete(gems[i]);
+    //         map.set(gems[i],i);
+    //
+    //         if(map.size === gemsLength) {
+    //             const temp = [map.values().next().value+1, i+1];
+    //             answer.push(temp);
+    //         }
+    //
+    //     }
+    //     answer.sort((a, b) => (a[1]-a[0]) - (b[1]-b[0]));
+    //     return answer[0];
+    // }
+    // 투 포인터
+
+    function solution(gems) {
+        let all = [...new Set(gems)];
+        let map = new Map();
+
+        let left = 0;
+        let right = 0;
+        let answer = [0, gems.length-1];
+        let check = true;
+
+        while(left<=right && right <= gems.length-1) {
+            if(check && all.length !== map.size) {
+                if(map.has(gems[right])) {
+                    map.set(gems[right], map.get(gems[right]) + 1);
+                }
+                else {
+                    map.set(gems[right], 1);
+                }
+            }
+            if(all.length === map.size) {
+                let [dx, dy] = answer;
+                if(dy-dx > right - left) {
+                    answer = [left, right]
+                }
+                else if(dy-dx === right - left && left < dx) {
+                    answer = [left, right]
+                }
+                if(map.get(gems[left]) === 1) {
+                    map.delete(gems[left]);
+                }
+                else {
+                    map.set(gems[left], map.get(gems[left]) - 1);
+                }
+                left +=1;
+                check = false;
+            }
+            else {
+                right += 1;
+                check = true;
+            }
+        }
+        let [x ,y] = answer;
+        return [x+1, y+ 1];
+    }
+
+
+</script>
+</body>
+</html>

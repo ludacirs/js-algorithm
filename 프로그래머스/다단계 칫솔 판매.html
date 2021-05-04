@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
+             ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
+        ["young", "john", "tod", "emily", "mary"],
+        [12, 4, 2, 5, 10]);
+    function solution(enroll, referral, seller, amount) {
+        const pyramid = new Map();
+        const map = new Map();
+        const answer = Array(enroll.length).fill(0);
+        enroll.forEach((v,i)=>{
+            map.set(v,i);
+            pyramid.set(v,referral[i]);
+        });
+
+        function payment(from, money) {
+            const to = pyramid.get(from);
+            const fee = Math.floor(money/10);
+            answer[map.get(from)] += money-fee;
+            if(to ==='-' || money < 10) return ;
+            payment(to,fee);
+
+        }
+
+        for(let i=enroll.length-1;i>=0;i--){
+            for(let j=0; j<seller.length;j++){
+                if(seller[j]===enroll[i]){
+                    payment(enroll[i], amount[j]*100);
+                }
+            }
+        }
+
+        return answer
+    }
+</script>
+</body>
+</html>

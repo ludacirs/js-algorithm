@@ -22,11 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210502">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/베스트 앨범.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/셔틀 버스.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/순위.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/이중우선순위큐.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210503">
+      <change afterPath="$PROJECT_DIR$/프로그래머스/다단계 칫솔 판매.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/보석 쇼핑.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/불량 사용자.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,14 +229,10 @@
       <workItem from="1619945705138" duration="1021000" />
       <workItem from="1619947433111" duration="3449000" />
       <workItem from="1619956025863" duration="4256000" />
-      <workItem from="1620019244191" duration="14863000" />
-    </task>
-    <task id="LOCAL-00001" summary="init">
-      <created>1609738006367</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609738006367</updated>
+      <workItem from="1620019244191" duration="15093000" />
+      <workItem from="1620040408413" duration="497000" />
+      <workItem from="1620040952814" duration="66000" />
+      <workItem from="1620050417572" duration="20931000" />
     </task>
     <task id="LOCAL-00002" summary="update 20210105">
       <created>1609840992246</created>
@@ -575,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619956050851</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="update 20210503">
+      <created>1620038204347</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1620038204348</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +596,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210210" />
     <MESSAGE value="update 20210213" />
     <MESSAGE value="update 20210214" />
     <MESSAGE value="update 20210301" />
@@ -619,7 +620,8 @@
     <MESSAGE value="update 20210426" />
     <MESSAGE value="update 20210428" />
     <MESSAGE value="update 20210502" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210502" />
+    <MESSAGE value="update 20210503" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210503" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1618464312626">
@@ -678,9 +680,9 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1618219150642" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1620029938688">
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1620130774559">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1620029938688" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1620130774559" />
   </component>
 </project>

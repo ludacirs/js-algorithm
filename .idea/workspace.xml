@@ -22,11 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210503">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/다단계 칫솔 판매.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/보석 쇼핑.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/불량 사용자.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210504">
+      <change afterPath="$PROJECT_DIR$/프로그래머스/경주로 건설.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/모두 0으로 만들기.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/합승 택시 요금.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/프로그래머스/불량 사용자.html" beforeDir="false" afterPath="$PROJECT_DIR$/프로그래머스/불량 사용자.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,14 +234,10 @@
       <workItem from="1620019244191" duration="15093000" />
       <workItem from="1620040408413" duration="497000" />
       <workItem from="1620040952814" duration="66000" />
-      <workItem from="1620050417572" duration="20931000" />
-    </task>
-    <task id="LOCAL-00002" summary="update 20210105">
-      <created>1609840992246</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1609840992246</updated>
+      <workItem from="1620050417572" duration="21860000" />
+      <workItem from="1620192964448" duration="6649000" />
+      <workItem from="1620203320515" duration="87000" />
+      <workItem from="1620279923600" duration="16450000" />
     </task>
     <task id="LOCAL-00003" summary="update 20210106">
       <created>1609933695564</created>
@@ -577,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620038204348</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="update 20210504">
+      <created>1620135365230</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1620135365230</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +601,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210213" />
     <MESSAGE value="update 20210214" />
     <MESSAGE value="update 20210301" />
     <MESSAGE value="update 20210302" />
@@ -621,7 +625,8 @@
     <MESSAGE value="update 20210428" />
     <MESSAGE value="update 20210502" />
     <MESSAGE value="update 20210503" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210503" />
+    <MESSAGE value="update 20210504" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210504" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1618464312626">
@@ -640,10 +645,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="533" y="182" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1613214516759" />
-    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog" timestamp="1619790294651">
+    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog" timestamp="1620279989472">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1619790294651" />
+    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1620279989472" />
     <state x="476" y="169" key="RollbackChangesDialog" timestamp="1620019845458">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -676,13 +681,13 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="504" y="241" key="refactoring.ChangeSignatureDialog/0.25.1440.875@0.25.1440.875" timestamp="1613216423860" />
-    <state x="745" y="213" key="run.anything.popup" timestamp="1618219150642">
+    <state x="745" y="213" key="run.anything.popup" timestamp="1620302008846">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1618219150642" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1620130774559">
+    <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1620302008846" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1620303248787">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1620130774559" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1620303248787" />
   </component>
 </project>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution([-5,0,2,1,2], [[0,1],[3,4],[2,3],[0,3]]);
+    function solution(a, edges) {
+        if(a.reduce((v,acc)=>v+acc,0)!==0) return -1;
+        let answer = 0n;
+        const adj = Array(a.length).fill().map(()=>[]);
+        edges.forEach(v=>{
+            adj[v[0]].push(v[1]);
+            adj[v[1]].push(v[0]);
+        });
+
+        const stack = [[0,null]];
+        const visited = Array(a.length).fill(false);
+
+        while (stack.length){
+            const [curr, parent] = stack.pop();
+
+            if(visited[curr]){
+                answer += BigInt(Math.abs(a[curr]));
+                a[parent] += a[curr];
+                continue;
+            }
+
+            visited[curr] = true;
+            stack.push([curr, parent]);
+            for(let i=0; i<adj[curr].length;i++){
+                if(!visited[adj[curr][i]]) stack.push([adj[curr][i], curr]);
+            }
+        }
+        return answer;
+    }
+</script>
+</body>
+</html>

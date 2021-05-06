@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(6, 4, 6, 2, [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], [2, 4, 66], [2, 3, 22], [1, 6, 25]]);
+
+    function solution(n, s, a, b, fares) {
+        let answer = Infinity;
+        const adj = Array(n).fill().map(() => Array(n).fill(Infinity));
+
+        fares.forEach(v => {
+            adj[v[0] - 1][v[1] - 1] = v[2];
+            adj[v[1] - 1][v[0] - 1] = v[2];
+            adj[v[1] - 1][v[0] - 1] = v[2];
+        });
+        console.log(JSON.parse(JSON.stringify(adj)))
+
+        for(let mid=0;mid<n;mid++){
+            for(let i=0;i<n;i++){
+                for(let j=0;j<n;j++){
+                    if(adj[i][j] > adj[i][mid]+ adj[j][mid]) {
+                        adj[i][j] = adj[i][mid]+ adj[j][mid];
+                    }
+                }
+            }
+        }
+
+        for(let i=0; i<n;i++){
+            adj[i][i] = 0;
+        }
+
+        for(let i=0;i<n;i++){
+            answer = Math.min(answer, adj[s-1][i] + adj[i][a-1] + adj[i][b-1]);
+
+        }
+        return answer
+    }
+</script>
+</body>
+</html>

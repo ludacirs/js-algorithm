@@ -7,6 +7,8 @@
 <body>
 <script>
     solution(["frodo", "fradi", "crodo", "abc123", "frodoc"],	["fr*d*", "*rodo", "******", "******"]);
+
+    // 폴리필
     String.prototype.replaceAll = function(from, to) {
         if(from instanceof RegExp)
             if(!from.flags.includes)

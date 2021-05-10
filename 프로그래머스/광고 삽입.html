@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("02:03:55", "00:14:15", ["01:20:15-01:45:14", "00:25:50-00:48:29", "00:40:31-01:00:00", "01:37:44-02:02:30", "01:30:59-01:53:29"]);
+
+
+    function solution(play_time, adv_time, logs) {
+        var answer = [];
+        const minLogs = logs.map(v=>v.split('-').map(v=>transTime(v)));
+        const minAdv = transTime(adv_time);
+        const minPlay = transTime(play_time);
+        let acc = {
+            time : 0,
+            start : 0,
+        };
+        if(minAdv===minPlay) return '00:00:00';
+        minLogs.sort((a, b) => a[0]-b[0]);
+        console.log(minLogs)
+        for(let i=0; i<minLogs.length;i++){
+            const [start, end] = minLogs[i];
+            let temp = 0;
+
+            temp = accTime(start, start+minAdv) // 재생 -> 광고 끝
+            if(acc.time<temp){
+                acc.time = temp;
+                acc.start = start
+            }
+
+            temp = accTime(end-minAdv, end)// 재생 끝 -> 광고 시작
+            if(acc.time<temp){
+                acc.time = temp;
+                acc.start = end-minAdv;
+            }
+        }
+        answer = (transTime(acc.start,false));
+
+        function transTime(time, option = true){
+            if(option){
+                const [h,m,s] =time.split(':');
+                return h*3600 + m*60 + s*1;
+            }
+            const h = Math.floor(time/3600).toString();
+            const m = Math.floor((time%3600)/60).toString();
+            const s = Math.floor(((time%3600)%60)%60).toString();
+            return `${h.length===1 ? '0'+h : h}:${m.length===1 ? '0'+m : m}:${s.length===1 ? '0'+s : s}`
+        }
+
+        function accTime(adStart, adEnd) {
+            if(adStart < 0 || adEnd > minPlay) return 0;
+            let acc = 0;
+
+            for(let i=0; i<minLogs.length;i++){
+                let [accStart, accEnd] = [adStart,adEnd];
+                const [start, end] = minLogs[i];
+                if(adStart<start) accStart = start;
+                if(adEnd>end) accEnd = end;
+                acc += (accStart<accEnd) ? accEnd-accStart : 0;
+            }
+            return acc;
+        }
+        return answer;
+    }
+
+</script>
+</body>
+</html>

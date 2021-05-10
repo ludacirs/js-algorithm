@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = `1
+10`.split('\n').map(v=>Number(v)).slice(1);
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>Number(v)).slice(1);
+    if(input.length===1) console.log(input[0]);
+    else {
+        const cache = Array(input.length).fill(-Infinity);
+        cache[0] = input[0];
+        cache[1] = input[0] + input[1];
+        for (let i = 1; i < input.length; i++) {
+            cache[i] = Math.max((cache[i - 3] || 0) + input[i - 1], (cache[i - 2] || 0)) + input[i];
+            cache[i] = Math.max(cache[i - 1], cache[i]);
+        }
+        console.log(Math.max(...cache));
+    }
+
+</script>
+</body>
+</html>

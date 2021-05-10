@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = `10
+102 100 2 3 4 3 5 6 7 8`.split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+    // const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').map(v=>v.split(' ').map(v=>Number(v)))[1];
+
+    const cache = Array(input.length).fill(0);
+    cache[0]=input[0];
+
+    for(let i=1; i<input.length;i++) {
+        const current = input[i];
+        let max = 0;
+        for (let j = i; j >= 0; j--) {
+            if(current>input[j]) max = Math.max(max, cache[j]);
+        }
+        cache[i] = max+input[i];
+    }
+    console.log(Math.max(...cache));
+
+</script>
+</body>
+</html>

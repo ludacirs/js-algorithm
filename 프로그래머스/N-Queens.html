@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution(4);
+
+    function solution(n) {
+        var answer = 0;
+        const arr = Array(n).fill(-1);
+
+        recursive(0);
+
+        function check(arr,i){
+            //ㅅ로
+            for(let col = 0; col<arr.length;col++){
+                if(arr[col]===i) return false;
+            }
+            //대각선
+            for(let height=0; height<arr.length;height++){
+                const width = arr[height];
+                const [y,x] = [arr.length, i];
+                if(Math.abs(y-height) === Math.abs(x-width)) return false;
+            }
+            return true;
+        }
+        function recursive(index) {
+            if(index===n) {
+                return ;
+            }
+
+
+            for(let i=0; i<n;i++){
+                if(check(arr,i)) arr[index] = i;
+                recursive(index+1);
+                arr[index] = -1;
+            }
+        }
+        return answer;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("02:03:55", "00:14:15", ["01:20:15-01:45:14", "00:25:50-00:48:29", "00:40:31-01:00:00", "01:37:44-02:02:30", "01:30:59-01:53:29"]);
+
+
+    function solution(play_time, adv_time, logs) {
+        if(play_time===adv_time) return '00:00:00';
+        const minAdv = transTime(adv_time);
+        const playTime = transTime(play_time);
+
+        const viewer = Array.from({ length: playTime+1 }, () => 0);
+
+        logs.forEach((log) => {
+            const [start, end] = log.split('-').map(v=>transTime(v));
+            viewer[start]++;
+            viewer[end]--;
+        });
+
+        for(let i=1;i<=playTime;i++) viewer[i] += viewer[i-1];
+
+        let time = 0;
+        for(let i=0; i<minAdv;i++) time += viewer[i];
+
+        let max = time;
+        let start= 0;
+        for (let i = minAdv; i < playTime; i++) {
+            time += viewer[i];
+            time -= viewer[i - minAdv];
+
+            if (time > max) {
+                max = time;
+                start = i - minAdv + 1;
+            }
+        }
+
+        return transTime(start,false);
+
+        function transTime(time, option = true){
+            if(option){
+                const [h,m,s] =time.split(':');
+                return h*3600 + m*60 + s*1;
+            }
+            const h = Math.floor(time/3600).toString();
+            const m = Math.floor((time%3600)/60).toString();
+            const s = Math.floor(((time%3600)%60)%60).toString();
+            return `${h.length===1 ? '0'+h : h}:${m.length===1 ? '0'+m : m}:${s.length===1 ? '0'+s : s}`
+        }
+    }
+
+</script>
+</body>
+</html>

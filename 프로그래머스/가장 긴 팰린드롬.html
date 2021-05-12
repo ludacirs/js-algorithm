@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution('abcdcba');
+
+    function solution(s) {
+        var answer = 0;
+
+        for(let i=0; i<s.length;i++){
+            checkPalindrome(s.slice(i));
+            checkPalindrome(s.slice(0,s.length-i));
+        }
+
+        return answer;
+    }
+    function checkPalindrome(s){
+        console.log(s)
+        // for(let start=0,end=s.length-1; start<end;start++,end--){
+        //     if(s[start]===s[end]) answer++;
+        // }
+    }
+</script>
+</body>
+</html>

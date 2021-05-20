@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = `7
+3
+7
+5
+2
+6
+1
+4`.split('\n').slice(1).map(v=>Number(v));
+
+    const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n').slice(1).map(v=>Number(v));
+
+
+    const arr = Array(input.length).fill(1);
+    let result = 0;
+
+    for(let i=1; i<input.length;i++){
+        let max = 0;
+        for(let j=0;j<i;j++){
+            if(input[i]>input[j]) {
+                max = Math.max(arr[j], max);
+            }
+        }
+        arr[i] += max;
+        result = Math.max(result, arr[i]);
+    }
+
+    console.log(arr.length-result);
+</script>
+</body>
+</html>

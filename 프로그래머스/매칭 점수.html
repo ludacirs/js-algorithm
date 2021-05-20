@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution("blind", ["<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://a.com\" test='aaa' />\n</head>  \n<body>\nBlind Lorem Blind ipsum dolor Blind test sit amet, consectetur adipiscing elit. \n<a href=\"https://b.com\"> Link to b </a>\n</body>\n</html>", "<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://b.com\"/>\n</head>  \n<body>\nSuspendisse potenti. Vivamus venenatis tellus non turpis bibendum, \n<a href=\"https://a.com\"> Link to a </a>\nblind sed congue urna varius. Suspendisse feugiat nisl ligula, quis malesuada felis hendrerit ut.\n<a href=\"https://c.com\"> Link to c </a>\n</body>\n</html>", "<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://c.com\"/>\n</head>  \n<body>\nUt condimentum urna at felis sodales rutrum. Sed dapibus cursus diam, non interdum nulla tempor nec. Phasellus rutrum enim at orci consectetu blind\n<a href=\"https://a.com\"> Link to a </a>\n</body>\n</html>"]);
+    solution("Muzi", ["<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://careers.kakao.com/interview/list\"/>\n</head>  \n<body>\n<a href=\"https://programmers.co.kr/learn/courses/4673\"></a>#!MuziMuzi!)jayg07con&&\n\n</body>\n</html>", "<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://www.kakaocorp.com\"/>\n</head>  \n<body>\ncon%\tmuzI92apeach&2<a href=\"https://hashcode.co.kr/tos\"></a>\n\n\t^\n</body>\n</html>"]);
+
+    function getMySite(html) {
+        const regExp = new RegExp('<meta property="og:url" content="([^"]+)"','i');
+        const temp = html.match(regExp)[0];
+
+        return temp.slice(33,temp.length-1);
+    }
+    function getSite(html) {
+        const regExp = new RegExp('<a href="([^"])+"','ig');
+        const temps = html.match(regExp);
+
+        return temps.map(temp=>temp.slice(9,temp.length-1));
+    }
+
+    function getDefaultPoint(html,word) {
+        return (html.split(/[^A-Za-z]/).filter(htmlWord=> htmlWord.toLowerCase()===word.toLowerCase()).length);
+    }
+
+    function solution(word, pages) {
+        const map = new Map();
+
+        const sites = pages.map((html,index)=>{
+            const name = getMySite(html);
+            const outSites = getSite(html);
+            const point = getDefaultPoint(html,word);
+
+            map.set(name, point);
+
+            return {index, name, outSites, point};
+        }).map(site=>{
+            //외부 점수 계산
+            let {outSites, point} = site;
+            outSites.forEach(outSite=>{
+                map.set(outSite,map.get(outSite)+ point/outSites.length);
+            });
+            return site;
+
+        }).map( site=> {
+            const {name, index} = site;
+            const point = map.get(name);
+            return {index, name, point};
+        })
+        sites.sort((a, b) => {
+            return (b.point!==a.point) ? b.point-a.point : a.index-b.index;
+        });
+
+        return sites[0].index;
+    }
+</script>
+</body>
+</html>

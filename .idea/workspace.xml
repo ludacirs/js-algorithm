@@ -22,12 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210510">
-      <change afterPath="$PROJECT_DIR$/프로그래머스/N-Queens.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/가장 긴 팰린드롬.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/프로그래머스/길 찾기 게임*.html" afterDir="false" />
+    <list default="true" id="bbfc52f9-78c4-4ab4-959b-b7a05ffced67" name="Default Changelist" comment="update 20210512">
+      <change afterPath="$PROJECT_DIR$/test.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/백준/2631.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/a.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/기둥과 보 설치.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/프로그래머스/매칭 점수.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/프로그래머스/광고 삽입.html" beforeDir="false" afterPath="$PROJECT_DIR$/프로그래머스/광고 삽입*.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/프로그래머스/광고 삽입*.html" beforeDir="false" afterPath="$PROJECT_DIR$/프로그래머스/광고 삽입*.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -61,6 +64,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.3" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.19.14" />
     <property name="last.edited.regexp" value="111ㅁ&#10;" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -244,14 +248,18 @@
       <workItem from="1620637701511" duration="6916000" />
       <workItem from="1620646859105" duration="3509000" />
       <workItem from="1620735327180" duration="5979000" />
-      <workItem from="1620745490968" duration="12476000" />
-    </task>
-    <task id="LOCAL-00005" summary="update 20210110">
-      <created>1610212662598</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1610212662598</updated>
+      <workItem from="1620745490968" duration="13679000" />
+      <workItem from="1620879017951" duration="10929000" />
+      <workItem from="1620900864059" duration="1508000" />
+      <workItem from="1620973906843" duration="5624000" />
+      <workItem from="1621013691512" duration="4665000" />
+      <workItem from="1621059007587" duration="4650000" />
+      <workItem from="1621079912925" duration="3382000" />
+      <workItem from="1621137866797" duration="493000" />
+      <workItem from="1621139422971" duration="24624000" />
+      <workItem from="1621433777896" duration="413000" />
+      <workItem from="1621488533434" duration="1245000" />
+      <workItem from="1621490099750" duration="620000" />
     </task>
     <task id="LOCAL-00006" summary="update 20210111">
       <created>1610348321879</created>
@@ -589,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620646421681</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="update 20210512">
+      <created>1620817114941</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1620817114941</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +623,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update 20210302" />
     <MESSAGE value="update 20210303" />
     <MESSAGE value="update 20210316" />
     <MESSAGE value="update 20210325" />
@@ -633,7 +647,8 @@
     <MESSAGE value="update 20210504" />
     <MESSAGE value="update 20210506" />
     <MESSAGE value="update 20210510" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20210510" />
+    <MESSAGE value="update 20210512" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20210512" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1618464312626">
@@ -652,10 +667,10 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="533" y="182" key="#com.intellij.ide.util.MemberChooser/0.25.1440.875@0.25.1440.875" timestamp="1613214516759" />
-    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog" timestamp="1620742050362">
+    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog" timestamp="1620818431677">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1620742050362" />
+    <state x="33" y="42" width="1374" height="835" maximized="true" key="DiffContextDialog/0.25.1440.875@0.25.1440.875" timestamp="1620818431677" />
     <state x="476" y="169" key="RollbackChangesDialog" timestamp="1620019845458">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -680,9 +695,9 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="745" y="213" key="run.anything.popup/0.25.1440.875@0.25.1440.875" timestamp="1620302008846" />
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1620797497816">
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup" timestamp="1621155749099">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1620797497816" />
+    <state x="745" y="215" width="670" height="675" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1621155749099" />
   </component>
 </project>

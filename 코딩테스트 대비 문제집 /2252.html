@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const input = `4 2
+4 2
+3 1`;
+
+  function init(compares, N) {
+    const edge = Array(N+1).fill().map(()=>0);
+    const adj = Array(N+1).fill().map(()=>[]);
+
+    compares.forEach(compare=>{
+      const [b, s] = compare.split(' ').map(v=>v*1);
+      edge[s]++;
+      adj[b].push(s);
+    });
+
+    return [edge, adj];
+  }
+  function check (edge, que, i){
+    if(!edge[i]){
+      que.push(i);
+      edge[i] = -1;
+    }
+  }
+
+  function solution(input){
+
+    const [N, _] = input.split('\n')[0].split(' ').map(v=>v*1);
+    const compares = input.split('\n').slice(1);
+
+    const [edge, adj] = init(compares, N);
+
+    const que = [];
+
+    for(let i=1; i<=N;i++){
+      check(edge, que, i);
+    }
+    const answer = [];
+    while (que.length){
+      const temp = que.shift();
+      answer.push(temp);
+
+      adj[temp].forEach(v=>{
+        edge[v]--;
+        check(edge,que,v);
+      });
+    }
+    console.log(answer.join(' '));
+  }
+
+
+  solution(input);
+</script>
+</body>
+</html>

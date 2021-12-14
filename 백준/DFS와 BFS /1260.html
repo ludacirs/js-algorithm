@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const input = `1000 1 1000
+999 1000`;
+    const readline = require('readline');
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    let input = ''
+    rl.on('line', function(line) {
+        input += line+'\n';
+    }).on('close',function (){
+        solution(input.slice(0,-1))
+        process.exit();
+    });
+
+    function solution(input){
+        const inputArr = input.split('\n').map(v=>v.split(' ').map(v=>v*1));
+        const [N, _, V] = inputArr[0];
+        const graph = makeGraph(inputArr.slice(1,inputArr.length), N);
+
+        dfs(graph,V, N);
+        bfs(graph,V, N);
+    }
+
+    function dfs(graph, V, N){
+        const visited = Array(N+1).fill(false);
+        const answer = [];
+
+        recursive(graph, V);
+        console.log(answer.join(' '));
+
+        function recursive(graph, V) {
+            if(visited[V]){
+                return;
+            }
+            visited[V] = true;
+            answer.push(V);
+            graph[V].forEach(v => {
+                recursive(graph, v);
+            });
+        }
+    }
+
+    function bfs(graph, V, N){
+        const visited = Array(N+1).fill(false);
+        const nextNodes = [V];
+        const answer = [];
+
+        while(nextNodes.length){
+            const currentNode = nextNodes.shift();
+            visited[currentNode] = true;
+            answer.push(currentNode);
+
+            graph[currentNode].forEach(node=>{
+                if(visited[node] || nextNodes.includes(node)){
+                    return;
+                }
+                nextNodes.push(node);
+            });
+        }
+        console.log(answer.join(' '));
+    }
+    function makeGraph(arr, N){
+        const graph = Array(N+1).fill(null).map(()=>[]);
+
+        arr.forEach(v=>{
+            graph[v[0]].push(v[1]);
+            graph[v[1]].push(v[0]);
+        });
+
+        return graph.map(v=>v.sort((a, b) => a-b));
+    }
+
+</script>
+</body>
+</html>

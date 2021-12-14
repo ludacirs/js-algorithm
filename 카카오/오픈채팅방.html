@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const record = ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"];
+
+  function solution(record) {
+      var answer = [];
+      const idMap = new Map();
+      record.forEach(str=>{
+          const [order, uid, username] = str.split(' ');
+          if(order !== 'Leave'){
+              idMap.set(uid, username);
+          }
+      });
+      record.forEach(str=>{
+          const [order, uid] = str.split(' ');
+          if(order !== 'Change'){
+              if(order === 'Enter'){
+                  answer.push(`${idMap.get(uid)}님이 들어왔습니다.`);
+              }
+              if(order === 'Leave'){
+                  answer.push(`${idMap.get(uid)}님이 나갔습니다.`);
+              }
+          }
+      });
+      return answer;
+  }
+
+  solution(record);
+
+</script>
+</body>
+</html>

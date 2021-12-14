@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  solution("a");
+  function solution(s) {
+      let answer = Infinity;
+      if(s.length===1){
+          return 1
+      }
+      for(let i = 1; i <= arr.length/2; i++){
+          let str = '';
+          let temp = 0;
+          let prev = ''
+          for(let j=0; j <= s.length; j+=i){
+              const char = s.slice(j,j+i);
+
+              if(prev === '' || prev === char){
+                  temp++;
+                  prev = char;
+              } else{
+                  str += `${temp===1 ? '': temp}${prev}`;
+                  temp = 1;
+                  prev = char;
+              }
+          }
+          console.log(str + `${temp===1 ? '': temp}${prev}`)
+          answer = Math.min((str + `${temp===1 ? '': temp}${prev}`).length, answer);
+      }
+      return answer;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    solution('one4seveneightseven');
+
+    function solution(s) {
+        const numberMap = {
+            0: 'zero',
+            1: 'one',
+            2: 'two',
+            3: 'three',
+            4: 'four',
+            5: 'five',
+            6: 'six',
+            7: 'seven',
+            8: 'eight',
+            9: 'nine',
+        };
+        Object.keys(numberMap).map(v=>{
+            const regExp = new RegExp(`${numberMap[v]}`, 'gi');
+            s = s.replace(regExp, v);
+        });
+        console.log(parseInt('1asd'));
+        return s.toString();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // console.log(solution(")("));
+    // console.log(solution("(()())()"));
+    console.log(solution("()))((()"));
+    // console.log(reverseBracket('))(('));
+
+    function solution(p) {
+        if(!p.length){
+            return '';
+        }
+        if(isRight(p)){
+            return p;
+        }
+        const index = splitUv(p);
+        const u = p.slice(0, index);
+        const v = u.length === p.length ? "" : p.slice(index);
+        if(isRight(u)){
+            return u+solution(v);
+        } else {
+            return `(${solution(v)})${reverseBracket(u)}`;
+        }
+    }
+
+    function reverseBracket(u){
+        const temp = u.slice(1,-1);
+        let str = '';
+        for(let i = 0; i < temp.length; i++){
+            str += temp[i] === '(' ? ')': '(';
+        }
+        return `${str}`;
+    }
+
+    function splitUv(p){
+        const stack = [p[0]];
+        for(let i = 1; i < p.length; i++){
+            if(!stack.length){
+                return i;
+            }
+            if(stack[stack.length-1] !== p[i]){
+                stack.pop();
+                continue;
+            }
+            stack.push(p[i]);
+        }
+
+    }
+
+    function isRight(p){
+        const stack = [];
+        for(let i = 0; i< p.length; i++){
+            if(!stack.length && p[i] === ')'){
+                return false;
+            }
+            if(!stack.length){
+                stack.push(p[i]);
+                continue;
+            }
+            if(stack[stack.length-1] !== p[i]){
+                stack.pop();
+                continue;
+            }
+            stack.push(p[i]);
+        }
+        return !stack.length;
+    }
+</script>
+</body>
+</html>

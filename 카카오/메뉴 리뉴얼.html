@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"]	, [2,3,4]);
+    solution(["XYZ", "XWY", "WXA"]	, [2,3,4]);
+    // solution(["XWY"]	, [2,3,4]);
+
+
+    function solution(orders, course) {
+        const pureDic = Object.create(null);
+        const countCheck = Object.create(null);
+
+        const checkSize = checkFn(course);
+        orders.forEach(order=>{
+            let menu = [];
+            splitMenu(order, 0);
+
+            function splitMenu(str, idx){
+                if(checkSize(menu.length)){
+                    const set = [...menu].sort().join('');
+                    pureDic[set] ? pureDic[set]++ : pureDic[set] = 1;
+                    countCheck[menu.length] = Math.max(pureDic[set], countCheck[menu.length] ? countCheck[menu.length]: 0);
+                }
+
+                for(let i = idx; i < str.length; i++){
+                    menu.push(str[i]);
+                    splitMenu(str, i + 1);
+                    menu.pop();
+                }
+            }
+        });
+
+        return Object.entries(pureDic).filter(([_,value])=> value > 1).reduce((arr,[key, value])=>{
+            if(countCheck[key.length] === value){
+                arr.push(key);
+            }
+            return arr;
+        },[]).sort((a, b) => a > b ? 1 : -1 );
+    }
+    function checkFn(course){
+        const conditions = course;
+        return (size) =>{
+            return conditions.some(condition => condition === size);
+        }
+    }
+</script>
+</body>
+</html>

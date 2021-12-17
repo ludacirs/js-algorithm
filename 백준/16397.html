@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    solution('0 99999 99999');
+
+    function solution(input) {
+        const LIMITED = 99999;
+
+        let [N, T, G] = input.split(' ').map(v=>+v);
+
+        const queue = [[{number:N, cnt:0}]];
+        const visited = [];
+        let flag = false;
+
+        while (queue.length){
+            if(flag){
+                console.log(flag);
+                return;
+            }
+            if(T < 0){
+                console.log('ANG');
+                return ;
+            }
+            const test = queue.shift();
+
+            const temp = [];
+            test.forEach(({number: v, cnt}) => {
+                if(visited[v] || flag){
+                    return;
+                }
+                visited[v] = true;
+                if(G === v){
+                    flag = cnt;
+                    return ;
+                }
+
+                if(!temp.includes(v+1) && !visited[v+1]){
+                    temp.push({number:v+1, cnt: cnt+1});
+                }
+                if( v * 2 < LIMITED){
+                    const b = B(v);
+                    if(!temp.includes(b) && !visited[b] && b !== 0){
+                        temp.push({number:b, cnt: cnt+1});
+                    }
+                }
+            });
+
+            queue.push(temp);
+            T--;
+        }
+    }
+    function B(number){
+        const t = (number * 2).toString().split('').map(v=>v*1);
+        t[0]--;
+        return +t.join('');
+    }
+</script>
+
+</body>
+</html>

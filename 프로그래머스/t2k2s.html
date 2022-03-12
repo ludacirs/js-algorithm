@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const VALUES = [1, 5, 10, 50, 100, 500];
+
+  function solution(money, costs) {
+    let answer = 0;
+    const values = VALUES
+        .map((value,i)=> ({value, unitValue: costs[i]/ value,cost: costs[i]}))
+        .sort((a, b) => a.unitValue  - b.unitValue)
+        .map(({value,cost})=>({value,cost}));
+
+    for (let i = 0; i < 6; i++){
+        const {cost, value} = values[i];
+        answer += Math.floor(money / value) * cost;
+        money = money % value;
+    }
+      return answer;
+  }
+
+  solution(4578, [1, 4, 99, 35, 50, 1000]);
+
+</script>
+</body>
+</html>

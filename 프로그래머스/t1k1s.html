@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body id="body">
+<button id="button">Go for 5 seconds!</button>
+<div id="app"></div>
+
+<label >
+    <input type="file" multiple>
+</label>
+<script>
+    function solution(n, clockwise) {
+        const answer = Array(n).fill(null).map(()=>Array(n).fill(0));
+        recursive(0, n - 1, 1);
+        if(n % 2){
+            const center = Math.floor(n/2);
+            answer[center][center] = answer[center - 1][center] + 1;
+        }
+
+        return clockwise ? answer : answer.map(arr=> arr.reverse());
+
+
+        function recursive(startPoint, count, value) {
+            if(count < 0){
+                return;
+            }
+            for(let i = count, next = 0; i > 0; i--,next++, value++){
+                answer[startPoint][startPoint+next] = value;
+                answer[startPoint+next][startPoint+count] = value;
+                answer[startPoint+count][startPoint+count-next] = value;
+                answer[startPoint+count-next][startPoint] = value;
+            }
+            recursive(startPoint + 1, count - 2, value);
+        }
+    }
+    solution(6, true)
+    solution(8, true)
+    console.log(solution(9, true))
+
+</script>
+</body>
+</html>

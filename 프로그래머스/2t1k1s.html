@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function solution(goods) {
+        const exclude = [];
+        const answer = Array(goods.length).fill('');
+
+        for(let i = 0; i < goods.length; i++){
+            const currentItem = goods[i];
+            const anotherItems = goods.filter(item => currentItem !== item);
+            const minKeywords = new Set();
+
+            for(let j = 1; j <= currentItem.length; j++){
+                for(let k = 0; k + j <= currentItem.length; k++){
+                    const keyword = currentItem.slice(k, k + j);
+                    if(exclude.includes(keyword)){
+                        continue;
+                    }
+                    if(anotherItems.some(item => item.includes(keyword))){
+                        exclude.push(keyword);
+                        continue;
+                    }
+
+                    minKeywords.add(keyword);
+                }
+                if(minKeywords.size){
+                    break;
+                }
+            }
+            const arrayKeywords = Array.from(minKeywords);
+            answer[i] = arrayKeywords.length ? arrayKeywords.sort((a, b) => a < b ? -1 : 1).join(' ') : "None";
+        }
+        return answer;
+    }
+    solution(
+        ["pencil", "cilicon", "contrabase", "picturelist"]);
+</script>
+</body>
+</html>
+
+<!--https://programmers.co.kr/app/tests/37386/challenges/algorithms/9243-->
